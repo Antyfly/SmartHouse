@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartHouse"
         mc:Ignorable="d"
-        Title="Add" Height="500" Width="902" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Background="#FFF5F0FF">
+        Title="Add" Height="500" Width="902" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Background="#FFF5F0FF" Topmost="True">
     <Grid>
         <Grid.Effect>
             <DropShadowEffect ShadowDepth="10" Direction="330" Color="Black" Opacity="0.9" BlurRadius="5" RenderingBias="Quality"/>

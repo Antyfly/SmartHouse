@@ -22,9 +22,8 @@ namespace SmartHouse
         public Profile()
         {
             InitializeComponent();
-            DarkWindow dark = new DarkWindow();
-            //dark.Owner = this;
-            dark.Show();
+            //this.Topmost = true;
+            //this.WindowState = WindowState.Normal;
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
