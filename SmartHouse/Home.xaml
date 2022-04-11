@@ -1,0 +1,48 @@
+﻿<Window x:Class="SmartHouse.Home"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmartHouse"
+        mc:Ignorable="d"
+        Title="Home" Height="930" Width="1512" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Background="#FFF5F0FF">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="179*"/>
+            <ColumnDefinition Width="21*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="UpBar" Orientation="Horizontal" Background="#FFCAB5FE" Height="40" VerticalAlignment="Top" Grid.ColumnSpan="2" x:FieldModifier="public">
+            <Button x:Name="ListUpDown"  Height="40" Margin="15,0,0,0" Panel.ZIndex="1"  Style="{StaticResource ButtonStateMenu}" Click="ListUpDown_Click">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="/Image/List.png" Grid.Column="1" Height="15" Margin="0,6,0,0" />
+                    <TextBlock Text="Мой дом" Grid.Column="0" FontSize="35"/>
+                </Grid>
+                <Button.ContextMenu>
+                    <ContextMenu Visibility="Visible" FontSize="35">
+                        <MenuItem Foreground="#FF2F2F2F" Header="Бизнес" x:Name="MenuItemForHourse"/>
+                        <MenuItem Foreground="#FF2F2F2F" Header="Дом" />
+                        <MenuItem Foreground="#FF2F2F2F" Header=""/>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+
+            <Button x:Name="Lk" Content="Личный кабинет" Height="40" Panel.ZIndex="1" FontSize="35" VerticalContentAlignment="Center" Margin="1000,0,0,0" Style="{StaticResource ButtonStateMenu}" Click="Lk_Click">
+                <Button.ContextMenu>
+                    <ContextMenu >
+                        <MenuItem Foreground="#FF2F2F2F" Header="Профиль" Click="profile_click"/>
+                        <MenuItem Foreground="#FF2F2F2F" Header="Добавить" Click="Add_Click"/>
+                        <MenuItem Foreground="#FF2F2F2F" Header="Выйти" Click="ExitProfile_Click"/>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+            <Button x:Name="Close" Width="40" Height="40" Margin="30,0,0,0" IsCancel="True" Panel.ZIndex="1"  Style="{StaticResource ButtonStateMenu}">
+                <Image Source="/Image/closes.png"/>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
