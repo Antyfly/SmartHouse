@@ -14,11 +14,6 @@
             <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="FontWeight" Value="Bold"/>
-            <!--<Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect ShadowDepth="4" Direction="330" Color="Black" Opacity="0.5" BlurRadius="4"/>
-                </Setter.Value>
-            </Setter>-->
         </Style>
 
         <Style TargetType="TextBox" x:Key="TextBoxMenu">
@@ -47,11 +42,6 @@
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="#FF2F2F2F"/>
             <Setter Property="FontWeight" Value="Bold"/>
-            <!--<Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect ShadowDepth="4" Direction="330" Color="Black" Opacity="0.5" BlurRadius="4"/>
-                </Setter.Value>
-            </Setter>-->
         </Style>
 
         <Style TargetType="Label" x:Key="LabelMini">
@@ -61,11 +51,6 @@
             <Setter Property="Foreground" Value="#FF2F2F2F"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="45"/>
-            <!--<Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect ShadowDepth="4" Direction="330" Color="Black" Opacity="0.5" BlurRadius="4"/>
-                </Setter.Value>
-            </Setter>-->
         </Style>
 
         <Style TargetType="Label" x:Key="LabelAcc">
@@ -87,11 +72,6 @@
             <Setter Property="Background" Value="#FFF5F0FF"/>
             <Setter Property="Width" Value="505"/>
             <Setter Property="Height" Value="81"/>
-            <!--<Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect ShadowDepth="4" Direction="330" Color="Black" Opacity="0.5" BlurRadius="4"/>
-                </Setter.Value>
-            </Setter>-->
             <Style.Resources >
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>

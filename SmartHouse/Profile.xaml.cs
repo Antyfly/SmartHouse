@@ -22,7 +22,7 @@ namespace SmartHouse
         public Profile()
         {
             InitializeComponent();
-            //this.Topmost = true;
+            this.Topmost = true;
             //this.WindowState = WindowState.Normal;
         }
 
@@ -36,6 +36,8 @@ namespace SmartHouse
                 }
             }
             this.Close();
+           
+            
         }
     }
 }

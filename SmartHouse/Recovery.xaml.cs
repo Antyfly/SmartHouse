@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static SmartHouse.Entity.AppData;
 
 namespace SmartHouse
 {
@@ -28,8 +29,26 @@ namespace SmartHouse
         {
             if (Email.Text != "" && CodeWord.Text != "")
             {
-                LoginCode.Visibility = Visibility.Hidden;
-                Password.Visibility = Visibility.Visible;
+                try
+                {
+                    var datasourse = context.UserLogins.ToList().Where(i => i.LoginProvider == Email.Text && i.KeyWord == CodeWord.Text)
+                    .FirstOrDefault();
+
+                    if (datasourse != null)
+                    {
+                        LoginCode.Visibility = Visibility.Hidden;
+                        Password.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Логин или кодовое слово введены неверно", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+               
             }
             else
             {

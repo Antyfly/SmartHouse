@@ -34,6 +34,7 @@ namespace SmartHouse
                 }
             }
             this.Close();
+           
         }
     }
 }

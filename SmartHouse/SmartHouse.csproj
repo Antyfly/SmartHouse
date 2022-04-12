@@ -101,6 +101,7 @@
     <Compile Include="DarkWindow.xaml.cs">
       <DependentUpon>DarkWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Entity\AppData.cs" />
     <Compile Include="Entity\Device.cs">
       <DependentUpon>SmartHouse.tt</DependentUpon>
     </Compile>

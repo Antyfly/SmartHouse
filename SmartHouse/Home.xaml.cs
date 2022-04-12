@@ -44,7 +44,6 @@ namespace SmartHouse
         {
 
             DarkWindow dark = new DarkWindow();
-            dark.Owner = this;
             dark.Show();
             Add add = new Add();
             add.ShowDialog();
@@ -64,13 +63,19 @@ namespace SmartHouse
         private void profile_click(object sender, RoutedEventArgs e)
         {
             DarkWindow dark = new DarkWindow();
-            dark.Owner = this;
             dark.Show();
             Profile prof = new Profile();
             prof.ShowDialog();
-            prof.Topmost = false;
             prof.WindowState = WindowState.Normal;
+            prof.Topmost = true;
             prof.Focus();
+         
+            
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

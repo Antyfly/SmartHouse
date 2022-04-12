@@ -30,9 +30,7 @@
         <StackPanel Orientation="Vertical" Grid.Column="5" >
             <Button x:Name="Close" Width="40" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right"  Panel.ZIndex="1"  Style="{StaticResource ButtonStateMenu}" Click="Close_Click" >
                 <Image Source="/Image/closes.png" >
-                    <!--<Image.Effect>
-                        <DropShadowEffect ShadowDepth="4" Direction="330" Color="Black" Opacity="0.5" BlurRadius="4"/>
-                    </Image.Effect>-->
+                    
                 </Image>
             </Button>
         </StackPanel>
@@ -48,7 +46,7 @@
             <Label Content="Пароль:"   Style="{StaticResource LabelMini}" Margin="55,10,0,0" Width="554"/>
 
             <Border BorderBrush="#FF2F2F2F" BorderThickness="6" CornerRadius="15" Height="81" Width="505" Margin="0,15,0,0">
-                <PasswordBox x:Name="Passworw"  Style="{StaticResource PassBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0" />
+                <PasswordBox x:Name="Password"  Style="{StaticResource PassBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0" />
             </Border>
             <Label  FontSize="30"  Style="{StaticResource Label}" Margin="0,15,0,0" MouseLeftButtonUp="Label_MouseLeftButtonUp">
                 <TextBlock TextDecorations="Underline"> Забыл пароль</TextBlock>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static SmartHouse.Entity.AppData;
 
 namespace SmartHouse
 {
@@ -36,11 +37,28 @@ namespace SmartHouse
 
         private void Entry_Click(object sender, RoutedEventArgs e)
         {
-           // string color = "#FFC8BAD3";
-            Home home = new Home();
-            this.Close();
-            home.ShowDialog();
-            
+            try
+            {
+                var datasourse = context.UserLogins.ToList().Where(i=> i.LoginProvider == Login.Text && i.ProviderKey == Password.Password)
+                    .FirstOrDefault();
+
+                if (datasourse != null)
+                {
+                    //Entity.AppData.context = datasourse;
+                    Home home = new Home();
+                    this.Close();
+                    home.ShowDialog();
+
+                }
+                else
+                {
+                    MessageBox.Show("Логин или пароль введены неверно", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Reg_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

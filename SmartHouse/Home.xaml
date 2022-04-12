@@ -39,7 +39,7 @@
                     </ContextMenu>
                 </Button.ContextMenu>
             </Button>
-            <Button x:Name="Close" Width="40" Height="40" Margin="30,0,0,0" IsCancel="True" Panel.ZIndex="1"  Style="{StaticResource ButtonStateMenu}">
+            <Button x:Name="Close" Width="40" Height="40" Margin="30,0,0,0" IsCancel="True" Panel.ZIndex="1"  Style="{StaticResource ButtonStateMenu}" Click="Close_Click">
                 <Image Source="/Image/closes.png"/>
             </Button>
         </StackPanel>
