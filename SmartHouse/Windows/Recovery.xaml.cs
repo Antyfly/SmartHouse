@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHouse.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static SmartHouse.Entity.AppData;
+
 
 namespace SmartHouse
 {
@@ -32,14 +34,13 @@ namespace SmartHouse
             {
                 try
                 {
-                    var datasourse = context.UserLogins.ToList();
-                    datasourse = datasourse.Where(i => i.LoginProvider == Email.Text && i.KeyWord == CodeWord.Text)
-                    .ToList();
+                   var datasourse = AppData.context.UserLogins.Where(i => i.LoginProvider == Email.Text && i.KeyWord == CodeWord.Text)
+                    .Count();
 
-                    if (datasourse != null)
+                    if (datasourse != 0)
                     {
                         LoginCode.Visibility = Visibility.Hidden;
-                        Password.Visibility = Visibility.Visible;
+                        Password.Visibility = Visibility.Visible; 
                     }
                     else
                     {
@@ -65,14 +66,42 @@ namespace SmartHouse
             { 
                 if (MessageBox.Show("Вы точно уверены?", "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
                 {
-                    var datasourse = context.UserLogins.ToList();
-                    datasourse = datasourse.Where(i => i.LoginProvider == Email.Text && i.KeyWord == CodeWord.Text)
-                    .ToList();
-                
+                   
+                        var datasourse = context.UserLogins.ToList();
+                        IEnumerable<int> IDUser =
+                       from UserLogins in context.UserLogins
+                       where UserLogins.LoginProvider == Email.Text
+                       select UserLogins.IDUserLogins;
+                        int ID = IDUser.First();
 
-                    Authorization auth = new Authorization();
-                    this.Close();
-                    auth.ShowDialog();
+
+                        IEnumerable<UserLogins> userLogins = context.UserLogins.Where(x => x.IDUserLogins == ID).AsEnumerable().
+                            Select(x =>
+                            {
+                                x.LoginProvider = Email.Text;
+                                x.ProviderKey = PassText.Password.ToString();
+                                x.KeyWord = CodeWord.Text;
+                                return x;
+                            });
+                    foreach (UserLogins userLogins1 in userLogins)
+                    {
+                        context.Entry(userLogins1).State = System.Data.Entity.EntityState.Modified;
+                    }
+                    try
+                    {
+                        context.SaveChanges();
+                        if (MessageBox.Show("Успешно", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
+                        {
+                            Authorization auth = new Authorization();
+                            this.Close();
+                            auth.ShowDialog();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
             else if (PassText.Password != RepeatText.Password)

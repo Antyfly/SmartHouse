@@ -98,75 +98,70 @@
     <Compile Include="Add.xaml.cs">
       <DependentUpon>Add.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DarkWindow.xaml.cs">
+    <Compile Include="Help\Validation.cs" />
+    <Compile Include="Windows\DarkWindow.xaml.cs">
       <DependentUpon>DarkWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Entity\AppData.cs" />
     <Compile Include="Entity\Device.cs">
-      <DependentUpon>SmartHouse.tt</DependentUpon>
+      <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Flat.cs">
-      <DependentUpon>SmartHouse.tt</DependentUpon>
+      <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\History.cs">
-      <DependentUpon>SmartHouse.tt</DependentUpon>
+      <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\OurControllers.cs">
-      <DependentUpon>SmartHouse.tt</DependentUpon>
+      <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Rooms.cs">
-      <DependentUpon>SmartHouse.tt</DependentUpon>
+      <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Scenarios.cs">
-      <DependentUpon>SmartHouse.tt</DependentUpon>
+      <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\SmartHouse.Context.cs">
+    <Compile Include="Entity\SmartHome.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SmartHouse.Context.tt</DependentUpon>
+      <DependentUpon>SmartHome.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\SmartHouse.cs">
+    <Compile Include="Entity\SmartHome.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SmartHouse.tt</DependentUpon>
+      <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\SmartHouse.Designer.cs">
+    <Compile Include="Entity\SmartHome.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SmartHouse.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>SmartHouse.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\sp_helpdiagrams_Result.cs">
-      <DependentUpon>SmartHouse.tt</DependentUpon>
+      <DependentUpon>SmartHome.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entity\sysdiagrams.cs">
-      <DependentUpon>SmartHouse.tt</DependentUpon>
+      <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\TypeConnection.cs">
-      <DependentUpon>SmartHouse.tt</DependentUpon>
+      <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\UserLogins.cs">
-      <DependentUpon>SmartHouse.tt</DependentUpon>
+      <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Users.cs">
-      <DependentUpon>SmartHouse.tt</DependentUpon>
+      <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
-    <Compile Include="Profile.xaml.cs">
+    <Compile Include="Windows\Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Recovery.xaml.cs">
+    <Compile Include="Windows\Recovery.xaml.cs">
       <DependentUpon>Recovery.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Registration.xaml.cs">
+    <Compile Include="Windows\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Page Include="Add.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Authorization.xaml">
+    <Page Include="Windows\Authorization.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -174,33 +169,33 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Authorization.xaml.cs">
+    <Compile Include="Windows\Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="DarkWindow.xaml">
+    <Page Include="Windows\DarkWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Home.xaml">
+    <Page Include="Windows\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Profile.xaml">
+    <Page Include="Windows\Profile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Recovery.xaml">
+    <Page Include="Windows\Recovery.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Registration.xaml">
+    <Page Include="Windows\Registration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Home.xaml.cs">
+    <Compile Include="Windows\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -220,12 +215,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Entity\SmartHouse.edmx">
+    <EntityDeploy Include="Entity\SmartHome.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SmartHouse.Designer.cs</LastGenOutput>
+      <LastGenOutput>SmartHome.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Entity\SmartHouse.edmx.diagram">
-      <DependentUpon>SmartHouse.edmx</DependentUpon>
+    <None Include="Entity\SmartHome.edmx.diagram">
+      <DependentUpon>SmartHome.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -253,19 +248,19 @@
     <Resource Include="Image\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Entity\SmartHouse.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SmartHouse.Context.cs</LastGenOutput>
-      <DependentUpon>SmartHouse.edmx</DependentUpon>
-    </Content>
-    <Content Include="Entity\SmartHouse.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SmartHouse.edmx</DependentUpon>
-      <LastGenOutput>SmartHouse.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Entity\SmartHome.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SmartHome.edmx</DependentUpon>
+      <LastGenOutput>SmartHome.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\SmartHome.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SmartHome.edmx</DependentUpon>
+      <LastGenOutput>SmartHome.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

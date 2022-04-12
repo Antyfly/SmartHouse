@@ -41,7 +41,7 @@
             <Label Content="Имя" Style="{StaticResource LabelMini}" HorizontalAlignment="Left" Margin="35,-10,0,0" FontSize="30"/>
             <Label Content="Отчество" Style="{StaticResource LabelMini}" Margin="300,-45,0,0" FontSize="30"/>
             <Border BorderBrush="#FF2F2F2F" BorderThickness="6" CornerRadius="15" Height="60" Width="250" Margin="40,5,0,0" HorizontalAlignment="Left">
-                <TextBox x:Name="Name"  Style="{StaticResource TextBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0" FontSize="40"/>
+                <TextBox x:Name="Name"  Style="{StaticResource TextBoxMenu}" Foreground="#FF2F2F2F" Margin="4,1,4,0" FontSize="40" VerticalAlignment="Top"/>
             </Border>
 
             <Border BorderBrush="#FF2F2F2F" BorderThickness="6" CornerRadius="15" Height="60" Width="250" Margin="240,-61,0,0" >
@@ -68,7 +68,7 @@
                 <PasswordBox x:Name="PassText"  Style="{StaticResource PassBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0" FontSize="40">
                     <PasswordBox.ToolTip>
                         <ToolTip Width="350" Height="50">
-                            <Label Content="от 8 символов, минимум одна: заглавная и строчная буква" />
+                            <Label Content="от 8 символов, минимум одна: заглавная, строчная буквы, спец.символ" />
                         </ToolTip>
                     </PasswordBox.ToolTip>
                 </PasswordBox>
@@ -79,7 +79,7 @@
                 <TextBox x:Name="Codeword"  Style="{StaticResource TextBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0" FontSize="40"/>
             </Border>
 
-            <Button x:Name="Auth" Margin="40,15,0,0" Content="Зарегистрироваться" Click="Auth_Click" Style="{StaticResource Button}" HorizontalAlignment="Left" Width="518" FontSize="45"/>
+            <Button x:Name="btnRegistr" Margin="40,15,0,0" Content="Зарегистрироваться" Click="btnRegistr_Click" Style="{StaticResource Button}" HorizontalAlignment="Left" Width="518" FontSize="45"/>
             <Label  FontSize="30"  Style="{StaticResource Label}" Width="504" Margin="50,5,0,0" HorizontalAlignment="Left" HorizontalContentAlignment="Center" MouseLeftButtonUp="Label_MouseLeftButtonUp">
                 <TextBlock TextDecorations="Underline"> Вернуться назад</TextBlock>
             </Label>

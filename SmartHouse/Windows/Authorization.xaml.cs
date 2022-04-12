@@ -37,27 +37,42 @@ namespace SmartHouse
 
         private void Entry_Click(object sender, RoutedEventArgs e)
         {
+            if (Login.Text != "" || Password.Password !="" )
+            {
             try
             {
                 var datasourse = context.UserLogins.ToList().Where(i=> i.LoginProvider == Login.Text && i.ProviderKey == Password.Password)
                     .FirstOrDefault();
+                
 
                 if (datasourse != null)
                 {
-                    //Entity.AppData.context = datasourse;
-                    Home home = new Home();
-                    this.Close();
-                    home.ShowDialog();
+                   var deleted = context.Users.ToList().Where(i => i.IsDelete == 0 && (i.IDUsers == datasourse.IDUsers)).Count();
+                    if (deleted != 0)
+                    {
+                        Home home = new Home();
+                        this.Close();
+                        home.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Пользователь удален! Обратитесь к компании.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
 
                 }
                 else
                 {
-                    MessageBox.Show("Логин или пароль введены неверно", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Логин или пароль введены неверно.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            }
+            else
+            {
+                MessageBox.Show("Пустые поля!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
