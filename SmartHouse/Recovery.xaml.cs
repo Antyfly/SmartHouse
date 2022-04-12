@@ -23,6 +23,7 @@ namespace SmartHouse
         public Recovery()
         {
             InitializeComponent();
+            
         }
 
         private void Entry_Click(object sender, RoutedEventArgs e)
@@ -31,8 +32,9 @@ namespace SmartHouse
             {
                 try
                 {
-                    var datasourse = context.UserLogins.ToList().Where(i => i.LoginProvider == Email.Text && i.KeyWord == CodeWord.Text)
-                    .FirstOrDefault();
+                    var datasourse = context.UserLogins.ToList();
+                    datasourse = datasourse.Where(i => i.LoginProvider == Email.Text && i.KeyWord == CodeWord.Text)
+                    .ToList();
 
                     if (datasourse != null)
                     {
@@ -60,9 +62,14 @@ namespace SmartHouse
         private void Recover_Click(object sender, RoutedEventArgs e)
         {
             if (PassText.Password != "" && RepeatText.Password != "" && PassText.Password == RepeatText.Password)
-            {
+            { 
                 if (MessageBox.Show("Вы точно уверены?", "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
                 {
+                    var datasourse = context.UserLogins.ToList();
+                    datasourse = datasourse.Where(i => i.LoginProvider == Email.Text && i.KeyWord == CodeWord.Text)
+                    .ToList();
+                
+
                     Authorization auth = new Authorization();
                     this.Close();
                     auth.ShowDialog();

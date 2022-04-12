@@ -21,9 +21,9 @@ namespace SmartHouse.Entity
         }
     
         public int IDFlat { get; set; }
-        public string Name { get; set; }
         public int IDUser { get; set; }
         public double Size { get; set; }
+        public string FlatName { get; set; }
     
         public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

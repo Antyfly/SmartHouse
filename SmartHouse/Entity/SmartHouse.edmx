@@ -18,7 +18,7 @@
             <PropertyRef Name="IDFlat" />
           </Key>
           <Property Name="IDFlat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FlatName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IDUser" Type="int" Nullable="false" />
           <Property Name="Size" Type="float" Nullable="false" />
         </EntityType>
@@ -293,11 +293,11 @@
             <PropertyRef Name="IDFlat" />
           </Key>
           <Property Name="IDFlat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IDUser" Type="Int32" Nullable="false" />
           <Property Name="Size" Type="Double" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Flat_Users" FromRole="Flat" ToRole="Users" />
           <NavigationProperty Name="Rooms" Relationship="Self.FK_Rooms_Flat" FromRole="Flat" ToRole="Rooms" />
+          <Property Name="FlatName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="History">
           <Key>
@@ -589,8 +589,8 @@
           <EntitySetMapping Name="Flat">
             <EntityTypeMapping TypeName="SmartHomeModel.Flat">
               <MappingFragment StoreEntitySet="Flat">
+                <ScalarProperty Name="FlatName" ColumnName="FlatName" />
                 <ScalarProperty Name="IDFlat" ColumnName="IDFlat" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
                 <ScalarProperty Name="Size" ColumnName="Size" />
               </MappingFragment>

@@ -23,7 +23,7 @@
                 </Grid>
                 <Button.ContextMenu>
                     <ContextMenu Visibility="Visible" FontSize="35">
-                        <MenuItem Foreground="#FF2F2F2F" Header="Бизнес" x:Name="MenuItemForHourse"/>
+                        <MenuItem Foreground="#FF2F2F2F" Header="{Binding Flat.FlatName}"  x:Name="MenuItemForHourse"/>
                         <MenuItem Foreground="#FF2F2F2F" Header="Дом" />
                         <MenuItem Foreground="#FF2F2F2F" Header=""/>
                     </ContextMenu>

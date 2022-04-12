@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static SmartHouse.Entity.AppData;
 
 namespace SmartHouse
 {
@@ -22,6 +23,7 @@ namespace SmartHouse
         public Home()
         {
             InitializeComponent();
+            DataContext = context;
         }
         private void Lk_Click(object sender, RoutedEventArgs e)
         {
