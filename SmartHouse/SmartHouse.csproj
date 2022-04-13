@@ -98,11 +98,6 @@
     <Compile Include="Add.xaml.cs">
       <DependentUpon>Add.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Help\Validation.cs" />
-    <Compile Include="Windows\DarkWindow.xaml.cs">
-      <DependentUpon>DarkWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\AppData.cs" />
     <Compile Include="Entity\Device.cs">
       <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
@@ -110,6 +105,9 @@
       <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\History.cs">
+      <DependentUpon>SmartHome.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Home.cs">
       <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\OurControllers.cs">
@@ -148,6 +146,11 @@
     <Compile Include="Entity\Users.cs">
       <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
+    <Compile Include="Help\Validation.cs" />
+    <Compile Include="Windows\DarkWindow.xaml.cs">
+      <DependentUpon>DarkWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AppData.cs" />
     <Compile Include="Windows\Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>

@@ -50,7 +50,8 @@ namespace SmartHouse
                    var deleted = context.Users.ToList().Where(i => i.IsDelete == 0 && (i.IDUsers == datasourse.IDUsers)).Count();
                     if (deleted != 0)
                     {
-                        Home home = new Home();
+                        int ID = datasourse.IDUsers;
+                        Home home = new Home(ID);
                         this.Close();
                         home.ShowDialog();
                     }

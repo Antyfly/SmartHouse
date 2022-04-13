@@ -20,10 +20,13 @@ namespace SmartHouse
     /// </summary>
     public partial class Home : Window
     {
-        public Home()
+        public Home(int ID)
         {
             InitializeComponent();
-            DataContext = context;
+            int _userDefinition = ID;
+            var datasourse = context.Home.ToList().Where(i => i.IDUser == _userDefinition).ToList();
+
+
         }
         private void Lk_Click(object sender, RoutedEventArgs e)
         {
@@ -79,5 +82,6 @@ namespace SmartHouse
         {
             this.Close();
         }
+        
     }
 }

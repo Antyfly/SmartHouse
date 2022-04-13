@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="89fc2683128a4a4db3ff4208f694eeb9" Name="Diagram1">
+      <Diagram DiagramId="20e77cae5bab4d30bce57607324ea2f2" Name="Diagram1">
         <EntityTypeShape EntityType="SmartHomeModel.Device" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SmartHomeModel.Flat" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SmartHomeModel.History" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
@@ -15,6 +15,7 @@
         <EntityTypeShape EntityType="SmartHomeModel.TypeConnection" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SmartHomeModel.UserLogins" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SmartHomeModel.Users" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartHomeModel.Home" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
         <AssociationConnector Association="SmartHomeModel.FK_Device_TypeConnection" ManuallyRouted="false" />
         <AssociationConnector Association="SmartHomeModel.FK_History_Device" ManuallyRouted="false" />
         <AssociationConnector Association="SmartHomeModel.FK_Scenarios_Device" ManuallyRouted="false" />

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище SmartHomeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище SmartHomeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Device">
           <Key>
             <PropertyRef Name="IDDevice" />
@@ -101,6 +101,42 @@
           <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="phone" Type="nvarchar" MaxLength="16" Nullable="false" />
           <Property Name="IsDelete" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "SmartHome.dbo.Home" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Home">
+          <Key>
+            <PropertyRef Name="IDRooms" />
+            <PropertyRef Name="IDFlat" />
+            <PropertyRef Name="NameRoom" />
+            <PropertyRef Name="IDOurControllers" />
+            <PropertyRef Name="IDScenarios" />
+            <PropertyRef Name="IDDevice" />
+            <PropertyRef Name="Time" />
+            <PropertyRef Name="Action" />
+            <PropertyRef Name="DayWeek" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="IDTypeConnection" />
+            <PropertyRef Name="FlatName" />
+            <PropertyRef Name="IDUser" />
+            <PropertyRef Name="Size" />
+          </Key>
+          <Property Name="IDRooms" Type="int" Nullable="false" />
+          <Property Name="IDFlat" Type="int" Nullable="false" />
+          <Property Name="NameRoom" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="WidthRoom" Type="float" />
+          <Property Name="HeightRoom" Type="float" />
+          <Property Name="IDOurControllers" Type="int" Nullable="false" />
+          <Property Name="IDScenarios" Type="int" Nullable="false" />
+          <Property Name="IDDevice" Type="int" Nullable="false" />
+          <Property Name="Time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Action" Type="bit" Nullable="false" />
+          <Property Name="DayWeek" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDTypeConnection" Type="int" Nullable="false" />
+          <Property Name="FlatName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDUser" Type="int" Nullable="false" />
+          <Property Name="Size" Type="float" Nullable="false" />
         </EntityType>
         <Association Name="FK_Device_TypeConnection">
           <End Role="TypeConnection" Type="Self.TypeConnection" Multiplicity="1" />
@@ -209,6 +245,26 @@
           <EntitySet Name="TypeConnection" EntityType="Self.TypeConnection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserLogins" EntityType="Self.UserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Home" EntityType="Self.Home" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Home].[IDRooms] AS [IDRooms], 
+    [Home].[IDFlat] AS [IDFlat], 
+    [Home].[NameRoom] AS [NameRoom], 
+    [Home].[WidthRoom] AS [WidthRoom], 
+    [Home].[HeightRoom] AS [HeightRoom], 
+    [Home].[IDOurControllers] AS [IDOurControllers], 
+    [Home].[IDScenarios] AS [IDScenarios], 
+    [Home].[IDDevice] AS [IDDevice], 
+    [Home].[Time] AS [Time], 
+    [Home].[Action] AS [Action], 
+    [Home].[DayWeek] AS [DayWeek], 
+    [Home].[Title] AS [Title], 
+    [Home].[IDTypeConnection] AS [IDTypeConnection], 
+    [Home].[FlatName] AS [FlatName], 
+    [Home].[IDUser] AS [IDUser], 
+    [Home].[Size] AS [Size]
+    FROM [dbo].[Home] AS [Home]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Device_TypeConnection" Association="Self.FK_Device_TypeConnection">
             <End Role="TypeConnection" EntitySet="TypeConnection" />
             <End Role="Device" EntitySet="Device" />
@@ -242,7 +298,8 @@
             <End Role="UserLogins" EntitySet="UserLogins" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SmartHomeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -359,6 +416,40 @@
           <NavigationProperty Name="Flat" Relationship="Self.FK_Flat_Users" FromRole="Users" ToRole="Flat" />
           <NavigationProperty Name="UserLogins" Relationship="Self.FK_UserLogins_Users" FromRole="Users" ToRole="UserLogins" />
         </EntityType>
+        <EntityType Name="Home">
+          <Key>
+            <PropertyRef Name="IDRooms" />
+            <PropertyRef Name="IDFlat" />
+            <PropertyRef Name="NameRoom" />
+            <PropertyRef Name="IDOurControllers" />
+            <PropertyRef Name="IDScenarios" />
+            <PropertyRef Name="IDDevice" />
+            <PropertyRef Name="Time" />
+            <PropertyRef Name="Action" />
+            <PropertyRef Name="DayWeek" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="IDTypeConnection" />
+            <PropertyRef Name="FlatName" />
+            <PropertyRef Name="IDUser" />
+            <PropertyRef Name="Size" />
+          </Key>
+          <Property Name="IDRooms" Type="Int32" Nullable="false" />
+          <Property Name="IDFlat" Type="Int32" Nullable="false" />
+          <Property Name="NameRoom" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WidthRoom" Type="Double" />
+          <Property Name="HeightRoom" Type="Double" />
+          <Property Name="IDOurControllers" Type="Int32" Nullable="false" />
+          <Property Name="IDScenarios" Type="Int32" Nullable="false" />
+          <Property Name="IDDevice" Type="Int32" Nullable="false" />
+          <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Action" Type="Boolean" Nullable="false" />
+          <Property Name="DayWeek" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDTypeConnection" Type="Int32" Nullable="false" />
+          <Property Name="FlatName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDUser" Type="Int32" Nullable="false" />
+          <Property Name="Size" Type="Double" Nullable="false" />
+        </EntityType>
         <Association Name="FK_Device_TypeConnection">
           <End Role="TypeConnection" Type="Self.TypeConnection" Multiplicity="1" />
           <End Role="Device" Type="Self.Device" Multiplicity="*" />
@@ -466,6 +557,7 @@
           <EntitySet Name="TypeConnection" EntityType="Self.TypeConnection" />
           <EntitySet Name="UserLogins" EntityType="Self.UserLogins" />
           <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Home" EntityType="Self.Home" />
           <AssociationSet Name="FK_Device_TypeConnection" Association="Self.FK_Device_TypeConnection">
             <End Role="TypeConnection" EntitySet="TypeConnection" />
             <End Role="Device" EntitySet="Device" />
@@ -609,6 +701,28 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="phone" ColumnName="phone" />
                 <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Home">
+            <EntityTypeMapping TypeName="SmartHomeModel.Home">
+              <MappingFragment StoreEntitySet="Home">
+                <ScalarProperty Name="IDRooms" ColumnName="IDRooms" />
+                <ScalarProperty Name="IDFlat" ColumnName="IDFlat" />
+                <ScalarProperty Name="NameRoom" ColumnName="NameRoom" />
+                <ScalarProperty Name="WidthRoom" ColumnName="WidthRoom" />
+                <ScalarProperty Name="HeightRoom" ColumnName="HeightRoom" />
+                <ScalarProperty Name="IDOurControllers" ColumnName="IDOurControllers" />
+                <ScalarProperty Name="IDScenarios" ColumnName="IDScenarios" />
+                <ScalarProperty Name="IDDevice" ColumnName="IDDevice" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="DayWeek" ColumnName="DayWeek" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="IDTypeConnection" ColumnName="IDTypeConnection" />
+                <ScalarProperty Name="FlatName" ColumnName="FlatName" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

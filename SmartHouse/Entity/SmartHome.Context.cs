@@ -35,5 +35,6 @@ namespace SmartHouse.Entity
         public virtual DbSet<TypeConnection> TypeConnection { get; set; }
         public virtual DbSet<UserLogins> UserLogins { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Home> Home { get; set; }
     }
 }
