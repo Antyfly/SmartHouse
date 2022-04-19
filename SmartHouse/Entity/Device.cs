@@ -25,6 +25,7 @@ namespace SmartHouse.Entity
         public int IDDevice { get; set; }
         public string Title { get; set; }
         public int IDTypeConnection { get; set; }
+        public string ImagePath { get; set; }
     
         public virtual TypeConnection TypeConnection { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

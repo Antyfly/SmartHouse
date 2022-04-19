@@ -12,6 +12,7 @@
           <Property Name="IDDevice" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IDTypeConnection" Type="int" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="Flat">
           <Key>
@@ -138,6 +139,7 @@
           <Property Name="IDDevice" Type="int" Nullable="false" />
           <Property Name="IDRoom" Type="int" Nullable="false" />
           <Property Name="Condition" Type="bit" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <Association Name="FK_Device_TypeConnection">
           <End Role="TypeConnection" Type="Self.TypeConnection" Multiplicity="1" />
@@ -264,7 +266,8 @@
     [Home].[IDTypeConnection] AS [IDTypeConnection], 
     [Home].[IDDevice] AS [IDDevice], 
     [Home].[IDRoom] AS [IDRoom], 
-    [Home].[Condition] AS [Condition]
+    [Home].[Condition] AS [Condition], 
+    [Home].[ImagePath] AS [ImagePath]
     FROM [dbo].[Home] AS [Home]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_Device_TypeConnection" Association="Self.FK_Device_TypeConnection">
@@ -315,6 +318,7 @@
           <NavigationProperty Name="History" Relationship="Self.FK_History_Device" FromRole="Device" ToRole="History" />
           <NavigationProperty Name="OurControllers" Relationship="Self.FK_OurControllers_Device" FromRole="Device" ToRole="OurControllers" />
           <NavigationProperty Name="Scenarios" Relationship="Self.FK_Scenarios_Device" FromRole="Device" ToRole="Scenarios" />
+          <Property Name="ImagePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Flat">
           <Key>
@@ -451,6 +455,7 @@
           <Property Name="IDDevice" Type="Int32" Nullable="false" />
           <Property Name="IDRoom" Type="Int32" Nullable="false" />
           <Property Name="Condition" Type="Boolean" Nullable="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Device_TypeConnection">
           <End Role="TypeConnection" Type="Self.TypeConnection" Multiplicity="1" />
@@ -602,6 +607,7 @@
           <EntitySetMapping Name="Device">
             <EntityTypeMapping TypeName="SmartHomeModel.Device">
               <MappingFragment StoreEntitySet="Device">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
                 <ScalarProperty Name="IDDevice" ColumnName="IDDevice" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="IDTypeConnection" ColumnName="IDTypeConnection" />
@@ -709,6 +715,7 @@
           <EntitySetMapping Name="Home">
             <EntityTypeMapping TypeName="SmartHomeModel.Home">
               <MappingFragment StoreEntitySet="Home">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
                 <ScalarProperty Name="Condition" ColumnName="Condition" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

@@ -95,7 +95,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Add.xaml.cs">
+    <Compile Include="Windows\Add.xaml.cs">
       <DependentUpon>Add.xaml</DependentUpon>
     </Compile>
     <Compile Include="Entity\Device.cs">
@@ -160,7 +160,7 @@
     <Compile Include="Windows\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
-    <Page Include="Add.xaml">
+    <Page Include="Windows\Add.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -238,6 +238,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Image\Kettle.png" />
     <Resource Include="Image\Lk.png" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +265,9 @@
       <DependentUpon>SmartHome.edmx</DependentUpon>
       <LastGenOutput>SmartHome.cs</LastGenOutput>
     </Content>
+    <Resource Include="Image\lamp.png" />
+    <Resource Include="Image\Socket.png" />
+    <Resource Include="Image\usSpeaker.png" />
     <Resource Include="Image\LogoReg.png" />
     <Resource Include="Image\LogoWord.png" />
   </ItemGroup>
