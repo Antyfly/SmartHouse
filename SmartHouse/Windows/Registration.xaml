@@ -9,12 +9,10 @@
         Title="Registration" Height="930" Width="1512" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" >
 
     <Window.Background>
-        <LinearGradientBrush SpreadMethod="Repeat">
+        <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,0" EndPoint="0,1">
             <LinearGradientBrush.RelativeTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="0.1" ScaleY="1"/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="10"/>
+                    <RotateTransform Angle="-69"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </LinearGradientBrush.RelativeTransform>
@@ -33,17 +31,21 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Margin="0,30,0,0" Grid.ColumnSpan="2" >
-            <Image x:Name="logo" Source="/Image/LogoReg.png" Width="264" Height="170" RenderTransformOrigin="0.349,0.776"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Margin="15,30,0,0" Grid.ColumnSpan="2" >
+            <Image x:Name="logo" Source="/Image/LogoReg.png" Width="333" Height="194" RenderTransformOrigin="0.349,0.776"/>
         </StackPanel>
 
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="4" Margin="15,30,15,15" Grid.ColumnSpan="2" >
+            <Image x:Name="logoWord" Source="/Image/LogoWord.png" Width="333" Height="194" RenderTransformOrigin="0.349,0.776"/>
+        </StackPanel>
+        
         <StackPanel Orientation="Vertical" Grid.Column="5">
             <Button x:Name="Close" Width="40" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" IsCancel="True" Panel.ZIndex="1"  Style="{StaticResource ButtonStateMenu}">
                 <Image Source="/Image/closes.png"/>
             </Button>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Column="3" Margin="130,20,0,0" Grid.ColumnSpan="3">
+        <StackPanel Orientation="Vertical" Grid.Column="0"  Grid.ColumnSpan="6" Height="930" Width="600" HorizontalAlignment="Center">
             <Label Content="Регистрация" FontSize="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Style="{StaticResource Label}" Width="550" Height="103">
             </Label>
             <Label Content="Имя" Style="{StaticResource LabelMini}" HorizontalAlignment="Left" Margin="35,-10,0,0" FontSize="30"/>
@@ -52,7 +54,7 @@
                 <TextBox x:Name="Name"  Style="{StaticResource TextBoxMenu}" Foreground="#FF2F2F2F" Margin="4,1,4,0" FontSize="40" VerticalAlignment="Top"/>
             </Border>
 
-            <Border BorderBrush="#FF2F2F2F" BorderThickness="6" CornerRadius="15" Height="60" Width="250" Margin="240,-61,0,0" >
+            <Border BorderBrush="#FF2F2F2F" BorderThickness="6" CornerRadius="15" Height="60" Width="260" Margin="253,-61,0,0" >
                 <TextBox x:Name="Patronymic"  Style="{StaticResource TextBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0" FontSize="40"/>
             </Border>
 
@@ -68,7 +70,7 @@
 
             <Label Content="Телефон" Style="{StaticResource LabelMini}" Margin="35,0,0,0" FontSize="30"/>
             <Border BorderBrush="#FF2F2F2F" BorderThickness="6" CornerRadius="15" Height="60" Width="518" Margin="40,5,0,0" HorizontalAlignment="Left" >
-                <xctk:MaskedTextBox  x:Name="phone" FontSize="35" Grid.Column="1" Grid.Row="1" Mask="+7(000)000-00-00" Background="{x:Null}"  BorderBrush="{x:Null}"  Foreground="#FF2F2F2F" Margin="4,0,4,0" BorderThickness ="0"/>
+                <xctk:MaskedTextBox  x:Name="phone" FontSize="35" Grid.Column="1" Grid.Row="1" Mask="+7(000)000-00-00" Background="{x:Null}"  BorderBrush="{x:Null}"  Foreground="#FF2F2F2F" Margin="4,0,4,0" BorderThickness ="0" />
             </Border>
 
             <Label Content="Пароль" Style="{StaticResource LabelMini}" Margin="35,0,0,0" FontSize="30"/>

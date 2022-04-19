@@ -30,5 +30,6 @@ namespace SmartHouse.Entity
         public int IDTypeConnection { get; set; }
         public int IDDevice { get; set; }
         public int IDRoom { get; set; }
+        public bool Condition { get; set; }
     }
 }

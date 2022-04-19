@@ -41,38 +41,28 @@
             </Button>
         </StackPanel>
         <Grid Grid.Row="1" >
-            <ListView Grid.Row="1" Background="Transparent" x:Name="ListViewer">
-                <ListView.ItemTemplate>
+           <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True">
+              <ListView Grid.Row="1" Background="Transparent" x:Name="ListViewer">
+                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border Margin="10" Width="110" Height="160" >
                             <StackPanel>
                                 <Border Width="100" Height="100" CornerRadius="5" Margin="5">
-                                   <Border.Effect>
-                                      <DropShadowEffect ShadowDepth="1"/>
-                                   </Border.Effect>
-                                   <Border.Background>
-                                      <ImageBrush ImageSource="{Binding Image}"/>
-                                   </Border.Background>
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="1"/>
+                                    </Border.Effect>
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="{Binding Image}"/>
+                                    </Border.Background>
                                 </Border>
-                              <TextBlock Margin="5" Text="{Binding Title}"/>
+                                <TextBlock Margin="5" Text="{Binding Title}"/>
+                                <TextBlock Margin="0" Text="{Binding Condition}"/>
                             </StackPanel>
                         </Border>
                     </DataTemplate>
-                        <!--<ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>-->
-                </ListView.ItemTemplate>
-                <!--<ListView.View>
-            <GridView>
-                <GridView.Columns>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding IDFlat}" Width="37"/>
-                        <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding NameRoom}" Width="auto"/>
-                    </GridView.Columns>
-            </GridView>
-        </ListView.View>-->
-        </ListView>
+                 </ListView.ItemTemplate>
+              </ListView>
+           </ScrollViewer>
         </Grid>
     </Grid>
 </Window>
