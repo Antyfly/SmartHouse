@@ -52,28 +52,26 @@
 
             <ComboBox Grid.Row="1" Width="350" Background="Black" BorderBrush="Black"/>
             <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True"/>
-            <ListView Grid.Row="2" Background="Transparent" x:Name="ListViewer" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView Grid.Row="2" Background="Transparent" x:Name="ListViewer" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10" BorderBrush="{x:Null}" Foreground="Black">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel/>
+                        <WrapPanel Margin="10"/>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Border Margin="10" Width="200" Height="200" BorderBrush="#FF2F2F2F" BorderThickness="1" CornerRadius="10" Padding="5">
+                        <Border Margin="10" Width="200" Height="220" BorderBrush="#FF2F2F2F" BorderThickness="1" CornerRadius="10" Padding="5">
                             <StackPanel>
-                                <Border Width="100" Height="100" CornerRadius="5" Margin="5">
+                                <Border Width="120" Height="130" CornerRadius="5" Margin="5">
                                     <Border.Effect>
                                         <DropShadowEffect ShadowDepth="1"/>
                                     </Border.Effect>
+                                    <Image Source="{Binding ImagePath}"/>
                                 </Border>
-                                <Image Source="{Binding Text, ElementName=ImagePath}"/>
                                 <TextBlock Margin="5" Text="{Binding Title}"/>
                                 <TextBlock Margin="0" Text="{Binding Condition}"/>
                             </StackPanel>
-                            
                         </Border>
-                        
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
