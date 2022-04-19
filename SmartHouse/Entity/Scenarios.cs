@@ -14,12 +14,6 @@ namespace SmartHouse.Entity
     
     public partial class Scenarios
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Scenarios()
-        {
-            this.OurControllers = new HashSet<OurControllers>();
-        }
-    
         public int IDScenarios { get; set; }
         public int IDDevice { get; set; }
         public System.TimeSpan Time { get; set; }
@@ -27,7 +21,5 @@ namespace SmartHouse.Entity
         public int DayWeek { get; set; }
     
         public virtual Device Device { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OurControllers> OurControllers { get; set; }
     }
 }

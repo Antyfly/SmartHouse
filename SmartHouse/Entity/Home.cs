@@ -14,21 +14,21 @@ namespace SmartHouse.Entity
     
     public partial class Home
     {
-        public int IDRooms { get; set; }
+        public string Surname { get; set; }
+        public string Name { get; set; }
+        public string Patronymic { get; set; }
+        public string Email { get; set; }
+        public string phone { get; set; }
+        public string FlatName { get; set; }
+        public int IDUser { get; set; }
+        public double Size { get; set; }
         public int IDFlat { get; set; }
         public string NameRoom { get; set; }
         public Nullable<double> WidthRoom { get; set; }
         public Nullable<double> HeightRoom { get; set; }
-        public int IDOurControllers { get; set; }
-        public int IDScenarios { get; set; }
-        public int IDDevice { get; set; }
-        public System.TimeSpan Time { get; set; }
-        public bool Action { get; set; }
-        public int DayWeek { get; set; }
         public string Title { get; set; }
         public int IDTypeConnection { get; set; }
-        public string FlatName { get; set; }
-        public int IDUser { get; set; }
-        public double Size { get; set; }
+        public int IDDevice { get; set; }
+        public int IDRoom { get; set; }
     }
 }

@@ -9,9 +9,17 @@
         Title="Registration" Height="930" Width="1512" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" >
 
     <Window.Background>
-        <LinearGradientBrush>
-            <GradientStop Color="#FFCAB5FE" Offset="0.5"/>
-            <GradientStop Color="#FFF5F0FF" Offset="0.5"/>
+        <LinearGradientBrush SpreadMethod="Repeat">
+            <LinearGradientBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.1" ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="10"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </LinearGradientBrush.RelativeTransform>
+            <GradientStop Color="#FFCAB5FE" Offset="0.30"/>
+            <GradientStop Color="#FFF5F0FF" Offset="0.30"/>
         </LinearGradientBrush>
     </Window.Background>
 
@@ -25,8 +33,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Margin="50,-150,0,0" Grid.ColumnSpan="3" >
-            <Image x:Name="logo" Source="/Image/logo.png" Width="591"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Margin="0,30,0,0" Grid.ColumnSpan="2" >
+            <Image x:Name="logo" Source="/Image/LogoReg.png" Width="264" Height="170" RenderTransformOrigin="0.349,0.776"/>
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Column="5">

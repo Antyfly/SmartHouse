@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace SmartHouse.Entity
 {
-    class AppData
+   public class AppData
     {
-        public static Entities context = new Entities();
+        public static SmartHome context = new SmartHome();
 
-        //public static UserLogins LoginsUs { get; set; }
-
-        //public static Users user { get; set; }
+        
 
     }
 }

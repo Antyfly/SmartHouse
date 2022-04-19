@@ -16,11 +16,11 @@ namespace SmartHouse.Entity
     {
         public int IDOurControllers { get; set; }
         public int IDRoom { get; set; }
-        public int IDScenarios { get; set; }
+        public int IDDevice { get; set; }
         public bool Condition { get; set; }
         public int PowerConsumption { get; set; }
     
+        public virtual Device Device { get; set; }
         public virtual Rooms Rooms { get; set; }
-        public virtual Scenarios Scenarios { get; set; }
     }
 }

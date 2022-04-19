@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHouse.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,12 +23,18 @@ namespace SmartHouse
     {
         public Home(int ID)
         {
+            
             InitializeComponent();
+            DataContext = this;
             int _userDefinition = ID;
-            var datasourse = context.Home.ToList().Where(i => i.IDUser == _userDefinition).ToList();
-
-
+            var datasourse = context.Home.Where(i => i.IDUser == _userDefinition).ToList();
+            var device = datasourse;
+            if (device.Count > 0)
+            {
+                ListViewer.ItemsSource = device;
+            }
         }
+
         private void Lk_Click(object sender, RoutedEventArgs e)
         {
             (sender as Button).ContextMenu.IsEnabled = true;
@@ -47,7 +54,6 @@ namespace SmartHouse
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-
             DarkWindow dark = new DarkWindow();
             dark.Show();
             Add add = new Add();
@@ -55,7 +61,6 @@ namespace SmartHouse
             add.Topmost = false;
             add.WindowState = WindowState.Normal;
             add.Focus();
-
         }
 
         private void ExitProfile_Click(object sender, RoutedEventArgs e)
@@ -65,7 +70,7 @@ namespace SmartHouse
             auth.ShowDialog();
         }
 
-        private void profile_click(object sender, RoutedEventArgs e)
+        private void Profile_click(object sender, RoutedEventArgs e)
         {
             DarkWindow dark = new DarkWindow();
             dark.Show();
@@ -74,14 +79,13 @@ namespace SmartHouse
             prof.WindowState = WindowState.Normal;
             prof.Topmost = true;
             prof.Focus();
-         
-            
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
         
     }
 }

@@ -264,6 +264,8 @@
       <DependentUpon>SmartHome.edmx</DependentUpon>
       <LastGenOutput>SmartHome.cs</LastGenOutput>
     </Content>
+    <Resource Include="Image\LogoReg.png" />
+    <Resource Include="Image\LogoWord.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

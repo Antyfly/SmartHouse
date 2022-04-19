@@ -34,25 +34,22 @@
             </Button>
         </StackPanel>
         <!-- Логин и кодовое слово-->
-        <StackPanel x:Name="LoginCode" Orientation="Vertical" Grid.Column="3" Margin="110,250,0,0" Grid.ColumnSpan="3" Visibility="Visible">
-            <Label Content="Восстановление" FontSize="65"  Style="{StaticResource Label}"/>
-            <Label x:Name="login" Content="Логин:"   Style="{StaticResource LabelMini}" Margin="60,10,0,0" Width="554" />
-            <Border BorderBrush="#FF2F2F2F" BorderThickness="6" CornerRadius="15" Height="81" Width="505" Margin="0,15,0,0" >
-                <TextBox x:Name="Email"   Style="{StaticResource TextBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0" />
+        <StackPanel x:Name="LoginCode" Orientation="Vertical" Grid.Column="3" Margin="130,140,0,0" Grid.ColumnSpan="3" Visibility="Visible">
+            <Label Content="Восстановление" FontSize="70"  Style="{StaticResource Label}"/>
+            <Label x:Name="login" Content="Логин:"   Style="{StaticResource LabelMini}" Margin="55,20,0,0" Width="554" />
+            <Border BorderBrush="#FF2F2F2F" BorderThickness="6" CornerRadius="15" Height="81" Width="505" Background="#00B875DA" Margin="0,15,0,0">
+                <TextBox x:Name="Email"  Style="{StaticResource TextBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0" />
             </Border>
             <Label x:Name="LbCodeWord" Content="Кодовое слово:"   Style="{StaticResource LabelMini}" Margin="60,10,0,0" Width="554" />
             <Border x:Name="BorderCodeWord" BorderBrush="#FF2F2F2F" BorderThickness="6" CornerRadius="15" Height="81" Width="505" Margin="0,15,0,0">
                 <TextBox x:Name="CodeWord"  Style="{StaticResource TextBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0"/>
             </Border>
-            <Button x:Name="Entry" Margin="0,50,0,0" Content="Получить доступ" Click="Entry_Click" Style="{StaticResource Button}" FontSize="50"/>
-            <Label  FontSize="30"  Style="{StaticResource Label}" Width="280" Margin="0,20,0,0" MouseLeftButtonUp="Label_MouseLeftButtonUp">
-                <TextBlock TextDecorations="Underline"> Вернуться назад</TextBlock>
-            </Label>
+            <Button x:Name="Entry" Margin="0,70,0,0" Content="Получить доступ" Click="Entry_Click" Style="{StaticResource Button}" FontSize="50"/>
         </StackPanel>
         <!-- Восстановление пароля -->
-        <StackPanel x:Name="Password" Orientation="Vertical" Grid.Column="3" Margin="110,250,0,0" Grid.ColumnSpan="3" Visibility="Hidden">
-            <Label Content="Восстановление" FontSize="65"  Style="{StaticResource Label}"/>
-            <Label x:Name="PassLabel" Content="Пароль:"   Style="{StaticResource LabelMini}" Margin="60,10,0,0" Width="554" />
+        <StackPanel x:Name="Password" Orientation="Vertical" Grid.Column="3" Margin="130,140,0,0" Grid.ColumnSpan="3" Visibility="Hidden">
+            <Label Content="Восстановление" FontSize="70"  Style="{StaticResource Label}"/>
+            <Label x:Name="PassLabel" Content="Пароль:"   Style="{StaticResource LabelMini}" Margin="60,20,0,0" Width="554" />
             <Border BorderBrush="#FF2F2F2F" BorderThickness="6" CornerRadius="15" Height="81" Width="505" Margin="0,15,0,0" >
                 <PasswordBox x:Name="PassText"   Style="{StaticResource PassBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0" />
             </Border>
@@ -60,7 +57,11 @@
             <Border  BorderBrush="#FF2F2F2F" BorderThickness="6" CornerRadius="15" Height="81" Width="505" Margin="0,15,0,0">
                 <PasswordBox x:Name="RepeatText"  Style="{StaticResource PassBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0"/>
             </Border>
-            <Button x:Name="Recover" Margin="0,50,0,0" Content="Восстановить" Click="Recover_Click" Style="{StaticResource Button}" FontSize="50"/>
+            <Button x:Name="Recover" Margin="0,70,0,0" Content="Восстановить" Click="Recover_Click" Style="{StaticResource Button}" FontSize="50"/>
         </StackPanel>
+
+        <Label  FontSize="30"  Style="{StaticResource Label}" Width="280" Height="50" Margin="51,750,173,130" MouseLeftButtonUp="Label_MouseLeftButtonUp" Grid.Column="4" Grid.ColumnSpan="2">
+            <TextBlock TextDecorations="Underline"> Вернуться назад</TextBlock>
+        </Label>
     </Grid>
 </Window>

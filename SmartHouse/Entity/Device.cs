@@ -18,6 +18,7 @@ namespace SmartHouse.Entity
         public Device()
         {
             this.History = new HashSet<History>();
+            this.OurControllers = new HashSet<OurControllers>();
             this.Scenarios = new HashSet<Scenarios>();
         }
     
@@ -28,6 +29,8 @@ namespace SmartHouse.Entity
         public virtual TypeConnection TypeConnection { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<History> History { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OurControllers> OurControllers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Scenarios> Scenarios { get; set; }
     }
