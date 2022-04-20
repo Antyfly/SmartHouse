@@ -52,7 +52,7 @@
 
             <ComboBox Grid.Row="1" Width="350" Background="Black" BorderBrush="Black"/>
             <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True"/>
-            <ListView Grid.Row="2" Background="Transparent" x:Name="ListViewer" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10" BorderBrush="{x:Null}" Foreground="Black">
+            <ListView Grid.Row="2" Background="Transparent" x:Name="ListViewer" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10" BorderBrush="{x:Null}" Foreground="Black" MouseDoubleClick="ListViewer_MouseDoubleClick" >
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Margin="10"/>
@@ -69,7 +69,7 @@
                                     <Image Source="{Binding ImagePath}"/>
                                 </Border>
                                 <TextBlock Margin="5" Text="{Binding Title}"/>
-                                <TextBlock Margin="0" Text="{Binding Condition}"/>
+                                <TextBlock x:Name="Station" Margin="0" Text="{Binding NameRoom}"/>
                             </StackPanel>
                         </Border>
                     </DataTemplate>

@@ -33,6 +33,7 @@ namespace SmartHouse
             {
                 ListViewer.ItemsSource = device;
             }
+            
         }
 
         private void Lk_Click(object sender, RoutedEventArgs e)
@@ -86,6 +87,15 @@ namespace SmartHouse
             this.Close();
         }
 
-        
+        private void ListViewer_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DarkWindow dark = new DarkWindow();
+            dark.Show();
+            Add add = new Add();
+            add.ShowDialog();
+            add.Topmost = false;
+            add.WindowState = WindowState.Normal;
+            add.Focus();
+        }
     }
 }
