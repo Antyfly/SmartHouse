@@ -1,6 +1,7 @@
 ﻿using SmartHouse.Entity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using static SmartHouse.Entity.AppData;
 
 namespace SmartHouse
@@ -21,13 +23,20 @@ namespace SmartHouse
     /// </summary>
     public partial class Home : Window
     {
+        
+        public int _userDefinition;
         public Home(int ID)
-        {
-
+        { 
             InitializeComponent();
             DataContext = this;
-            int _userDefinition = ID;
-            Update(_userDefinition);
+            _userDefinition = ID;
+
+            UpdateList();
+            //DispatcherTimer timer = new DispatcherTimer();
+            //timer.Interval = TimeSpan.FromSeconds(1);
+            //timer.Tick += UpdateList;
+            //timer.Start();
+
         }
 
         private void Lk_Click(object sender, RoutedEventArgs e)
@@ -91,21 +100,45 @@ namespace SmartHouse
             add.WindowState = WindowState.Normal;
             add.Focus();
         }
-
-
-        private void Update(int ID)
+        
+        public void UpdateList()
         {
-            var datasourse = context.Home.Where(i => i.IDUser == ID).ToList();
-            var device = datasourse;
-            if (device.Count > 0)
-            {
-                ListViewer.ItemsSource = device;
-            }
-             var selection = device.Select(x => x.NameRoom).Distinct().ToList();
-            selection.Insert(0, "Все устройства");
-            cbRoom.ItemsSource = selection;
+            int ID = _userDefinition;
 
+            var datasourse = context.Home.Where(i => i.IDUser == ID).Select(x => x.NameRoom).Distinct().ToList();
+            datasourse.Insert(0, "Все устройства");
+            cbRoom.ItemsSource = datasourse;
+            cbRoom.SelectedIndex = 0;
+
+            var selectionproba = context.Home.Where(i => i.IDUser == ID).ToList();
+
+            if (selectionproba.Count > 0 && cbRoom.SelectedIndex == 0)
+            {
+                ListViewer.ItemsSource = selectionproba;
+            }
             
+
+        }
+
+        private void cbRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int ID = _userDefinition;
+            var selectedcomboItem = sender as ComboBox;
+            string name = selectedcomboItem.SelectedItem as string ;
+            if (cbRoom.SelectedIndex != 0)
+            {
+                var selection = context.Home.Where(i => i.IDUser == ID && i.NameRoom == name).ToList();
+                ListViewer.ItemsSource = selection;
+            }
+            else
+            {
+                var selectionproba = context.Home.Where(i => i.IDUser == ID).ToList();
+                ListViewer.ItemsSource = selectionproba;
+                
+            }
+            
+            
+
         }
     }
 }

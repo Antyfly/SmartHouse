@@ -53,7 +53,7 @@
             
             <TextBlock x:Name="Proba" Text="{Binding FlatName}" Grid.Column="0" FontSize="35"/>
 
-            <ComboBox x:Name="cbRoom" Grid.Row="1" Width="350" Background="Black" BorderBrush="Black"/>
+            <ComboBox x:Name="cbRoom" Grid.Row="1" Width="350" Background="Black" BorderBrush="Black"  SelectionChanged = "cbRoom_SelectionChanged"/>
             <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True"/>
             <ListView Grid.Row="2" Background="Transparent" x:Name="ListViewer" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10,10,756,10" BorderBrush="{x:Null}" Foreground="Black" MouseDoubleClick="ListViewer_MouseDoubleClick" >
                 <ListView.ItemsPanel>
