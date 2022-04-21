@@ -21,10 +21,11 @@
                     </Grid.ColumnDefinitions>
                     <Image Source="/Image/List.png" Grid.Column="1" Height="15" Margin="0,6,0,0" />
                     <TextBlock Text="Мой дом" Grid.Column="0" FontSize="35"/>
+                    
                 </Grid>
                 <Button.ContextMenu>
                     <ContextMenu x:Name="NameHouse" Visibility="Visible" FontSize="35">
-                        <MenuItem Foreground="#FF2F2F2F" ItemsSource="{Binding FlatName}"/>
+                        <MenuItem Foreground="#FF2F2F2F" />
                     </ContextMenu>
                 </Button.ContextMenu>
             </Button>
@@ -49,10 +50,12 @@
                 <RowDefinition  Height="40"/>
                 <RowDefinition  Height="*"/>
             </Grid.RowDefinitions>
+            
+            <TextBlock x:Name="Proba" Text="{Binding FlatName}" Grid.Column="0" FontSize="35"/>
 
-            <ComboBox Grid.Row="1" Width="350" Background="Black" BorderBrush="Black"/>
+            <ComboBox x:Name="cbRoom" Grid.Row="1" Width="350" Background="Black" BorderBrush="Black"/>
             <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True"/>
-            <ListView Grid.Row="2" Background="Transparent" x:Name="ListViewer" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10" BorderBrush="{x:Null}" Foreground="Black" MouseDoubleClick="ListViewer_MouseDoubleClick" >
+            <ListView Grid.Row="2" Background="Transparent" x:Name="ListViewer" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10,10,756,10" BorderBrush="{x:Null}" Foreground="Black" MouseDoubleClick="ListViewer_MouseDoubleClick" >
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Margin="10"/>

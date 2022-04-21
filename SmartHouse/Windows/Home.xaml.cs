@@ -23,17 +23,11 @@ namespace SmartHouse
     {
         public Home(int ID)
         {
-            
+
             InitializeComponent();
             DataContext = this;
             int _userDefinition = ID;
-            var datasourse = context.Home.Where(i => i.IDUser == _userDefinition).ToList();
-            var device = datasourse;
-            if (device.Count > 0)
-            {
-                ListViewer.ItemsSource = device;
-            }
-            
+            Update(_userDefinition);
         }
 
         private void Lk_Click(object sender, RoutedEventArgs e)
@@ -96,6 +90,22 @@ namespace SmartHouse
             add.Topmost = false;
             add.WindowState = WindowState.Normal;
             add.Focus();
+        }
+
+
+        private void Update(int ID)
+        {
+            var datasourse = context.Home.Where(i => i.IDUser == ID).ToList();
+            var device = datasourse;
+            if (device.Count > 0)
+            {
+                ListViewer.ItemsSource = device;
+            }
+             var selection = device.Select(x => x.NameRoom).Distinct().ToList();
+            selection.Insert(0, "Все устройства");
+            cbRoom.ItemsSource = selection;
+
+            
         }
     }
 }

@@ -34,7 +34,7 @@ namespace SmartHouse
             {
                 try
                 {
-                   var datasourse = AppData.context.UserLogins.Where(i => i.LoginProvider == Email.Text && i.KeyWord == CodeWord.Text)
+                   var datasourse = context.UserLogins.Where(i => i.LoginProvider == Email.Text && i.KeyWord == CodeWord.Text)
                     .Count();
 
                     if (datasourse != 0)
