@@ -32,5 +32,6 @@ namespace SmartHouse.Entity
         public int IDRoom { get; set; }
         public bool Condition { get; set; }
         public string ImagePath { get; set; }
+        public int IDOurControllers { get; set; }
     }
 }

@@ -83,6 +83,7 @@ namespace SmartHouse
                                 x.KeyWord = CodeWord.Text;
                                 return x;
                             });
+
                     foreach (UserLogins userLogins1 in userLogins)
                     {
                         context.Entry(userLogins1).State = System.Data.Entity.EntityState.Modified;

@@ -95,6 +95,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Entity\Address.cs">
+      <DependentUpon>SmartHome.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ApartmentAddresses.cs">
+      <DependentUpon>SmartHome.tt</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Add.xaml.cs">
       <DependentUpon>Add.xaml</DependentUpon>
     </Compile>
@@ -180,7 +186,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Home.xaml">
+    <Page Include="Windows\HomeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -198,8 +204,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Windows\Home.xaml.cs">
-      <DependentUpon>Home.xaml</DependentUpon>
+    <Compile Include="Windows\HomeWindow.xaml.cs">
+      <DependentUpon>HomeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -265,6 +271,8 @@
       <DependentUpon>SmartHome.edmx</DependentUpon>
       <LastGenOutput>SmartHome.cs</LastGenOutput>
     </Content>
+    <Resource Include="Image\ONButton.png" />
+    <Resource Include="Image\PowerButton.png" />
     <Resource Include="Image\lamp.png" />
     <Resource Include="Image\Socket.png" />
     <Resource Include="Image\usSpeaker.png" />

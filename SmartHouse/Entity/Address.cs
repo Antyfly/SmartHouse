@@ -12,23 +12,19 @@ namespace SmartHouse.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Flat
+    public partial class Address
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Flat()
+        public Address()
         {
-            this.Rooms = new HashSet<Rooms>();
             this.ApartmentAddresses = new HashSet<ApartmentAddresses>();
         }
     
-        public int IDFlat { get; set; }
-        public string FlatName { get; set; }
-        public int IDUser { get; set; }
-        public double Size { get; set; }
+        public int IDAddress { get; set; }
+        public string City { get; set; }
+        public string Street { get; set; }
+        public string NumberHouse { get; set; }
     
-        public virtual Users Users { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rooms> Rooms { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ApartmentAddresses> ApartmentAddresses { get; set; }
     }

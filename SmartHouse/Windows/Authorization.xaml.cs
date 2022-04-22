@@ -51,7 +51,7 @@ namespace SmartHouse
                     if (deleted != 0)
                     {
                         int ID = datasourse.IDUsers;
-                        Home home = new Home(ID);
+                        HomeWindow home = new HomeWindow(ID);
                         this.Close();
                         home.ShowDialog();
                     }

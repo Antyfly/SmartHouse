@@ -36,5 +36,7 @@ namespace SmartHouse.Entity
         public virtual DbSet<UserLogins> UserLogins { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Home> Home { get; set; }
+        public virtual DbSet<Address> Address { get; set; }
+        public virtual DbSet<ApartmentAddresses> ApartmentAddresses { get; set; }
     }
 }
