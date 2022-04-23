@@ -17,8 +17,8 @@ namespace SmartHouse.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Flat()
         {
+            this.ApartmentAddress = new HashSet<ApartmentAddress>();
             this.Rooms = new HashSet<Rooms>();
-            this.ApartmentAddresses = new HashSet<ApartmentAddresses>();
         }
     
         public int IDFlat { get; set; }
@@ -26,10 +26,10 @@ namespace SmartHouse.Entity
         public int IDUser { get; set; }
         public double Size { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ApartmentAddress> ApartmentAddress { get; set; }
         public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rooms> Rooms { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ApartmentAddresses> ApartmentAddresses { get; set; }
     }
 }

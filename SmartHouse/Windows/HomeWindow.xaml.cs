@@ -23,7 +23,7 @@ namespace SmartHouse
     /// </summary>
     public partial class HomeWindow : Window
     {
-        
+        // Прописать логику выведения девайсов в зависимости с названием дома
         public int _userDefinition;
         public int IdentiDevice;
         public HomeWindow(int ID)
@@ -34,7 +34,12 @@ namespace SmartHouse
             TxtInfo.Visibility = Visibility.Visible;
             Info.Visibility = Visibility.Hidden;
             UpdateList();
+            List();
+        }
 
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         #region выпадающий список личного кабмнета 
@@ -77,30 +82,30 @@ namespace SmartHouse
 
         #endregion
 
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-
         #region выведение и клик Listview
         public void UpdateList()
         {
             int ID = _userDefinition;
 
-            var datasourse = context.Home.Where(i => i.IDUser == ID).Select(x => x.NameRoom).Distinct().ToList();
+            var datasourse = context.Home.Where(i => i.IDUser == _userDefinition).Select(x => x.NameRoom).Distinct().ToList();
             datasourse.Insert(0, "Все устройства");
             cbRoom.ItemsSource = datasourse;
             cbRoom.SelectedIndex = 0;
 
-            var selectionproba = context.Home.Where(i => i.IDUser == ID).ToList();
+            var sourse = context.Home.Where(i => i.IDUser == _userDefinition).Select(x => x.FlatName).Distinct().ToList();
+            CBHouse.ItemsSource = sourse;
+            CBHouse.SelectedIndex = 0;
+        }
 
-            if (selectionproba.Count > 0 && cbRoom.SelectedIndex == 0)
+        public void List()
+        {
+            var selectionproba = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == CBHouse.SelectedItem.ToString()).ToList();
+            int ID = _userDefinition;
+
+            if (selectionproba.Count > 0 && CBHouse.SelectedIndex == 1 && cbRoom.SelectedIndex == 0)
             {
                 ListViewer.ItemsSource = selectionproba;
             }
-            
-
         }
 
         private void ListViewer_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -109,33 +114,52 @@ namespace SmartHouse
             {
                 Information(InfoDevice);
                 IdentiDevice = InfoDevice.IDOurControllers;
-
+                List();
             }
         }
 
         #endregion
 
-        #region выпадающий список девайсов
+        #region выпадающий список девайсов и домов
         private void cbRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int ID = _userDefinition;
             var selectedcomboItem = sender as ComboBox;
-            string name = selectedcomboItem.SelectedItem as string ;
+            string nameDevice = selectedcomboItem.SelectedItem as string ;
+            
+            var proba = CBHouse.Text;
             if (cbRoom.SelectedIndex != 0)
             {
-                var selection = context.Home.Where(i => i.IDUser == ID && i.NameRoom == name).ToList();
+                var selection = context.Home.Where(i => i.IDUser == _userDefinition && i.NameRoom == nameDevice && i.FlatName == CBHouse.SelectedItem.ToString()).ToList();
                 ListViewer.ItemsSource = selection;
             }
             else
             {
-                var selectionproba = context.Home.Where(i => i.IDUser == ID).ToList();
+                var selectionproba = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == proba).ToList();
                 ListViewer.ItemsSource = selectionproba;
                 
             }
    
         }
-        #endregion
 
+        private void CBHouse_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int ID = _userDefinition;
+            var selectedHouseItem = sender as ComboBox;
+            string name = selectedHouseItem.SelectedItem as string;
+            if (cbRoom.SelectedIndex != 0)
+            {
+                var selection = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == name && i.NameRoom == cbRoom.SelectedItem.ToString()).ToList();
+                ListViewer.ItemsSource = selection;
+            }
+            else
+            {
+                var selectionproba = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == name).ToList();
+                ListViewer.ItemsSource = selectionproba;
+
+            }
+        }
+        #endregion
 
         #region информация девайсов 
         public void Information(Home InfoDevice)
@@ -160,22 +184,22 @@ namespace SmartHouse
         }
         private void PowerOFF_Click(object sender, RoutedEventArgs e)
         {
-            saveOFFButton();
+            SaveOFFButton();
             PowerON.Visibility = Visibility.Visible;
             PowerOFF.Visibility = Visibility.Hidden;
-            UpdateList();
+            
         }
 
         private void PowerON_Click(object sender, RoutedEventArgs e)
         {
-            saveOnButton();
+            SaveOnButton();
             PowerON.Visibility = Visibility.Hidden;
             PowerOFF.Visibility = Visibility.Visible;
-            UpdateList();
+            
         }
 
 
-        public void saveOnButton()
+        public void SaveOnButton()
         {
             IEnumerable<OurControllers> home = context.OurControllers.Where(x => x.IDOurControllers == IdentiDevice).AsEnumerable().
                            Select(x =>
@@ -198,7 +222,7 @@ namespace SmartHouse
                 MessageBox.Show(ex.Message);
             }
         }
-        public void saveOFFButton()
+        public void SaveOFFButton()
         {
             IEnumerable<OurControllers> home = context.OurControllers.Where(x => x.IDOurControllers == IdentiDevice).AsEnumerable().
                            Select(x =>
@@ -222,5 +246,7 @@ namespace SmartHouse
             }
         }
         #endregion
+
+        
     }
 }

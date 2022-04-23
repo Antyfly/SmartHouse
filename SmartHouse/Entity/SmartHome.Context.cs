@@ -25,6 +25,8 @@ namespace SmartHouse.Entity
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Address> Address { get; set; }
+        public virtual DbSet<ApartmentAddress> ApartmentAddress { get; set; }
         public virtual DbSet<Device> Device { get; set; }
         public virtual DbSet<Flat> Flat { get; set; }
         public virtual DbSet<History> History { get; set; }
@@ -36,7 +38,5 @@ namespace SmartHouse.Entity
         public virtual DbSet<UserLogins> UserLogins { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Home> Home { get; set; }
-        public virtual DbSet<Address> Address { get; set; }
-        public virtual DbSet<ApartmentAddresses> ApartmentAddresses { get; set; }
     }
 }

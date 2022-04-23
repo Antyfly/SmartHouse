@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartHouse"
         mc:Ignorable="d"
-        Title="Authorization" Height="930" Width="1512" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" >
+        Title="Authorization" WindowStartupLocation="CenterScreen" Style="{ StaticResource Window}"  >
 
     <Window.Background>
         <LinearGradientBrush>
@@ -34,7 +34,7 @@
                 </Image>
             </Button>
         </StackPanel>
-        <StackPanel Orientation="Vertical" Grid.Column="3" Margin="130,140,0,0" Grid.ColumnSpan="3">
+        <StackPanel Orientation="Vertical" Grid.Column="3" Margin="130,50,0,0" Grid.ColumnSpan="3">
             <Label Content="Авторизация" FontSize="80"  Style="{StaticResource Label}" HorizontalContentAlignment="Center" Margin="-20,0,0,0" />
 
             <Label Content="Логин:"   Style="{StaticResource LabelMini}" Margin="55,10,0,0" Width="554"/>
@@ -52,26 +52,14 @@
                 <TextBlock TextDecorations="Underline"> Забыл пароль</TextBlock>
             </Label>
 
-            <Button x:Name="Entry" Margin="0,15,0,0" Content="Войти" Click="Entry_Click" Style="{StaticResource Button}">
-                <!--<Button.Effect>
-                    <DropShadowEffect ShadowDepth="4" Direction="330" Color="Black" Opacity="0.5" BlurRadius="4"/>
-                </Button.Effect>-->
-            </Button>
-        </StackPanel>
+            <Button x:Name="Entry" Margin="0,15,0,0" Content="Войти" Click="Entry_Click" Style="{StaticResource Button}"/>
 
-        <StackPanel Orientation="Vertical" Grid.Column="3" Margin="130,765,0,0" Grid.ColumnSpan="3">
-            <Label Content="Нет Аккаунта?" FontSize="30"  Style="{StaticResource LabelAcc}" Width="261" HorizontalAlignment="Left" Margin="65,0,0,0">
-                <!--<Label.Effect>
-                    <DropShadowEffect ShadowDepth="4" Direction="330" Color="Black" Opacity="0.5" BlurRadius="4"/>
-                </Label.Effect>-->
-            </Label>
-            
+            <Label Content="Нет Аккаунта?" FontSize="30"  Style="{StaticResource LabelAcc}" Width="261" HorizontalAlignment="Left" Margin="45,30,0,0"/>
+
             <Label  FontSize="30"  Style="{StaticResource Label}" Width="340" Margin="200,-44,0,0" MouseLeftButtonUp="Reg_MouseLeftButtonUp">
                 <TextBlock TextDecorations="Underline"> Зарегистрироваться</TextBlock>
             </Label>
-            
         </StackPanel>
-
 
     </Grid>
 </Window>

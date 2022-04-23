@@ -5,32 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartHouse"
         mc:Ignorable="d"
-        Height="830" Width="1512" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" Background="#FFF5F0FF" FontFamily="Franklin Gothic Demi" FontSize="20" >
+        WindowStartupLocation="CenterScreen" Style="{StaticResource Window}" FontSize="20" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition  Height="40"/>
             <RowDefinition  Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel x:Name="UpBar" Orientation="Horizontal" Background="#FFCAB5FE" Grid.Row="0" VerticalAlignment="Top" x:FieldModifier="public">
-            <!-- переделать!!! -->
-            <Button x:Name="ListUpDown"  Height="40" Margin="15,0,0,0" Panel.ZIndex="1"  Style="{StaticResource ButtonStateMenu}" >
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Image Source="/Image/List.png" Grid.Column="1" Height="15" Margin="0,6,0,0" />
-                    <TextBlock Text="Мой дом" Grid.Column="0" FontSize="35"/>
-                </Grid>
-                <Button.ContextMenu>
-                    <ContextMenu x:Name="NameHouse" Visibility="Visible" FontSize="35">
-                        <MenuItem Foreground="#FF2F2F2F" />
-                    </ContextMenu>
-                </Button.ContextMenu>
-            </Button>
-            <!---->
-            <Button x:Name="Lk" Content="Личный кабинет" Height="40" Panel.ZIndex="1" FontSize="35" VerticalContentAlignment="Center" Margin="1000,0,0,0" Style="{StaticResource ButtonStateMenu}" Click="Lk_Click">
+        <StackPanel x:Name="UpBar" Orientation="Horizontal" Background="#FFCAB5FE" Grid.Row="0" VerticalAlignment="Top" x:FieldModifier="public" >
+            <ComboBox x:Name="CBHouse" Grid.Row="1"  Background="Black" BorderBrush="Black"  SelectionChanged = "CBHouse_SelectionChanged" Grid.Column="0" Width="228"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" VerticalAlignment="Center">
+            <Button x:Name="Lk" Content="Личный кабинет" Height="40" Panel.ZIndex="1" FontSize="35" VerticalContentAlignment="Center" HorizontalAlignment="Right" Margin="0,0,100,0" Style="{StaticResource ButtonStateMenu}" Click="Lk_Click">
                 <Button.ContextMenu>
                     <ContextMenu >
                         <MenuItem Foreground="#FF2F2F2F" Header="Профиль" Click="Profile_click" />
@@ -39,10 +26,11 @@
                     </ContextMenu>
                 </Button.ContextMenu>
             </Button>
-            <Button x:Name="Close" Width="40" Height="40" Margin="30,0,0,0" IsCancel="True" Panel.ZIndex="1"  Style="{StaticResource ButtonStateMenu}" Click="Close_Click">
+            <Button x:Name="Close" Width="40" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right"  IsCancel="True" Panel.ZIndex="1" Margin="0,-40,0,0"  Style="{StaticResource ButtonStateMenu}" Click="Close_Click">
                 <Image Source="/Image/closes.png"/>
             </Button>
         </StackPanel>
+
 
         <Grid Grid.Row="1" Background="#FFF5F0FF" >
             <Grid.RowDefinitions>
@@ -52,13 +40,14 @@
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="131*"/>
+                <ColumnDefinition Width="625*"/>
+                <ColumnDefinition Width="756*"/>
             </Grid.ColumnDefinitions>
 
-            <ComboBox x:Name="cbRoom" Grid.Row="1" Width="350" Background="Black" BorderBrush="Black"  SelectionChanged = "cbRoom_SelectionChanged" Grid.Column="0"/>
-            <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True" Grid.Column="0" Grid.Row="2"/>
-            <ListView Grid.Row="2" Background="Transparent" x:Name="ListViewer" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10" BorderBrush="{x:Null}" Foreground="Black" Grid.Column="0" MouseDoubleClick="ListViewer_MouseDoubleClick" >
+            <ComboBox x:Name="cbRoom" Grid.Row="1" Background="Black" BorderBrush="Black"  SelectionChanged = "cbRoom_SelectionChanged" Grid.Column="1"  HorizontalAlignment="Center" Margin="0,5,0,5" Width="228" />
+            <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
+            <ListView Grid.Row="2" Background="Transparent" x:Name="ListViewer" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10,10,10,10" BorderBrush="{x:Null}" Foreground="Black" Grid.Column="0" MouseDoubleClick="ListViewer_MouseDoubleClick" Grid.ColumnSpan="2" >
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Margin="10"/>
@@ -81,9 +70,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Label x:Name="TxtInfo" Content="Выберите устройство для просмотра информации" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource  Label}" FontSize="23" Visibility="Hidden"/>
-            
-            <Grid Grid.Column="1" Grid.Row="2" Visibility="Visible" x:Name="Info">
+            <Label x:Name="TxtInfo" Content="Выберите устройство для просмотра информации" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource  Label}" FontSize="23" Visibility="Hidden"/>
+
+            <Grid Grid.Column="2" Grid.Row="2" Visibility="Visible" x:Name="Info">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="11*"/>
                     <RowDefinition Height="60*"/>

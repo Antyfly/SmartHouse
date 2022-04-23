@@ -4,17 +4,17 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище SmartHomeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище SmartHomeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="IDAddress" />
           </Key>
           <Property Name="IDAddress" Type="int" Nullable="false" />
-          <Property Name="City" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Street" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="NumberHouse" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Street" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumberHouse" Type="nvarchar" MaxLength="3" Nullable="false" />
         </EntityType>
-        <EntityType Name="ApartmentAddresses">
+        <EntityType Name="ApartmentAddress">
           <Key>
             <PropertyRef Name="IDApartAddres" />
           </Key>
@@ -160,26 +160,26 @@
           <Property Name="ImagePath" Type="nvarchar" MaxLength="1000" />
           <Property Name="IDOurControllers" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_ApartmentAddresses_Address">
+        <Association Name="FK_ApartmentAddress_Address">
           <End Role="Address" Type="Self.Address" Multiplicity="1" />
-          <End Role="ApartmentAddresses" Type="Self.ApartmentAddresses" Multiplicity="*" />
+          <End Role="ApartmentAddress" Type="Self.ApartmentAddress" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Address">
               <PropertyRef Name="IDAddress" />
             </Principal>
-            <Dependent Role="ApartmentAddresses">
+            <Dependent Role="ApartmentAddress">
               <PropertyRef Name="IDAddresses" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ApartmentAddresses_Flat">
+        <Association Name="FK_ApartmentAddress_Flat">
           <End Role="Flat" Type="Self.Flat" Multiplicity="1" />
-          <End Role="ApartmentAddresses" Type="Self.ApartmentAddresses" Multiplicity="*" />
+          <End Role="ApartmentAddress" Type="Self.ApartmentAddress" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Flat">
               <PropertyRef Name="IDFlat" />
             </Principal>
-            <Dependent Role="ApartmentAddresses">
+            <Dependent Role="ApartmentAddress">
               <PropertyRef Name="IDFlat" />
             </Dependent>
           </ReferentialConstraint>
@@ -282,7 +282,7 @@
         </Association>
         <EntityContainer Name="Хранилище SmartHomeModelContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ApartmentAddresses" EntityType="Self.ApartmentAddresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApartmentAddress" EntityType="Self.ApartmentAddress" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Device" EntityType="Self.Device" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Flat" EntityType="Self.Flat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
@@ -316,13 +316,13 @@
     [Home].[IDOurControllers] AS [IDOurControllers]
     FROM [dbo].[Home] AS [Home]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK_ApartmentAddresses_Address" Association="Self.FK_ApartmentAddresses_Address">
+          <AssociationSet Name="FK_ApartmentAddress_Address" Association="Self.FK_ApartmentAddress_Address">
             <End Role="Address" EntitySet="Address" />
-            <End Role="ApartmentAddresses" EntitySet="ApartmentAddresses" />
+            <End Role="ApartmentAddress" EntitySet="ApartmentAddress" />
           </AssociationSet>
-          <AssociationSet Name="FK_ApartmentAddresses_Flat" Association="Self.FK_ApartmentAddresses_Flat">
+          <AssociationSet Name="FK_ApartmentAddress_Flat" Association="Self.FK_ApartmentAddress_Flat">
             <End Role="Flat" EntitySet="Flat" />
-            <End Role="ApartmentAddresses" EntitySet="ApartmentAddresses" />
+            <End Role="ApartmentAddress" EntitySet="ApartmentAddress" />
           </AssociationSet>
           <AssociationSet Name="FK_Device_TypeConnection" Association="Self.FK_Device_TypeConnection">
             <End Role="TypeConnection" EntitySet="TypeConnection" />
@@ -357,10 +357,31 @@
             <End Role="UserLogins" EntitySet="UserLogins" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SmartHomeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="IDAddress" />
+          </Key>
+          <Property Name="IDAddress" Type="Int32" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberHouse" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ApartmentAddress" Relationship="Self.FK_ApartmentAddress_Address" FromRole="Address" ToRole="ApartmentAddress" />
+        </EntityType>
+        <EntityType Name="ApartmentAddress">
+          <Key>
+            <PropertyRef Name="IDApartAddres" />
+          </Key>
+          <Property Name="IDApartAddres" Type="Int32" Nullable="false" />
+          <Property Name="IDFlat" Type="Int32" Nullable="false" />
+          <Property Name="IDAddresses" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="Self.FK_ApartmentAddress_Address" FromRole="ApartmentAddress" ToRole="Address" />
+          <NavigationProperty Name="Flat" Relationship="Self.FK_ApartmentAddress_Flat" FromRole="ApartmentAddress" ToRole="Flat" />
+        </EntityType>
         <EntityType Name="Device">
           <Key>
             <PropertyRef Name="IDDevice" />
@@ -368,11 +389,11 @@
           <Property Name="IDDevice" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IDTypeConnection" Type="Int32" Nullable="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TypeConnection" Relationship="Self.FK_Device_TypeConnection" FromRole="Device" ToRole="TypeConnection" />
           <NavigationProperty Name="History" Relationship="Self.FK_History_Device" FromRole="Device" ToRole="History" />
           <NavigationProperty Name="OurControllers" Relationship="Self.FK_OurControllers_Device" FromRole="Device" ToRole="OurControllers" />
           <NavigationProperty Name="Scenarios" Relationship="Self.FK_Scenarios_Device" FromRole="Device" ToRole="Scenarios" />
-          <Property Name="ImagePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Flat">
           <Key>
@@ -382,9 +403,9 @@
           <Property Name="FlatName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IDUser" Type="Int32" Nullable="false" />
           <Property Name="Size" Type="Double" Nullable="false" />
+          <NavigationProperty Name="ApartmentAddress" Relationship="Self.FK_ApartmentAddress_Flat" FromRole="Flat" ToRole="ApartmentAddress" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Flat_Users" FromRole="Flat" ToRole="Users" />
           <NavigationProperty Name="Rooms" Relationship="Self.FK_Rooms_Flat" FromRole="Flat" ToRole="Rooms" />
-          <NavigationProperty Name="ApartmentAddresses" Relationship="SmartHomeModel.FK_ApartmentAddresses_Flat" FromRole="Flat" ToRole="ApartmentAddresses" />
         </EntityType>
         <EntityType Name="History">
           <Key>
@@ -514,6 +535,30 @@
           <Property Name="ImagePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="IDOurControllers" Type="Int32" Nullable="false" />
         </EntityType>
+        <Association Name="FK_ApartmentAddress_Address">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="ApartmentAddress" Type="Self.ApartmentAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="IDAddress" />
+            </Principal>
+            <Dependent Role="ApartmentAddress">
+              <PropertyRef Name="IDAddresses" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApartmentAddress_Flat">
+          <End Role="Flat" Type="Self.Flat" Multiplicity="1" />
+          <End Role="ApartmentAddress" Type="Self.ApartmentAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flat">
+              <PropertyRef Name="IDFlat" />
+            </Principal>
+            <Dependent Role="ApartmentAddress">
+              <PropertyRef Name="IDFlat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Device_TypeConnection">
           <End Role="TypeConnection" Type="Self.TypeConnection" Multiplicity="1" />
           <End Role="Device" Type="Self.Device" Multiplicity="*" />
@@ -611,6 +656,8 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="SmartHome" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Address" EntityType="Self.Address" />
+          <EntitySet Name="ApartmentAddress" EntityType="Self.ApartmentAddress" />
           <EntitySet Name="Device" EntityType="Self.Device" />
           <EntitySet Name="Flat" EntityType="Self.Flat" />
           <EntitySet Name="History" EntityType="Self.History" />
@@ -622,6 +669,14 @@
           <EntitySet Name="UserLogins" EntityType="Self.UserLogins" />
           <EntitySet Name="Users" EntityType="Self.Users" />
           <EntitySet Name="Home" EntityType="Self.Home" />
+          <AssociationSet Name="FK_ApartmentAddress_Address" Association="Self.FK_ApartmentAddress_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="ApartmentAddress" EntitySet="ApartmentAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApartmentAddress_Flat" Association="Self.FK_ApartmentAddress_Flat">
+            <End Role="Flat" EntitySet="Flat" />
+            <End Role="ApartmentAddress" EntitySet="ApartmentAddress" />
+          </AssociationSet>
           <AssociationSet Name="FK_Device_TypeConnection" Association="Self.FK_Device_TypeConnection">
             <End Role="TypeConnection" EntitySet="TypeConnection" />
             <End Role="Device" EntitySet="Device" />
@@ -654,74 +709,39 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="UserLogins" EntitySet="UserLogins" />
           </AssociationSet>
-          <EntitySet Name="Address" EntityType="SmartHomeModel.Address" />
-          <EntitySet Name="ApartmentAddresses" EntityType="SmartHomeModel.ApartmentAddresses" />
-          <AssociationSet Name="FK_ApartmentAddresses_Address" Association="SmartHomeModel.FK_ApartmentAddresses_Address">
-            <End Role="Address" EntitySet="Address" />
-            <End Role="ApartmentAddresses" EntitySet="ApartmentAddresses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ApartmentAddresses_Flat" Association="SmartHomeModel.FK_ApartmentAddresses_Flat">
-            <End Role="Flat" EntitySet="Flat" />
-            <End Role="ApartmentAddresses" EntitySet="ApartmentAddresses" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Address">
-          <Key>
-            <PropertyRef Name="IDAddress" />
-          </Key>
-          <Property Name="IDAddress" Type="Int32" Nullable="false" />
-          <Property Name="City" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Street" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="NumberHouse" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="ApartmentAddresses" Relationship="SmartHomeModel.FK_ApartmentAddresses_Address" FromRole="Address" ToRole="ApartmentAddresses" />
-        </EntityType>
-        <EntityType Name="ApartmentAddresses">
-          <Key>
-            <PropertyRef Name="IDApartAddres" />
-          </Key>
-          <Property Name="IDApartAddres" Type="Int32" Nullable="false" />
-          <Property Name="IDFlat" Type="Int32" Nullable="false" />
-          <Property Name="IDAddresses" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Address" Relationship="SmartHomeModel.FK_ApartmentAddresses_Address" FromRole="ApartmentAddresses" ToRole="Address" />
-          <NavigationProperty Name="Flat" Relationship="SmartHomeModel.FK_ApartmentAddresses_Flat" FromRole="ApartmentAddresses" ToRole="Flat" />
-        </EntityType>
-        <Association Name="FK_ApartmentAddresses_Address">
-          <End Type="SmartHomeModel.Address" Role="Address" Multiplicity="1" />
-          <End Type="SmartHomeModel.ApartmentAddresses" Role="ApartmentAddresses" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Address">
-              <PropertyRef Name="IDAddress" />
-            </Principal>
-            <Dependent Role="ApartmentAddresses">
-              <PropertyRef Name="IDAddresses" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ApartmentAddresses_Flat">
-          <End Type="SmartHomeModel.Flat" Role="Flat" Multiplicity="1" />
-          <End Type="SmartHomeModel.ApartmentAddresses" Role="ApartmentAddresses" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Flat">
-              <PropertyRef Name="IDFlat" />
-            </Principal>
-            <Dependent Role="ApartmentAddresses">
-              <PropertyRef Name="IDFlat" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище SmartHomeModelContainer" CdmEntityContainer="SmartHome">
+          <EntitySetMapping Name="Address">
+            <EntityTypeMapping TypeName="SmartHomeModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="IDAddress" ColumnName="IDAddress" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="NumberHouse" ColumnName="NumberHouse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApartmentAddress">
+            <EntityTypeMapping TypeName="SmartHomeModel.ApartmentAddress">
+              <MappingFragment StoreEntitySet="ApartmentAddress">
+                <ScalarProperty Name="IDApartAddres" ColumnName="IDApartAddres" />
+                <ScalarProperty Name="IDFlat" ColumnName="IDFlat" />
+                <ScalarProperty Name="IDAddresses" ColumnName="IDAddresses" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Device">
             <EntityTypeMapping TypeName="SmartHomeModel.Device">
               <MappingFragment StoreEntitySet="Device">
-                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
                 <ScalarProperty Name="IDDevice" ColumnName="IDDevice" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="IDTypeConnection" ColumnName="IDTypeConnection" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -826,9 +846,6 @@
           <EntitySetMapping Name="Home">
             <EntityTypeMapping TypeName="SmartHomeModel.Home">
               <MappingFragment StoreEntitySet="Home">
-                <ScalarProperty Name="IDOurControllers" ColumnName="IDOurControllers" />
-                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
-                <ScalarProperty Name="Condition" ColumnName="Condition" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
@@ -845,25 +862,9 @@
                 <ScalarProperty Name="IDTypeConnection" ColumnName="IDTypeConnection" />
                 <ScalarProperty Name="IDDevice" ColumnName="IDDevice" />
                 <ScalarProperty Name="IDRoom" ColumnName="IDRoom" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Address">
-            <EntityTypeMapping TypeName="SmartHomeModel.Address">
-              <MappingFragment StoreEntitySet="Address">
-                <ScalarProperty Name="NumberHouse" ColumnName="NumberHouse" />
-                <ScalarProperty Name="Street" ColumnName="Street" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="IDAddress" ColumnName="IDAddress" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ApartmentAddresses">
-            <EntityTypeMapping TypeName="SmartHomeModel.ApartmentAddresses">
-              <MappingFragment StoreEntitySet="ApartmentAddresses">
-                <ScalarProperty Name="IDAddresses" ColumnName="IDAddresses" />
-                <ScalarProperty Name="IDFlat" ColumnName="IDFlat" />
-                <ScalarProperty Name="IDApartAddres" ColumnName="IDApartAddres" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="IDOurControllers" ColumnName="IDOurControllers" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
