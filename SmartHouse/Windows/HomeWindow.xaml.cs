@@ -269,6 +269,18 @@ namespace SmartHouse
             List();
         }
 
-        
+        private void ListViewer_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (MessageBox.Show("Вы точно уверены?", "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+            {
+
+            }
+        }
     }
 }

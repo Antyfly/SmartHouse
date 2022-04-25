@@ -49,7 +49,12 @@
 
             <ComboBox x:Name="CbRoom" Grid.Row="1" Background="Black" BorderBrush="Black"  SelectionChanged = "CbRoom_SelectionChanged" Grid.Column="1"  HorizontalAlignment="Center" Margin="0,5,0,5" Width="228" />
             <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
-            <ListView x:Name="ListViewer" Grid.Row="2" Background="Transparent"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10,10,10,10" BorderBrush="{x:Null}" Foreground="Black" Grid.Column="0" MouseDoubleClick="ListViewer_MouseDoubleClick" Grid.ColumnSpan="2" >
+            <ListView x:Name="ListViewer" Grid.Row="2" Background="Transparent"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10,10,10,10" BorderBrush="{x:Null}" Foreground="Black" Grid.Column="0" MouseDoubleClick="ListViewer_MouseDoubleClick" Grid.ColumnSpan="2" PreviewMouseRightButtonDown="ListViewer_PreviewMouseRightButtonDown" >
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="Delete" Header="Удалить" Click="Delete_Click"/>
+                    </ContextMenu>
+                </ListView.ContextMenu>
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Margin="10"/>
@@ -71,6 +76,7 @@
                         </Border>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                
             </ListView>
             <Label x:Name="TxtInfo" Content="Выберите устройство для просмотра информации" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource  Label}" FontSize="23" Visibility="Hidden"/>
 
