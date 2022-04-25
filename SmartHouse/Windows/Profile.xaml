@@ -15,6 +15,7 @@
                 <Image Source="/Image/closes.png"/>
             </Button>
         </StackPanel>
+        
     </Grid>
 </Window>
 

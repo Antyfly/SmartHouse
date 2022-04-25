@@ -34,7 +34,7 @@
             </Button>
         </StackPanel>
         <Label  FontSize="30"  Style="{StaticResource Label}" Width="280" Height="50" MouseLeftButtonUp="Label_MouseLeftButtonUp" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="3" Grid.ColumnSpan="3" Margin="120,0,0,40">
-            <TextBlock TextDecorations="Underline" Visibility="Visible" Panel.ZIndex="1"> Вернуться назад</TextBlock>
+            <TextBlock TextDecorations="Underline" Visibility="Visible" Panel.ZIndex="1">Вернуться назад</TextBlock>
         </Label>
         <!-- Логин и кодовое слово-->
         <StackPanel x:Name="LoginCode" Orientation="Vertical" Grid.Column="3" Margin="130,60,0,0" Grid.ColumnSpan="3" Visibility="Visible">

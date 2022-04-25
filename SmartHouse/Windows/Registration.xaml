@@ -90,7 +90,7 @@
 
             <Button x:Name="btnRegistr" Margin="40,15,0,0" Content="Зарегистрироваться" Click="btnRegistr_Click" Style="{StaticResource Button}" HorizontalAlignment="Left" Width="518" FontSize="30" Height="55"/>
             <Label  FontSize="20"  Style="{StaticResource Label}" Width="504" Margin="50,10,0,0" HorizontalAlignment="Left" HorizontalContentAlignment="Center" MouseLeftButtonUp="Label_MouseLeftButtonUp">
-                <TextBlock TextDecorations="Underline"> Вернуться назад</TextBlock>
+                <TextBlock TextDecorations="Underline">Вернуться назад</TextBlock>
             </Label>
         </StackPanel>
     </Grid>

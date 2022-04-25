@@ -95,6 +95,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Frame\Auth.xaml.cs">
+      <DependentUpon>Auth.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Address.cs">
       <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
@@ -166,6 +169,10 @@
     <Compile Include="Windows\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
+    <Page Include="Frame\Auth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Add.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -269,9 +276,7 @@
     <Resource Include="Image\LogoReg.png" />
     <Resource Include="Image\LogoWord.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Frame\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Entity\SmartHome.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

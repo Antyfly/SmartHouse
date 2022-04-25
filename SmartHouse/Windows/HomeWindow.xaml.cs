@@ -42,7 +42,7 @@ namespace SmartHouse
             this.Close();
         }
 
-        #region выпадающий список личного кабмнета 
+        #region выпадающий список личного кабинета 
         private void Lk_Click(object sender, RoutedEventArgs e)
         {
             (sender as Button).ContextMenu.IsEnabled = true;
@@ -72,7 +72,16 @@ namespace SmartHouse
             prof.Topmost = true;
             prof.Focus();
         }
-
+        private void Scenarios_Click(object sender, RoutedEventArgs e)
+        {
+            DarkWindow dark = new DarkWindow();
+            dark.Show();
+            Profile prof = new Profile();
+            prof.ShowDialog();
+            prof.WindowState = WindowState.Normal;
+            prof.Topmost = true;
+            prof.Focus();
+        }
         private void ExitProfile_Click(object sender, RoutedEventArgs e)
         {
             Authorization auth = new Authorization();
@@ -89,8 +98,8 @@ namespace SmartHouse
 
             var datasourse = context.Home.Where(i => i.IDUser == _userDefinition).Select(x => x.NameRoom).Distinct().ToList();
             datasourse.Insert(0, "Все устройства");
-            cbRoom.ItemsSource = datasourse;
-            cbRoom.SelectedIndex = 0;
+            CbRoom.ItemsSource = datasourse;
+            CbRoom.SelectedIndex = 0;
 
             var sourse = context.Home.Where(i => i.IDUser == _userDefinition).Select(x => x.FlatName).Distinct().ToList();
             CBHouse.ItemsSource = sourse;
@@ -102,7 +111,7 @@ namespace SmartHouse
             var selectionproba = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == CBHouse.SelectedItem.ToString()).ToList();
             int ID = _userDefinition;
 
-            if (selectionproba.Count > 0 && CBHouse.SelectedIndex == 1 && cbRoom.SelectedIndex == 0)
+            if (selectionproba.Count > 0 && CBHouse.SelectedIndex == 1 && CbRoom.SelectedIndex == 0)
             {
                 ListViewer.ItemsSource = selectionproba;
             }
@@ -121,14 +130,14 @@ namespace SmartHouse
         #endregion
 
         #region выпадающий список девайсов и домов
-        private void cbRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CbRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int ID = _userDefinition;
             var selectedcomboItem = sender as ComboBox;
             string nameDevice = selectedcomboItem.SelectedItem as string ;
             
             var proba = CBHouse.Text;
-            if (cbRoom.SelectedIndex != 0)
+            if (CbRoom.SelectedIndex != 0)
             {
                 var selection = context.Home.Where(i => i.IDUser == _userDefinition && i.NameRoom == nameDevice && i.FlatName == CBHouse.SelectedItem.ToString()).ToList();
                 ListViewer.ItemsSource = selection;
@@ -147,9 +156,9 @@ namespace SmartHouse
             int ID = _userDefinition;
             var selectedHouseItem = sender as ComboBox;
             string name = selectedHouseItem.SelectedItem as string;
-            if (cbRoom.SelectedIndex != 0)
+            if (CbRoom.SelectedIndex != 0)
             {
-                var selection = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == name && i.NameRoom == cbRoom.SelectedItem.ToString()).ToList();
+                var selection = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == name && i.NameRoom == CbRoom.SelectedItem.ToString()).ToList();
                 ListViewer.ItemsSource = selection;
             }
             else
@@ -166,7 +175,7 @@ namespace SmartHouse
         {
             TxtInfo.Visibility = Visibility.Hidden;
             Info.Visibility = Visibility.Visible;
-
+            ConditionPowerConsumption.Text = InfoDevice.PowerConsumption.ToString() + " Вт";
             NameDevice.Text = InfoDevice.Title;
 
             if (InfoDevice.Condition == true)
@@ -179,8 +188,15 @@ namespace SmartHouse
                 PowerOFF.Visibility = Visibility.Visible;
                 PowerON.Visibility = Visibility.Hidden;
             }
+            if (InfoDevice.Condition == true)
+            {
+                Condition.Text = "Включено";
+            }
+            if (InfoDevice.Condition == false)
+            {
+                Condition.Text = "Выключено";
+            }
 
-            
         }
         private void PowerOFF_Click(object sender, RoutedEventArgs e)
         {
@@ -245,7 +261,13 @@ namespace SmartHouse
                 MessageBox.Show(ex.Message);
             }
         }
+
         #endregion
+
+        private void TabInfo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            List();
+        }
 
         
     }

@@ -14,18 +14,11 @@ namespace SmartHouse.Entity
     
     public partial class Home
     {
-        public string Surname { get; set; }
-        public string Name { get; set; }
-        public string Patronymic { get; set; }
-        public string Email { get; set; }
-        public string phone { get; set; }
         public string FlatName { get; set; }
         public int IDUser { get; set; }
         public double Size { get; set; }
         public int IDFlat { get; set; }
         public string NameRoom { get; set; }
-        public Nullable<double> WidthRoom { get; set; }
-        public Nullable<double> HeightRoom { get; set; }
         public string Title { get; set; }
         public int IDTypeConnection { get; set; }
         public int IDDevice { get; set; }
@@ -33,5 +26,6 @@ namespace SmartHouse.Entity
         public bool Condition { get; set; }
         public string ImagePath { get; set; }
         public int IDOurControllers { get; set; }
+        public int PowerConsumption { get; set; }
     }
 }
