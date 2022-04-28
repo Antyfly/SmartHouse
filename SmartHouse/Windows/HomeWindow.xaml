@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartHouse"
         mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen" Style="{StaticResource Window}" FontSize="20" >
+        WindowStartupLocation="CenterScreen" Style="{StaticResource Window}" FontSize="20">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition  Height="40"/>
@@ -47,7 +47,7 @@
                 <ColumnDefinition Width="756*"/>
             </Grid.ColumnDefinitions>
 
-            <ComboBox x:Name="CbRoom" Grid.Row="1" Background="Black" BorderBrush="Black"  SelectionChanged = "CbRoom_SelectionChanged" Grid.Column="1"  HorizontalAlignment="Center" Margin="0,5,0,5" Width="228" />
+            <ComboBox x:Name="CbRoom" Grid.Row="1" Background="Black" BorderBrush="Black"  SelectionChanged = "CbRoom_SelectionChanged" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,5,0,5" Width="228" />
             <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
             <ListView x:Name="ListViewer" Grid.Row="2" Background="Transparent"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10,10,10,10" BorderBrush="{x:Null}" Foreground="Black" Grid.Column="0" MouseDoubleClick="ListViewer_MouseDoubleClick" Grid.ColumnSpan="2" PreviewMouseRightButtonDown="ListViewer_PreviewMouseRightButtonDown" >
                 <ListView.ContextMenu>
@@ -87,7 +87,7 @@
                 </Grid.RowDefinitions>
                 <Border CornerRadius="5" Margin="0,0,10,10" BorderThickness="2" BorderBrush="#FF2F2F2F" Grid.RowSpan="2"/>
 
-                <TabControl Grid.RowSpan="2" Background="Transparent" x:Name="TabInfo" SelectionChanged="TabInfo_SelectionChanged" Margin="0,0,10,10" BorderBrush="Transparent">
+                <TabControl Grid.RowSpan="2" Background="Transparent" x:Name="TabInfo"  Margin="0,0,10,10" BorderBrush="Transparent">
                     <TabItem Style="{StaticResource ItemTab}">
                         <TabItem.Header>
                             <TextBlock Text="Информация об устройстве" FontSize="13"/>

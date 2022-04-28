@@ -41,7 +41,7 @@ namespace SmartHouse
         {
             this.Close();
         }
-
+        // НЕ ТРОГАТЬ!!! ОСОБЕННО КОСТЫЛИ
         #region выпадающий список личного кабинета 
         private void Lk_Click(object sender, RoutedEventArgs e)
         {
@@ -90,7 +90,7 @@ namespace SmartHouse
         }
 
         #endregion
-
+        // НЕ ТРОГАТЬ!!! ОСОБЕННО КОСТЫЛИ
         #region выведение и клик Listview
         public void UpdateList()
         {
@@ -111,7 +111,7 @@ namespace SmartHouse
             var selectionproba = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == CBHouse.SelectedItem.ToString()).ToList();
             int ID = _userDefinition;
 
-            if (selectionproba.Count > 0 && CBHouse.SelectedIndex == 1 && CbRoom.SelectedIndex == 0)
+            if (selectionproba.Count > 0 && CbRoom.SelectedIndex == 0)
             {
                 ListViewer.ItemsSource = selectionproba;
             }
@@ -128,7 +128,7 @@ namespace SmartHouse
         }
 
         #endregion
-
+        // НЕ ТРОГАТЬ!!! ОСОБЕННО КОСТЫЛИ
         #region выпадающий список девайсов и домов
         private void CbRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -169,7 +169,7 @@ namespace SmartHouse
             }
         }
         #endregion
-
+        // НЕ ТРОГАТЬ!!! ОСОБЕННО КОСТЫЛИ
         #region информация девайсов 
         public void Information(Home InfoDevice)
         {
@@ -203,7 +203,7 @@ namespace SmartHouse
             SaveOFFButton();
             PowerON.Visibility = Visibility.Visible;
             PowerOFF.Visibility = Visibility.Hidden;
-            
+            Condition.Text = "Включено";
         }
 
         private void PowerON_Click(object sender, RoutedEventArgs e)
@@ -211,7 +211,7 @@ namespace SmartHouse
             SaveOnButton();
             PowerON.Visibility = Visibility.Hidden;
             PowerOFF.Visibility = Visibility.Visible;
-            
+            Condition.Text = "Выключено";
         }
 
 
@@ -264,10 +264,6 @@ namespace SmartHouse
 
         #endregion
 
-        private void TabInfo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            List();
-        }
 
         private void ListViewer_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
