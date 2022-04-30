@@ -70,8 +70,8 @@
                                     </Border.Effect>
                                     <Image Source="{Binding ImagePath}"/>
                                 </Border>
-                                <TextBlock Margin="5" Text="{Binding Title}"/>
-                                <TextBlock x:Name="Station" Margin="0" Text="{Binding NameRoom}"/>
+                                <Label Content="{Binding Title}" HorizontalContentAlignment="Left"/>
+                                <Label Margin="0,-5,0,0" x:Name="Station" Content="{Binding NameRoom}" HorizontalContentAlignment="Left"/>
                             </StackPanel>
                         </Border>
                     </DataTemplate>
@@ -87,7 +87,7 @@
                 <Border CornerRadius="5" Margin="0,0,10,10" BorderThickness="2" BorderBrush="#FF2F2F2F" Grid.RowSpan="2"/>
 
                 <TabControl Grid.RowSpan="2" Background="Transparent" x:Name="TabInfo"  Margin="0,0,10,10" BorderBrush="Transparent">
-                    <TabItem Style="{StaticResource ItemTab}">
+                    <TabItem>
                         <TabItem.Header>
                             <TextBlock Text="Информация об устройстве" FontSize="13"/>
                         </TabItem.Header>

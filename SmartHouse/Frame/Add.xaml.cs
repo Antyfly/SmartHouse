@@ -10,31 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SmartHouse
+namespace SmartHouse.Frame
 {
     /// <summary>
     /// Логика взаимодействия для Add.xaml
     /// </summary>
-    public partial class Add : Window
+    public partial class Add : Page
     {
         public Add()
         {
             InitializeComponent();
-        }
-
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
-            foreach (Window window in Application.Current.Windows)
-            {
-                if (window.GetType() == typeof(DarkWindow))
-                {
-                    (window as DarkWindow).Close();
-                }
-            }
-            this.Close();
-           
         }
     }
 }

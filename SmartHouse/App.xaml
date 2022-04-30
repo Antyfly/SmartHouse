@@ -301,39 +301,15 @@
             <Setter Property="Width" Value="1412"/>
             <Setter Property="WindowStyle" Value="None"/>
             <Setter Property="ResizeMode" Value="NoResize"/>
+            <Setter Property="Icon" Value="/Image/Icon.png"/>
         </Style>
-        
+
         <Style x:Key="BorderReg" TargetType="Border">
             <Setter Property="BorderBrush" Value="#FF2F2F2F"/>
             <Setter Property="BorderThickness" Value="6"/>
             <Setter Property="CornerRadius" Value="15"/>
             <Setter Property="Height" Value="45"/>
             <Setter Property="Width" Value="250"/>
-        </Style>
-
-
-        <Style x:Key="ItemTab" TargetType="TabItem">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TabItem">
-                        <Grid Name="Panel">
-                            <ContentPresenter x:Name="ContentSite"
-                                    VerticalAlignment="Center"
-                                    HorizontalAlignment="Center"
-                                    ContentSource="Header"
-                                    Margin="10,2"/>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="Panel" Property="Background" Value="#FFF5F0FF" />
-                            </Trigger>
-                            <Trigger Property="IsSelected" Value="False">
-                                <Setter TargetName="Panel" Property="Background" Value="#FFCAB5FE" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
         </Style>
     </Application.Resources>
 </Application>

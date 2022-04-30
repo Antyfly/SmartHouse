@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-
+using SmartHouse.Frame;
 
 namespace SmartHouse
 {
@@ -11,7 +11,7 @@ namespace SmartHouse
         public Authorization()
         {
             InitializeComponent();
-            AuthFrame.Content = new Frame.Auth();
+            AuthFrame.Content = new Auth();
         }
     }
 

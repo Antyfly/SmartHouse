@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using SmartHouse.Frame;
 using static SmartHouse.Entity.AppData;
 
 
@@ -24,7 +25,9 @@ namespace SmartHouse
     /// Логика взаимодействия для Home.xaml
     /// </summary>
     public partial class HomeWindow : Window
-    { 
+    {
+        public static Home user { get; set; }
+
         public int _userDefinition;
         public int IdentiDevice;
         public HomeWindow(int ID)
@@ -56,7 +59,8 @@ namespace SmartHouse
         {
             DarkWindow dark = new DarkWindow();
             dark.Show();
-            Add add = new Add();
+            string name = "Добавление";
+            NavigationContextMenu add = new NavigationContextMenu(name,_userDefinition);
             add.ShowDialog();
             add.Topmost = false;
             add.WindowState = WindowState.Normal;
@@ -65,9 +69,10 @@ namespace SmartHouse
 
         private void Profile_click(object sender, RoutedEventArgs e)
         {
-            DarkWindow dark = new DarkWindow();
-            dark.Show();
-            Profile prof = new Profile();
+            //DarkWindow dark = new DarkWindow();
+            //dark.Show();
+            string name = "Профиль";
+            NavigationContextMenu prof = new NavigationContextMenu(name, _userDefinition);
             prof.ShowDialog();
             prof.WindowState = WindowState.Normal;
             prof.Topmost = true;
@@ -77,11 +82,12 @@ namespace SmartHouse
         {
             DarkWindow dark = new DarkWindow();
             dark.Show();
-            Profile prof = new Profile();
+            string name = "Сценарии";
+            NavigationContextMenu prof = new NavigationContextMenu(name, _userDefinition);
             prof.ShowDialog();
             prof.WindowState = WindowState.Normal;
             prof.Topmost = true;
-            prof.Focus();
+            prof.Focus();         
         }
         private void ExitProfile_Click(object sender, RoutedEventArgs e)
         {
@@ -95,7 +101,6 @@ namespace SmartHouse
         #region выведение и клик Listview
         public void Combo()
         {
-            int ID = _userDefinition;
             //вывод в выпадающий список комнаты
             var datasourse = context.Home.Where(i => i.IDUser == _userDefinition).Select(x => x.NameRoom).Distinct().ToList();
             datasourse.Insert(0, "Все устройства");
@@ -108,7 +113,6 @@ namespace SmartHouse
         }
         private void ListViewer_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int ID = _userDefinition;
             string nameDevice = CbRoom.Text;
 
             var proba = CBHouse.Text;
@@ -128,7 +132,6 @@ namespace SmartHouse
         public void List()
         {
             var CountFlat = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == CBHouse.SelectedItem.ToString()).ToList();
-            int ID = _userDefinition;
 
             if (CountFlat.Count > 0 && CbRoom.SelectedIndex == 0)
             {
@@ -151,7 +154,6 @@ namespace SmartHouse
         #region выпадающий список девайсов и домов
         private void CbRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int ID = _userDefinition;
             var selectedcomboItem = sender as ComboBox;
             string nameDevice = selectedcomboItem.SelectedItem as string;
 
@@ -172,7 +174,6 @@ namespace SmartHouse
 
         private void CBHouse_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int ID = _userDefinition;
             var selectedHouseItem = sender as ComboBox;
             string name = selectedHouseItem.SelectedItem as string;
             if (CbRoom.SelectedIndex != 0)
@@ -284,6 +285,7 @@ namespace SmartHouse
 
         #endregion
 
+        #region удаление устройств
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
 
@@ -297,7 +299,7 @@ namespace SmartHouse
                 }
             }
         }
+        #endregion
 
-        
     }
 }

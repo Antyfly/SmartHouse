@@ -95,6 +95,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Frame\Add.xaml.cs">
+      <DependentUpon>Add.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frame\Auth.xaml.cs">
       <DependentUpon>Auth.xaml</DependentUpon>
     </Compile>
@@ -152,16 +155,19 @@
     <Compile Include="Entity\Users.cs">
       <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Add.xaml.cs">
-      <DependentUpon>Add.xaml</DependentUpon>
+    <Compile Include="Frame\Profile.xaml.cs">
+      <DependentUpon>Profile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frame\Scenari.xaml.cs">
+      <DependentUpon>Scenari.xaml</DependentUpon>
     </Compile>
     <Compile Include="Help\Validation.cs" />
     <Compile Include="Windows\DarkWindow.xaml.cs">
       <DependentUpon>DarkWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Entity\AppData.cs" />
-    <Compile Include="Windows\Profile.xaml.cs">
-      <DependentUpon>Profile.xaml</DependentUpon>
+    <Compile Include="Windows\NavigationContextMenu.xaml.cs">
+      <DependentUpon>NavigationContextMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Recovery.xaml.cs">
       <DependentUpon>Recovery.xaml</DependentUpon>
@@ -169,11 +175,19 @@
     <Compile Include="Windows\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
+    <Page Include="Frame\Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Frame\Auth.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Add.xaml">
+    <Page Include="Frame\Profile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frame\Scenari.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,7 +211,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Profile.xaml">
+    <Page Include="Windows\NavigationContextMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -252,16 +266,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\Kettle.png" />
-    <Resource Include="Image\Lk.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\Add.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\closes.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\list.png" />
     <Resource Include="Image\logo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -288,6 +297,7 @@
       <DependentUpon>SmartHome.edmx</DependentUpon>
       <LastGenOutput>SmartHome.cs</LastGenOutput>
     </Content>
+    <Resource Include="Image\Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
