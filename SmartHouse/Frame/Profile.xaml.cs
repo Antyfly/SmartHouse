@@ -21,7 +21,7 @@ namespace SmartHouse.Frame
     /// </summary>
     public partial class Profile : Page
     {
-        public string Surname, NameUser, Patronymic;
+        public string Surname, NameUser, Patronymic, Email, Phone, Login, KeyWord;
         public int _user;
         public Profile(int ID)
         {
@@ -33,10 +33,11 @@ namespace SmartHouse.Frame
         public void InfoLK()
         {
             Download();
-
-            LBSurname.Content = Surname + " " + NameUser + " " + Patronymic;
-            //LBName.Content = NameUser;
-            //LBPatronymic.Content = Patronymic;
+            LBFio.Content = Surname + " " + NameUser + " " + Patronymic;
+            LBEmail.Content = Email;
+            LBPhone.Content = Phone;
+            LBLogin.Content = Login;
+            LBWord.Content = KeyWord;
         }
 
         public void Download()
@@ -58,7 +59,32 @@ namespace SmartHouse.Frame
                     where Users.IDUsers == _user
                     select Users.Patronymic;
             Patronymic = Otchesstvo.First();
+
+            IEnumerable<string> Pochta =
+                   from Users in context.Users
+                   where Users.IDUsers == _user
+                   select Users.Email;
+            Email = Pochta.First();
+
+            IEnumerable<string> Telephone =
+                   from Users in context.Users
+                   where Users.IDUsers == _user
+                   select Users.phone;
+            Phone = Telephone.First();
+
+            IEnumerable<string> login =
+                  from UserLogins in context.UserLogins
+                  where UserLogins.IDUsers == _user
+                  select UserLogins.LoginProvider;
+            Login = login.First();
+
+            IEnumerable<string> word =
+                  from UserLogins in context.UserLogins
+                  where UserLogins.IDUsers == _user
+                  select UserLogins.KeyWord;
+            KeyWord = word.First();
         }
+
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Close();

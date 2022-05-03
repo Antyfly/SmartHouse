@@ -186,8 +186,8 @@ namespace SmartHouse
             {
                 var selectionproba = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == name).ToList();
                 ListViewer.ItemsSource = selectionproba;
-
             }
+            
         }
         #endregion
         // НЕ ТРОГАТЬ!!! ОСОБЕННО КОСТЫЛИ
