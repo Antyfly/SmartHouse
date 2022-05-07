@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartHouse"
         mc:Ignorable="d"
-        Title="NavigationContextMenu" Height="500" Width="902" Style="{StaticResource Window}" WindowStartupLocation="CenterScreen">
+        Title="NavigationContextMenu"
+        Height="400"
+        Width="700" Style="{StaticResource Window}" WindowStartupLocation="CenterScreen">
     <Grid>
         
         <Frame x:Name="FrameContextMenu" NavigationUIVisibility="Hidden" Grid.Row="1"/>

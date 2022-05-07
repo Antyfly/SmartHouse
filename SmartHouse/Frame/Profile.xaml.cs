@@ -22,6 +22,12 @@ namespace SmartHouse.Frame
     public partial class Profile : Page
     {
         public string Surname, NameUser, Patronymic, Email, Phone, Login, KeyWord;
+
+        private void ChangeInfoLKButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         public int _user;
         public Profile(int ID)
         {
