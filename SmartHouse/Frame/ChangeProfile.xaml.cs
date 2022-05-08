@@ -42,14 +42,14 @@ namespace SmartHouse.Frame
                                x.phone = TBPhone.Text;
                                return x;
                            });
-                //foreach (UserLogins userLogins1 in userLogins)
-                //{
-                //    context.Entry(userLogins1).State = System.Data.Entity.EntityState.Modified;
-                //    SaveChange();
-                //}
+                foreach (UserLogins userLogins1 in userLogins)
+                {
+                 //   context.Entry(userLogins1).State = System.Data.Entity.EntityState.Modified;
+                    SaveChange();
+                }
                 foreach (Users _user in user)
                 {
-                    context.Entry(_user).State = System.Data.Entity.EntityState.Modified;
+                   // context.Entry(_user).State = System.Data.Entity.EntityState.Modified;
                     SaveChange();
                 }
 

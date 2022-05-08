@@ -97,12 +97,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Frame\Add.xaml.cs">
-      <DependentUpon>Add.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Frame\Auth.xaml.cs">
-      <DependentUpon>Auth.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Entity\Address.cs">
       <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
@@ -156,6 +150,12 @@
     </Compile>
     <Compile Include="Entity\Users.cs">
       <DependentUpon>SmartHome.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Frame\Add.xaml.cs">
+      <DependentUpon>Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frame\Auth.xaml.cs">
+      <DependentUpon>Auth.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frame\ChangeProfile.xaml.cs">
       <DependentUpon>ChangeProfile.xaml</DependentUpon>
@@ -294,7 +294,6 @@
     <Resource Include="Image\LogoReg.png" />
     <Resource Include="Image\LogoWord.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Entity\SmartHome.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -306,6 +305,8 @@
       <DependentUpon>SmartHome.edmx</DependentUpon>
       <LastGenOutput>SmartHome.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Image\Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

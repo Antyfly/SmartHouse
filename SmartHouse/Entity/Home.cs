@@ -26,13 +26,6 @@ namespace SmartHouse.Entity
         public bool Condition { get; set; }
         public string ImagePath { get; set; }
         public int IDOurControllers { get; set; }
-        public string Surname { get; set; }
-        public string Name { get; set; }
-        public string Patronymic { get; set; }
-        public string Email { get; set; }
-        public string phone { get; set; }
-        public Nullable<double> WidthRoom { get; set; }
-        public Nullable<double> HeightRoom { get; set; }
         public int PowerConsumption { get; set; }
     }
 }
