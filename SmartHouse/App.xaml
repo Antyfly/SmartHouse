@@ -5,218 +5,384 @@
              StartupUri="Windows/Authorization.xaml">
     <Application.Resources>
 
-        <Style TargetType="Button" x:Key="ButtonStateMenu">
-            <Setter Property="Background" Value="{x:Null}"/>
-            <Setter Property="Foreground" Value="#FF2F2F2F"/>
-            <Setter Property="BorderBrush" Value="{x:Null}"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="FontWeight" Value="Bold"/>
+        <Style TargetType="Button"
+               x:Key="ButtonStateMenu">
+            <Setter Property="Background"
+                    Value="{x:Null}" />
+            <Setter Property="Foreground"
+                    Value="#FF2F2F2F" />
+            <Setter Property="BorderBrush"
+                    Value="{x:Null}" />
+            <Setter Property="BorderThickness"
+                    Value="0" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="FontFamily"
+                    Value="Franklin Gothic Demi" />
+            <Setter Property="FontSize"
+                    Value="18" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
         </Style>
 
-        <Style TargetType="TextBox" x:Key="TextBoxMenu">
-            <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
-            <Setter Property="FontSize" Value="60"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="SelectionBrush" Value="{x:Null}"/>
-            <Setter Property="Background" Value="{x:Null}"/>
-            <Setter Property="BorderBrush" Value="{x:Null}"/>
-            <Setter Property="BorderThickness" Value="0" />
+        <Style TargetType="TextBox"
+               x:Key="TextBoxMenu">
+            <Setter Property="FontFamily"
+                    Value="Franklin Gothic Demi" />
+            <Setter Property="FontSize"
+                    Value="60" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="SelectionBrush"
+                    Value="{x:Null}" />
+            <Setter Property="Background"
+                    Value="{x:Null}" />
+            <Setter Property="BorderBrush"
+                    Value="{x:Null}" />
+            <Setter Property="BorderThickness"
+                    Value="0" />
         </Style>
 
-        <Style TargetType="PasswordBox" x:Key="PassBoxMenu">
-            <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
-            <Setter Property="FontSize" Value="60"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="SelectionBrush" Value="{x:Null}"/>
-            <Setter Property="Background" Value="{x:Null}"/>
-            <Setter Property="BorderBrush" Value="{x:Null}"/>
-            <Setter Property="BorderThickness" Value="0" />
+        <Style TargetType="PasswordBox"
+               x:Key="PassBoxMenu">
+            <Setter Property="FontFamily"
+                    Value="Franklin Gothic Demi" />
+            <Setter Property="FontSize"
+                    Value="60" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="SelectionBrush"
+                    Value="{x:Null}" />
+            <Setter Property="Background"
+                    Value="{x:Null}" />
+            <Setter Property="BorderBrush"
+                    Value="{x:Null}" />
+            <Setter Property="BorderThickness"
+                    Value="0" />
         </Style>
 
-        <Style TargetType="Label" x:Key="Label">
-            <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="#FF2F2F2F"/>
-            <Setter Property="FontWeight" Value="Bold"/>
+        <Style TargetType="Label"
+               x:Key="Label">
+            <Setter Property="FontFamily"
+                    Value="Franklin Gothic Demi" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+            <Setter Property="Foreground"
+                    Value="#FF2F2F2F" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
         </Style>
 
-        <Style TargetType="Label" x:Key="LabelMini">
-            <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="#FF2F2F2F"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontSize" Value="45"/>
+        <Style TargetType="Label"
+               x:Key="LabelMini">
+            <Setter Property="FontFamily"
+                    Value="Franklin Gothic Demi" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Left" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+            <Setter Property="Foreground"
+                    Value="#FF2F2F2F" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="FontSize"
+                    Value="45" />
         </Style>
 
-        <Style TargetType="Label" x:Key="LabelAcc">
-            <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="#FF2F2F2F"/>
-            <Setter Property="FontWeight" Value="Bold"/>
+        <Style TargetType="Label"
+               x:Key="LabelAcc">
+            <Setter Property="FontFamily"
+                    Value="Franklin Gothic Demi" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+            <Setter Property="Foreground"
+                    Value="#FF2F2F2F" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
         </Style>
 
-        <Style TargetType="Button" x:Key="Button">
-            <Setter Property="BorderBrush" Value="#FF2F2F2F"/>
-            <Setter Property="BorderThickness" Value="5"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="60"/>
-            <Setter Property="Foreground" Value="#FF2F2F2F"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Background" Value="#FFF5F0FF"/>
-            <Setter Property="Width" Value="505"/>
-            <Setter Property="Height" Value="81"/>
-            <Style.Resources >
+        <Style TargetType="Button"
+               x:Key="Button">
+            <Setter Property="BorderBrush"
+                    Value="#FF2F2F2F" />
+            <Setter Property="BorderThickness"
+                    Value="5" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="FontFamily"
+                    Value="Franklin Gothic Demi" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="60" />
+            <Setter Property="Foreground"
+                    Value="#FF2F2F2F" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="Background"
+                    Value="#FFF5F0FF" />
+            <Setter Property="Width"
+                    Value="505" />
+            <Setter Property="Height"
+                    Value="81" />
+            <Style.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="20"/>
-                    <Setter Property="BorderBrush" Value="{x:Null}"/>
+                    <Setter Property="CornerRadius"
+                            Value="20" />
+                    <Setter Property="BorderBrush"
+                            Value="{x:Null}" />
                 </Style>
             </Style.Resources>
         </Style>
 
-        <Style TargetType="Button" x:Key="Power">
-            <Setter Property="BorderBrush" Value="#FFC3CADE"/>
-            <Setter Property="BorderThickness" Value="10"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="60"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Background" Value="#FFF5F0FF"/>
-            <Setter Property="Width" Value="146"/>
-            <Setter Property="Height" Value="152"/>
-            <Style.Resources >
+        <Style TargetType="Button"
+               x:Key="Power">
+            <Setter Property="BorderBrush"
+                    Value="#FFC3CADE" />
+            <Setter Property="BorderThickness"
+                    Value="10" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="FontFamily"
+                    Value="Franklin Gothic Demi" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="60" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="Background"
+                    Value="#FFF5F0FF" />
+            <Setter Property="Width"
+                    Value="146" />
+            <Setter Property="Height"
+                    Value="152" />
+            <Style.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="1000"/>
-                    <Setter Property="BorderBrush" Value="{x:Null}"/>
+                    <Setter Property="CornerRadius"
+                            Value="1000" />
+                    <Setter Property="BorderBrush"
+                            Value="{x:Null}" />
                 </Style>
             </Style.Resources>
         </Style>
 
-        <Style x:Key="{x:Type ContextMenu}" TargetType="{x:Type ContextMenu}">
-            <Setter Property="OverridesDefaultStyle" Value="True"/>
-            <Setter Property="SnapsToDevicePixels" Value="True"/>
-            <Setter Property="Width" Value="275"/>
+        <Style x:Key="{x:Type ContextMenu}"
+               TargetType="{x:Type ContextMenu}">
+            <Setter Property="OverridesDefaultStyle"
+                    Value="True" />
+            <Setter Property="SnapsToDevicePixels"
+                    Value="True" />
+            <Setter Property="Width"
+                    Value="275" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ContextMenu}">
-                        <Border Background="#B2CAB5FE" CornerRadius="7, 7, 8, 8" BorderBrush="#E5CAB5FE" BorderThickness="2">
-                            <StackPanel ClipToBounds="True" Orientation="Vertical" IsItemsHost="True" Margin="5,4,5,4"/>
+                        <Border Background="#B2CAB5FE"
+                                CornerRadius="7, 7, 8, 8"
+                                BorderBrush="#E5CAB5FE"
+                                BorderThickness="2">
+                            <StackPanel ClipToBounds="True"
+                                        Orientation="Vertical"
+                                        IsItemsHost="True"
+                                        Margin="5,4,5,4" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
 
-        <Style TargetType="TabItem" x:Key="TabItem">
-            <Setter Property="BorderBrush" Value="{x:Null}"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="60"/>
-            <Setter Property="Foreground" Value="#FF2F2F2F"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Background" Value="{x:Null}"/>
+        <Style TargetType="TabItem"
+               x:Key="TabItem">
+            <Setter Property="BorderBrush"
+                    Value="{x:Null}" />
+            <Setter Property="BorderThickness"
+                    Value="0" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="FontFamily"
+                    Value="Franklin Gothic Demi" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="60" />
+            <Setter Property="Foreground"
+                    Value="#FF2F2F2F" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="Background"
+                    Value="{x:Null}" />
         </Style>
 
         <!-- ComboBox-->
 
-        <SolidColorBrush x:Key="BorderBrushComboBox" Color="#444" />
+        <SolidColorBrush x:Key="BorderBrushComboBox"
+                         Color="#444" />
 
-        <LinearGradientBrush x:Key="BackgroundBrushComboBox" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="#B2CAB5FE" Offset="0"/>
-            <GradientStop Color="#FFF5F0FF" Offset="1"/>
+        <LinearGradientBrush x:Key="BackgroundBrushComboBox"
+                             EndPoint="0,1"
+                             StartPoint="0,0">
+            <GradientStop Color="#B2CAB5FE"
+                          Offset="0" />
+            <GradientStop Color="#FFF5F0FF"
+                          Offset="1" />
         </LinearGradientBrush>
 
-        <LinearGradientBrush x:Key="BackgroundBrushPopUpComboBox" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="#B2CAB5FE" Offset="1"/>
-            <GradientStop Color="#FFF5F0FF" Offset="0"/>
+        <LinearGradientBrush x:Key="BackgroundBrushPopUpComboBox"
+                             EndPoint="0,1"
+                             StartPoint="0,0">
+            <GradientStop Color="#B2CAB5FE"
+                          Offset="1" />
+            <GradientStop Color="#FFF5F0FF"
+                          Offset="0" />
         </LinearGradientBrush>
 
-        <SolidColorBrush x:Key="ArrowBrushComboBox" Color="#FF2F2F2F" />
+        <SolidColorBrush x:Key="ArrowBrushComboBox"
+                         Color="#FF2F2F2F" />
 
-        <SolidColorBrush x:Key="DisabledBorderBrushComboBox" Color="#FF919191" />
+        <SolidColorBrush x:Key="DisabledBorderBrushComboBox"
+                         Color="#FF919191" />
 
-        <LinearGradientBrush x:Key="DisabledBackgroundComboBox" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="#B2CAB5FE" Offset="0"/>
-            <GradientStop Color="#FFF5F0FF" Offset="0.7"/>
-            <GradientStop Color="#c2c2c2" Offset="1"/>
+        <LinearGradientBrush x:Key="DisabledBackgroundComboBox"
+                             EndPoint="0,1"
+                             StartPoint="0,0">
+            <GradientStop Color="#B2CAB5FE"
+                          Offset="0" />
+            <GradientStop Color="#FFF5F0FF"
+                          Offset="0.7" />
+            <GradientStop Color="#c2c2c2"
+                          Offset="1" />
         </LinearGradientBrush>
 
-        <SolidColorBrush x:Key="DisabledForegroundComboBox" Color="#aaaaaa" />
+        <SolidColorBrush x:Key="DisabledForegroundComboBox"
+                         Color="#aaaaaa" />
 
-        <SolidColorBrush x:Key="HoverBorderBrush" Color="#aaa" />
+        <SolidColorBrush x:Key="HoverBorderBrush"
+                         Color="#aaa" />
 
-        <LinearGradientBrush x:Key="HoverToggleBackground" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="#B2CAB5FE" Offset="0"></GradientStop>
-            <GradientStop Color="#FFF5F0FF" Offset="1"></GradientStop>
+        <LinearGradientBrush x:Key="HoverToggleBackground"
+                             EndPoint="0,1"
+                             StartPoint="0,0">
+            <GradientStop Color="#B2CAB5FE"
+                          Offset="0"></GradientStop>
+            <GradientStop Color="#FFF5F0FF"
+                          Offset="1"></GradientStop>
         </LinearGradientBrush>
 
-        <LinearGradientBrush x:Key="HoverItemComboBox" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="#B2CAB5FE" Offset="0"></GradientStop>
-            <GradientStop Color="#FFF5F0FF" Offset="1"></GradientStop>
+        <LinearGradientBrush x:Key="HoverItemComboBox"
+                             EndPoint="0,1"
+                             StartPoint="0,0">
+            <GradientStop Color="#B2CAB5FE"
+                          Offset="0"></GradientStop>
+            <GradientStop Color="#FFF5F0FF"
+                          Offset="1"></GradientStop>
         </LinearGradientBrush>
 
-        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
+        <ControlTemplate x:Key="ComboBoxToggleButton"
+                         TargetType="ToggleButton">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition Width="24" />
                 </Grid.ColumnDefinitions>
-                <Border x:Name="Border" Grid.ColumnSpan="2" CornerRadius="5" Background="{StaticResource HoverToggleBackground}" 
-                    BorderBrush="{StaticResource BorderBrushComboBox}" BorderThickness="1" />
-                <Border x:Name="BorderToggle" Grid.Column="0" CornerRadius="3,0,0,3" Background="{StaticResource BackgroundBrushComboBox}"
-                    BorderBrush="{StaticResource BorderBrushComboBox}" Margin="1" BorderThickness="0,0,1,0" />
-                <Path x:Name="Arrow" Grid.Column="1" Fill="{StaticResource ArrowBrushComboBox}" HorizontalAlignment="Center" VerticalAlignment="Center"
-                  Data="M -2 0 L 2 4 L 6 0 Z"/>
+                <Border x:Name="Border"
+                        Grid.ColumnSpan="2"
+                        CornerRadius="5"
+                        Background="{StaticResource HoverToggleBackground}"
+                        BorderBrush="{StaticResource BorderBrushComboBox}"
+                        BorderThickness="1" />
+                <Border x:Name="BorderToggle"
+                        Grid.Column="0"
+                        CornerRadius="3,0,0,3"
+                        Background="{StaticResource BackgroundBrushComboBox}"
+                        BorderBrush="{StaticResource BorderBrushComboBox}"
+                        Margin="1"
+                        BorderThickness="0,0,1,0" />
+                <Path x:Name="Arrow"
+                      Grid.Column="1"
+                      Fill="{StaticResource ArrowBrushComboBox}"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Data="M -2 0 L 2 4 L 6 0 Z" />
             </Grid>
             <ControlTemplate.Triggers>
-                <Trigger Property="ToggleButton.IsMouseOver" Value="true">
-                    <Setter TargetName="Border" Property="Background" Value="{StaticResource HoverToggleBackground}" />
-                    <Setter TargetName="Border" Property="BorderThickness" Value="1" />
-                    <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource HoverBorderBrush}" />
+                <Trigger Property="ToggleButton.IsMouseOver"
+                         Value="true">
+                    <Setter TargetName="Border"
+                            Property="Background"
+                            Value="{StaticResource HoverToggleBackground}" />
+                    <Setter TargetName="Border"
+                            Property="BorderThickness"
+                            Value="1" />
+                    <Setter TargetName="Border"
+                            Property="BorderBrush"
+                            Value="{StaticResource HoverBorderBrush}" />
                 </Trigger>
-                <Trigger Property="IsEnabled" Value="False">
-                    <Setter TargetName="Border" Property="Background" Value="{StaticResource DisabledBackgroundComboBox}" />
-                    <Setter TargetName="BorderToggle" Property="Background" Value="{StaticResource DisabledBackgroundComboBox}" />
-                    <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource DisabledBorderBrushComboBox}" />
-                    <Setter Property="Foreground" Value="{StaticResource DisabledForegroundComboBox}"/>
-                    <Setter TargetName="Arrow" Property="Fill" Value="{StaticResource DisabledBorderBrushComboBox}" />
+                <Trigger Property="IsEnabled"
+                         Value="False">
+                    <Setter TargetName="Border"
+                            Property="Background"
+                            Value="{StaticResource DisabledBackgroundComboBox}" />
+                    <Setter TargetName="BorderToggle"
+                            Property="Background"
+                            Value="{StaticResource DisabledBackgroundComboBox}" />
+                    <Setter TargetName="Border"
+                            Property="BorderBrush"
+                            Value="{StaticResource DisabledBorderBrushComboBox}" />
+                    <Setter Property="Foreground"
+                            Value="{StaticResource DisabledForegroundComboBox}" />
+                    <Setter TargetName="Arrow"
+                            Property="Fill"
+                            Value="{StaticResource DisabledBorderBrushComboBox}" />
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
 
-        <ControlTemplate x:Key="ComboBoxTextBox" TargetType="TextBox">
-            <Border x:Name="PART_ContentHost" Focusable="False" Background="{TemplateBinding Background}" />
+        <ControlTemplate x:Key="ComboBoxTextBox"
+                         TargetType="TextBox">
+            <Border x:Name="PART_ContentHost"
+                    Focusable="False"
+                    Background="{TemplateBinding Background}" />
         </ControlTemplate>
 
-        <Style x:Key="{x:Type ComboBox}" TargetType="ComboBox">
-            <Setter Property="Width" Value="Auto"/>
-            <Setter Property="Height" Value="Auto"/>
-            <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Padding" Value="4"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Foreground" Value="#FF2F2F2F"/>
-            <Setter Property="SnapsToDevicePixels" Value="True"/>
-            <Setter Property="IsSynchronizedWithCurrentItem" Value="False"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="OverridesDefaultStyle" Value="true"/>
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
-            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+        <Style x:Key="{x:Type ComboBox}"
+               TargetType="ComboBox">
+            <Setter Property="Width"
+                    Value="Auto" />
+            <Setter Property="Height"
+                    Value="Auto" />
+            <Setter Property="FontFamily"
+                    Value="Franklin Gothic Demi" />
+            <Setter Property="FontSize"
+                    Value="20" />
+            <Setter Property="Padding"
+                    Value="4" />
+            <Setter Property="Margin"
+                    Value="5" />
+            <Setter Property="Foreground"
+                    Value="#FF2F2F2F" />
+            <Setter Property="SnapsToDevicePixels"
+                    Value="True" />
+            <Setter Property="IsSynchronizedWithCurrentItem"
+                    Value="False" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Left" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+            <Setter Property="OverridesDefaultStyle"
+                    Value="true" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
+                    Value="Auto" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
+                    Value="Auto" />
+            <Setter Property="ScrollViewer.CanContentScroll"
+                    Value="true" />
             <Setter Property="ItemsPanel">
                 <Setter.Value>
                     <ItemsPanelTemplate>
-                        <VirtualizingStackPanel IsVirtualizing="True"/>
+                        <VirtualizingStackPanel IsVirtualizing="True" />
                     </ItemsPanelTemplate>
                 </Setter.Value>
             </Setter>
@@ -225,43 +391,91 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="ComboBox">
                         <Grid>
-                            <ToggleButton Name="ToggleButton" Template="{StaticResource ComboBoxToggleButton}" Grid.Column="2" Focusable="false"
-                                      IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}" ClickMode="Press"/>
-                            <ContentPresenter Name="ContentSite" IsHitTestVisible="False" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
-                                          ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Margin="6,3,23,3" VerticalAlignment="Center"
-                                          HorizontalAlignment="Left" />
-                            <TextBox x:Name="PART_EditableTextBox" Style="{x:Null}" Template="{StaticResource ComboBoxTextBox}" HorizontalAlignment="Left" 
-                                 VerticalAlignment="Center" Margin="6,3,23,3" Focusable="True" Background="Transparent" Visibility="Hidden" IsReadOnly="{TemplateBinding IsReadOnly}"/>
-                            <Popup Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsDropDownOpen}" AllowsTransparency="True" Focusable="False"
-                               PopupAnimation="Slide" Margin="3,-8,-3,8">
-                                <Grid Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
-                                    <Border x:Name="DropDownBorder" Background="{StaticResource BackgroundBrushPopUpComboBox}" BorderThickness="1,1,1,1" CornerRadius="3" Margin="0,3,0,3"
-                                        BorderBrush="{StaticResource BorderBrushComboBox}"/>
+                            <ToggleButton Name="ToggleButton"
+                                          Template="{StaticResource ComboBoxToggleButton}"
+                                          Grid.Column="2"
+                                          Focusable="false"
+                                          IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+                                          ClickMode="Press" />
+                            <ContentPresenter Name="ContentSite"
+                                              IsHitTestVisible="False"
+                                              Content="{TemplateBinding SelectionBoxItem}"
+                                              ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                              Margin="6,3,23,3"
+                                              VerticalAlignment="Center"
+                                              HorizontalAlignment="Left" />
+                            <TextBox x:Name="PART_EditableTextBox"
+                                     Style="{x:Null}"
+                                     Template="{StaticResource ComboBoxTextBox}"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Center"
+                                     Margin="6,3,23,3"
+                                     Focusable="True"
+                                     Background="Transparent"
+                                     Visibility="Hidden"
+                                     IsReadOnly="{TemplateBinding IsReadOnly}" />
+                            <Popup Name="Popup"
+                                   Placement="Bottom"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   AllowsTransparency="True"
+                                   Focusable="False"
+                                   PopupAnimation="Slide"
+                                   Margin="3,-8,-3,8">
+                                <Grid Name="DropDown"
+                                      SnapsToDevicePixels="True"
+                                      MinWidth="{TemplateBinding ActualWidth}"
+                                      MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border x:Name="DropDownBorder"
+                                            Background="{StaticResource BackgroundBrushPopUpComboBox}"
+                                            BorderThickness="1,1,1,1"
+                                            CornerRadius="3"
+                                            Margin="0,3,0,3"
+                                            BorderBrush="{StaticResource BorderBrushComboBox}" />
                                     <!--***Scroll***-->
-                                    <ScrollViewer Margin="0,3" SnapsToDevicePixels="True">
-                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    <ScrollViewer Margin="0,3"
+                                                  SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True"
+                                                    KeyboardNavigation.DirectionalNavigation="Contained" />
                                     </ScrollViewer>
                                 </Grid>
                             </Popup>
                         </Grid>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="HasItems" Value="false">
-                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                            <Trigger Property="HasItems"
+                                     Value="false">
+                                <Setter TargetName="DropDownBorder"
+                                        Property="MinHeight"
+                                        Value="95" />
                             </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Foreground" Value="{StaticResource DisabledForegroundComboBox}"/>
-                                <Setter Property="Background" Value="{StaticResource DisabledBackgroundComboBox}"/>
-                                <Setter Property="Opacity" Value="0.72"/>
+                            <Trigger Property="IsEnabled"
+                                     Value="false">
+                                <Setter Property="Foreground"
+                                        Value="{StaticResource DisabledForegroundComboBox}" />
+                                <Setter Property="Background"
+                                        Value="{StaticResource DisabledBackgroundComboBox}" />
+                                <Setter Property="Opacity"
+                                        Value="0.72" />
                             </Trigger>
-                            <Trigger Property="IsGrouping" Value="true">
-                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            <Trigger Property="IsGrouping"
+                                     Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll"
+                                        Value="false" />
                             </Trigger>
-                            <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="true">
+                            <Trigger SourceName="Popup"
+                                     Property="Popup.AllowsTransparency"
+                                     Value="true">
                             </Trigger>
-                            <Trigger Property="IsEditable" Value="true">
-                                <Setter Property="IsTabStop" Value="false"/>
-                                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
-                                <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                            <Trigger Property="IsEditable"
+                                     Value="true">
+                                <Setter Property="IsTabStop"
+                                        Value="false" />
+                                <Setter TargetName="PART_EditableTextBox"
+                                        Property="Visibility"
+                                        Value="Visible" />
+                                <Setter TargetName="ContentSite"
+                                        Property="Visibility"
+                                        Value="Hidden" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -272,44 +486,81 @@
         </Style>
 
         <!-- ComboBoxItem -->
-        <Style x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
-            <Setter Property="SnapsToDevicePixels" Value="true"/>
-            <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Style x:Key="{x:Type ComboBoxItem}"
+               TargetType="ComboBoxItem">
+            <Setter Property="SnapsToDevicePixels"
+                    Value="true" />
+            <Setter Property="OverridesDefaultStyle"
+                    Value="true" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ComboBoxItem">
-                        <Border Name="Border" Padding="2" BorderThickness="1" SnapsToDevicePixels="true">
+                        <Border Name="Border"
+                                Padding="2"
+                                BorderThickness="1"
+                                SnapsToDevicePixels="true">
                             <ContentPresenter />
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsHighlighted" Value="true">
-                                <Setter TargetName="Border" Property="Background" Value="{StaticResource HoverItemComboBox}"/>
+                            <Trigger Property="IsHighlighted"
+                                     Value="true">
+                                <Setter TargetName="Border"
+                                        Property="Background"
+                                        Value="{StaticResource HoverItemComboBox}" />
                             </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Foreground" Value="{StaticResource DisabledForegroundComboBox}"/>
+                            <Trigger Property="IsEnabled"
+                                     Value="false">
+                                <Setter Property="Foreground"
+                                        Value="{StaticResource DisabledForegroundComboBox}" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
- 
-        <Style x:Key="Window" TargetType="Window">
-            <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
-            <Setter Property="Background" Value="#FFF5F0FF"/>
-            <Setter Property="Height" Value="750"/>
-            <Setter Property="Width" Value="1412"/>
-            <Setter Property="WindowStyle" Value="None"/>
-            <Setter Property="ResizeMode" Value="NoResize"/>
-            <Setter Property="Icon" Value="/Image/Icon.png"/>
+
+        <Style x:Key="Window"
+               TargetType="Window">
+            <Setter Property="FontFamily"
+                    Value="Franklin Gothic Demi" />
+            <Setter Property="Background"
+                    Value="#FFF5F0FF" />
+            <Setter Property="Height"
+                    Value="750" />
+            <Setter Property="Width"
+                    Value="1412" />
+            <Setter Property="WindowStyle"
+                    Value="None" />
+            <Setter Property="ResizeMode"
+                    Value="NoResize" />
+            <Setter Property="Icon"
+                    Value="/Image/Icon.png" />
         </Style>
 
-        <Style x:Key="BorderReg" TargetType="Border">
-            <Setter Property="BorderBrush" Value="#FF2F2F2F"/>
-            <Setter Property="BorderThickness" Value="6"/>
-            <Setter Property="CornerRadius" Value="15"/>
-            <Setter Property="Height" Value="45"/>
-            <Setter Property="Width" Value="250"/>
+        <Style x:Key="BorderReg"
+               TargetType="Border">
+            <Setter Property="BorderBrush"
+                    Value="#FF2F2F2F" />
+            <Setter Property="BorderThickness"
+                    Value="6" />
+            <Setter Property="CornerRadius"
+                    Value="15" />
+            <Setter Property="Height"
+                    Value="45" />
+            <Setter Property="Width"
+                    Value="250" />
+        </Style>
+
+        <Style x:Key="BorderProfile"
+               TargetType="Border">
+            <Setter Property="BorderBrush"
+                    Value="#FF2F2F2F" />
+            <Setter Property="BorderThickness"
+                    Value="2" />
+            <Setter Property="CornerRadius"
+                    Value="5" />
+            <Setter Property="Height"
+                    Value="30" />
         </Style>
     </Application.Resources>
 </Application>

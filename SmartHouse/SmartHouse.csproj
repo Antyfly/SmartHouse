@@ -56,7 +56,9 @@
     <Reference Include="Microsoft.Toolkit, Version=7.1.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Toolkit.7.1.2\lib\netstandard2.0\Microsoft.Toolkit.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -155,6 +157,9 @@
     <Compile Include="Entity\Users.cs">
       <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
+    <Compile Include="Frame\ChangeProfile.xaml.cs">
+      <DependentUpon>ChangeProfile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frame\Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
@@ -180,6 +185,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frame\Auth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frame\ChangeProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

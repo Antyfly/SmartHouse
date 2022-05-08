@@ -25,7 +25,14 @@ namespace SmartHouse.Frame
 
         private void ChangeInfoLKButton_Click(object sender, RoutedEventArgs e)
         {
-
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() == typeof(NavigationContextMenu))
+                {
+                    (window as NavigationContextMenu).FrameContextMenu.Content = new ChangeProfile(_user);
+                }
+            }
+            
         }
 
         public int _user;

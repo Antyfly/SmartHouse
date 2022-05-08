@@ -124,6 +124,10 @@
 предупреждение 6002: В таблице или представлении "SmartHome.dbo.Home" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="Home">
           <Key>
+            <PropertyRef Name="Surname" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="phone" />
             <PropertyRef Name="FlatName" />
             <PropertyRef Name="IDUser" />
             <PropertyRef Name="Size" />
@@ -137,11 +141,18 @@
             <PropertyRef Name="IDOurControllers" />
             <PropertyRef Name="PowerConsumption" />
           </Key>
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="16" Nullable="false" />
           <Property Name="FlatName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IDUser" Type="int" Nullable="false" />
           <Property Name="Size" Type="float" Nullable="false" />
           <Property Name="IDFlat" Type="int" Nullable="false" />
           <Property Name="NameRoom" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="WidthRoom" Type="float" />
+          <Property Name="HeightRoom" Type="float" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IDTypeConnection" Type="int" Nullable="false" />
           <Property Name="IDDevice" Type="int" Nullable="false" />
@@ -286,11 +297,18 @@
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Home" EntityType="Self.Home" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [Home].[Surname] AS [Surname], 
+    [Home].[Name] AS [Name], 
+    [Home].[Patronymic] AS [Patronymic], 
+    [Home].[Email] AS [Email], 
+    [Home].[phone] AS [phone], 
     [Home].[FlatName] AS [FlatName], 
     [Home].[IDUser] AS [IDUser], 
     [Home].[Size] AS [Size], 
     [Home].[IDFlat] AS [IDFlat], 
     [Home].[NameRoom] AS [NameRoom], 
+    [Home].[WidthRoom] AS [WidthRoom], 
+    [Home].[HeightRoom] AS [HeightRoom], 
     [Home].[Title] AS [Title], 
     [Home].[IDTypeConnection] AS [IDTypeConnection], 
     [Home].[IDDevice] AS [IDDevice], 
@@ -494,6 +512,10 @@
             <PropertyRef Name="IDRoom" />
             <PropertyRef Name="Condition" />
             <PropertyRef Name="IDOurControllers" />
+            <PropertyRef Name="Surname" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="phone" />
             <PropertyRef Name="PowerConsumption" />
           </Key>
           <Property Name="FlatName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -508,6 +530,13 @@
           <Property Name="Condition" Type="Boolean" Nullable="false" />
           <Property Name="ImagePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="IDOurControllers" Type="Int32" Nullable="false" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="WidthRoom" Type="Double" />
+          <Property Name="HeightRoom" Type="Double" />
           <Property Name="PowerConsumption" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_ApartmentAddress_Address">
@@ -822,6 +851,13 @@
             <EntityTypeMapping TypeName="SmartHomeModel.Home">
               <MappingFragment StoreEntitySet="Home">
                 <ScalarProperty Name="PowerConsumption" ColumnName="PowerConsumption" />
+                <ScalarProperty Name="HeightRoom" ColumnName="HeightRoom" />
+                <ScalarProperty Name="WidthRoom" ColumnName="WidthRoom" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="FlatName" ColumnName="FlatName" />
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
                 <ScalarProperty Name="Size" ColumnName="Size" />
