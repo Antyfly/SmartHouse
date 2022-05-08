@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:SmartHouse.Frame"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d"
       d:DesignHeight="400"
       d:DesignWidth="700"
@@ -80,12 +81,17 @@
                                 HorizontalAlignment="Left"
                                 Width="280"
                                 Margin="5,0,0,0">
-                            <TextBox x:Name="TBPhone"
-                                     Style="{StaticResource TextBoxMenu}"
-                                     Foreground="#FF2F2F2F"
-                                     Margin="4,1,4,0"
-                                     FontSize="20"
-                                     VerticalAlignment="Top" />
+                            <xctk:MaskedTextBox  x:Name="TBPhone"
+                                                 FontSize="20"
+                                                 Grid.Column="1"
+                                                 Grid.Row="1"
+                                                 Mask="+7(000)000-00-00"
+                                                 Background="{x:Null}"
+                                                 BorderBrush="{x:Null}"
+                                                 Foreground="#FF2F2F2F"
+                                                 Margin="4,0,4,0"
+                                                 BorderThickness="0"
+                                                 FontFamily="Franklin Gothic Demi" />
                         </Border>
                     </StackPanel>
                 </Grid>

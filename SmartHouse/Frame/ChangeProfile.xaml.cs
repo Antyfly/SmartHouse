@@ -23,6 +23,7 @@ namespace SmartHouse.Frame
     public partial class ChangeProfile : Page
     {
         public string Surname, NameUser, Patronymic, Email, Phone, Login, KeyWord;
+        private int _IdUser;
 
         private void ChangeInfoLKButton_Click(object sender, RoutedEventArgs e)
         {
@@ -44,15 +45,13 @@ namespace SmartHouse.Frame
                            });
                 foreach (UserLogins userLogins1 in userLogins)
                 {
-                 //   context.Entry(userLogins1).State = System.Data.Entity.EntityState.Modified;
-                    SaveChange();
+                     context.Entry(userLogins1).State = System.Data.Entity.EntityState.Modified;
                 }
                 foreach (Users _user in user)
                 {
-                   // context.Entry(_user).State = System.Data.Entity.EntityState.Modified;
-                    SaveChange();
+                    context.Entry(_user).State = System.Data.Entity.EntityState.Modified;
                 }
-
+                SaveChange();
                 if (MessageBox.Show("Данные изменены",
                    "Информация", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
                 {
@@ -72,7 +71,7 @@ namespace SmartHouse.Frame
             }
         }
 
-        private int _IdUser;
+      
         public ChangeProfile( int IDUser)
         {
             InitializeComponent();

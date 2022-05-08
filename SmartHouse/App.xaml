@@ -195,7 +195,7 @@
         </Style>
 
         <Style TargetType="TabItem"
-               x:Key="TabItem">
+               x:Key="Item">
             <Setter Property="BorderBrush"
                     Value="{x:Null}" />
             <Setter Property="BorderThickness"

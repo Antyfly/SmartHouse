@@ -6,90 +6,220 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:SmartHouse"
         mc:Ignorable="d"
-        Title="Registration" WindowStartupLocation="CenterScreen" Style="{StaticResource Window}" >
+        Title="Registration"
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource Window}">
 
     <Window.Background>
-        <LinearGradientBrush SpreadMethod="Repeat" StartPoint="0,0" EndPoint="0,1">
+        <LinearGradientBrush SpreadMethod="Repeat"
+                             StartPoint="0,0"
+                             EndPoint="0,1">
             <LinearGradientBrush.RelativeTransform>
                 <TransformGroup>
-                    <RotateTransform Angle="-69"/>
-                    <TranslateTransform/>
+                    <RotateTransform Angle="-69" />
+                    <TranslateTransform />
                 </TransformGroup>
             </LinearGradientBrush.RelativeTransform>
-            <GradientStop Color="#FFCAB5FE" Offset="0.30"/>
-            <GradientStop Color="#FFF5F0FF" Offset="0.30"/>
+            <GradientStop Color="#FFCAB5FE"
+                          Offset="0.30" />
+            <GradientStop Color="#FFF5F0FF"
+                          Offset="0.30" />
         </LinearGradientBrush>
     </Window.Background>
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Margin="15,30,0,0" Grid.ColumnSpan="2" >
-            <Image x:Name="logo" Source="/Image/LogoReg.png" Width="274" Height="194" RenderTransformOrigin="0.349,0.776"/>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Grid.Column="0"
+                    Margin="15,30,0,0"
+                    Grid.ColumnSpan="2">
+            <Image x:Name="logo"
+                   Source="/Image/LogoReg.png"
+                   Width="274"
+                   Height="194"
+                   RenderTransformOrigin="0.349,0.776" />
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="4" Margin="15,30,15,15" Grid.ColumnSpan="2" >
-            <Image x:Name="logoWord" Source="/Image/LogoWord.png" Width="289" Height="194" RenderTransformOrigin="0.349,0.776"/>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Grid.Column="4"
+                    Margin="15,30,15,15"
+                    Grid.ColumnSpan="2">
+            <Image x:Name="logoWord"
+                   Source="/Image/LogoWord.png"
+                   Width="289"
+                   Height="194"
+                   RenderTransformOrigin="0.349,0.776" />
         </StackPanel>
-        
-        <StackPanel Orientation="Vertical" Grid.Column="5">
-            <Button x:Name="Close" Width="40" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" IsCancel="True" Panel.ZIndex="1"  Style="{StaticResource ButtonStateMenu}">
-                <Image Source="/Image/closes.png"/>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Column="5">
+            <Button x:Name="Close"
+                    Width="40"
+                    Height="40"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    IsCancel="True"
+                    Panel.ZIndex="1"
+                    Style="{StaticResource ButtonStateMenu}">
+                <Image Source="/Image/closes.png" />
             </Button>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Grid.Column="0"  Grid.ColumnSpan="6" Height="auto" Width="600" HorizontalAlignment="Center">
-            <Label Content="Регистрация" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Style="{StaticResource Label}"/>
-            <Label Content="Имя" Style="{StaticResource LabelMini}" HorizontalAlignment="Left" Margin="35,-10,0,0" FontSize="25"/>
-            <Label Content="Отчество" Style="{StaticResource LabelMini}" Margin="300,-45,0,0" FontSize="25"/>
-            <Border Style="{StaticResource BorderReg}" Margin="40,5,0,0" HorizontalAlignment="Left">
-                <TextBox x:Name="Name"  Style="{StaticResource TextBoxMenu}" Foreground="#FF2F2F2F" Margin="4,1,4,0" FontSize="30" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Vertical"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="6"
+                    Height="auto"
+                    Width="600"
+                    HorizontalAlignment="Center">
+            <Label Content="Регистрация"
+                   FontSize="60"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Top"
+                   Style="{StaticResource Label}" />
+            <Label Content="Имя"
+                   Style="{StaticResource LabelMini}"
+                   HorizontalAlignment="Left"
+                   Margin="35,-10,0,0"
+                   FontSize="25" />
+            <Label Content="Отчество"
+                   Style="{StaticResource LabelMini}"
+                   Margin="300,-45,0,0"
+                   FontSize="25" />
+            <Border Style="{StaticResource BorderReg}"
+                    Margin="40,5,0,0"
+                    HorizontalAlignment="Left">
+                <TextBox x:Name="Name"
+                         Style="{StaticResource TextBoxMenu}"
+                         Foreground="#FF2F2F2F"
+                         Margin="4,1,4,0"
+                         FontSize="30"
+                         VerticalAlignment="Top" />
             </Border>
 
-            <Border Style="{StaticResource BorderReg}" Margin="253,-45,0,0" >
-                <TextBox x:Name="Patronymic"  Style="{StaticResource TextBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0" FontSize="30"/>
+            <Border Style="{StaticResource BorderReg}"
+                    Margin="253,-45,0,0">
+                <TextBox x:Name="Patronymic"
+                         Style="{StaticResource TextBoxMenu}"
+                         Foreground="#FF2F2F2F"
+                         Margin="4,0,4,0"
+                         FontSize="30" />
             </Border>
 
-            <Label Content="Фамилия" Style="{StaticResource LabelMini}" Margin="35,0,0,0" FontSize="25"/>
-            <Border  Style="{StaticResource BorderReg}" Width="518" Margin="40,5,0,0" HorizontalAlignment="Left" >
-                <TextBox x:Name="Surname"  Style="{StaticResource TextBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0" FontSize="30"/>
+            <Label Content="Фамилия"
+                   Style="{StaticResource LabelMini}"
+                   Margin="35,0,0,0"
+                   FontSize="25" />
+            <Border  Style="{StaticResource BorderReg}"
+                     Width="518"
+                     Margin="40,5,0,0"
+                     HorizontalAlignment="Left">
+                <TextBox x:Name="Surname"
+                         Style="{StaticResource TextBoxMenu}"
+                         Foreground="#FF2F2F2F"
+                         Margin="4,0,4,0"
+                         FontSize="30" />
             </Border>
 
-            <Label Content="Почта" Style="{StaticResource LabelMini}" Margin="35,0,0,0" FontSize="30"/>
-            <Border  Style="{StaticResource BorderReg}" Width="518" Margin="40,5,0,0" HorizontalAlignment="Left" >
-                <TextBox x:Name="Email"  Style="{StaticResource TextBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0" FontSize="30"/>
+            <Label Content="Почта"
+                   Style="{StaticResource LabelMini}"
+                   Margin="35,0,0,0"
+                   FontSize="30" />
+            <Border  Style="{StaticResource BorderReg}"
+                     Width="518"
+                     Margin="40,5,0,0"
+                     HorizontalAlignment="Left">
+                <TextBox x:Name="Email"
+                         Style="{StaticResource TextBoxMenu}"
+                         Foreground="#FF2F2F2F"
+                         Margin="4,0,4,0"
+                         FontSize="30" />
             </Border>
 
-            <Label Content="Телефон" Style="{StaticResource LabelMini}" Margin="35,0,0,0" FontSize="30"/>
-            <Border  Style="{StaticResource BorderReg}" Width="518" Margin="40,5,0,0" HorizontalAlignment="Left" >
-                <xctk:MaskedTextBox  x:Name="phone" FontSize="30" Grid.Column="1" Grid.Row="1" Mask="+7(000)000-00-00" Background="{x:Null}"  BorderBrush="{x:Null}"  Foreground="#FF2F2F2F" Margin="4,0,4,0" BorderThickness ="0" />
+            <Label Content="Телефон"
+                   Style="{StaticResource LabelMini}"
+                   Margin="35,0,0,0"
+                   FontSize="30" />
+            <Border  Style="{StaticResource BorderReg}"
+                     Width="518"
+                     Margin="40,5,0,0"
+                     HorizontalAlignment="Left">
+                <xctk:MaskedTextBox  x:Name="phone"
+                                     FontSize="30"
+                                     Grid.Column="1"
+                                     Grid.Row="1"
+                                     Mask="+7(000)000-00-00"
+                                     Background="{x:Null}"
+                                     BorderBrush="{x:Null}"
+                                     Foreground="#FF2F2F2F"
+                                     Margin="4,0,4,0"
+                                     BorderThickness="0" />
             </Border>
 
-            <Label Content="Пароль" Style="{StaticResource LabelMini}" Margin="35,0,0,0" FontSize="30"/>
-            <Border  Style="{StaticResource BorderReg}" Width="518" Margin="40,5,0,0" HorizontalAlignment="Left" >
-                <PasswordBox x:Name="PassText"  Style="{StaticResource PassBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0" FontSize="30">
+            <Label Content="Пароль"
+                   Style="{StaticResource LabelMini}"
+                   Margin="35,0,0,0"
+                   FontSize="30" />
+            <Border  Style="{StaticResource BorderReg}"
+                     Width="518"
+                     Margin="40,5,0,0"
+                     HorizontalAlignment="Left">
+                <PasswordBox x:Name="PassText"
+                             Style="{StaticResource PassBoxMenu}"
+                             Foreground="#FF2F2F2F"
+                             Margin="4,0,4,0"
+                             FontSize="30">
                     <PasswordBox.ToolTip>
-                        <ToolTip Width="350" Height="50">
+                        <ToolTip Width="350"
+                                 Height="50">
                             <Label Content="от 8 символов, минимум одна: заглавная, строчная буквы, спец.символ" />
                         </ToolTip>
                     </PasswordBox.ToolTip>
                 </PasswordBox>
             </Border>
 
-            <Label Content="Кодовое слово" Style="{StaticResource LabelMini}" Margin="35,0,0,0" FontSize="30"/>
-            <Border  Style="{StaticResource BorderReg}" Width="518" Margin="40,5,0,0" HorizontalAlignment="Left" >
-                <TextBox x:Name="Codeword"  Style="{StaticResource TextBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0" FontSize="30"/>
+            <Label Content="Кодовое слово"
+                   Style="{StaticResource LabelMini}"
+                   Margin="35,0,0,0"
+                   FontSize="30" />
+            <Border  Style="{StaticResource BorderReg}"
+                     Width="518"
+                     Margin="40,5,0,0"
+                     HorizontalAlignment="Left">
+                <TextBox x:Name="Codeword"
+                         Style="{StaticResource TextBoxMenu}"
+                         Foreground="#FF2F2F2F"
+                         Margin="4,0,4,0"
+                         FontSize="30" />
             </Border>
 
-            <Button x:Name="btnRegistr" Margin="40,15,0,0" Content="Зарегистрироваться" Click="btnRegistr_Click" Style="{StaticResource Button}" HorizontalAlignment="Left" Width="518" FontSize="30" Height="55"/>
-            <Label  FontSize="20"  Style="{StaticResource Label}" Width="504" Margin="50,10,0,0" HorizontalAlignment="Left" HorizontalContentAlignment="Center" MouseLeftButtonUp="Label_MouseLeftButtonUp">
+            <Button x:Name="btnRegistr"
+                    Margin="40,15,0,0"
+                    Content="Зарегистрироваться"
+                    Click="btnRegistr_Click"
+                    Style="{StaticResource Button}"
+                    HorizontalAlignment="Left"
+                    Width="518"
+                    FontSize="30"
+                    Height="55" />
+            <Label  FontSize="20"
+                    Style="{StaticResource Label}"
+                    Width="504"
+                    Margin="50,10,0,0"
+                    HorizontalAlignment="Left"
+                    HorizontalContentAlignment="Center"
+                    MouseLeftButtonUp="Label_MouseLeftButtonUp">
                 <TextBlock TextDecorations="Underline">Вернуться назад</TextBlock>
             </Label>
         </StackPanel>

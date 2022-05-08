@@ -42,7 +42,7 @@
                 <Label Content="Логин:"   Style="{StaticResource LabelMini}" Margin="55,10,0,0" Width="554"/>
 
                 <Border BorderBrush="#FF2F2F2F" BorderThickness="6" CornerRadius="15" Height="81" Width="505" Background="#00B875DA" Margin="0,15,0,0">
-                    <TextBox x:Name="Login" Text="nataliya.maksimushkina"  Style="{StaticResource TextBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0" />
+                    <TextBox x:Name="Login" Text="nataliya.maksimushkina@yandex.ru"  Style="{StaticResource TextBoxMenu}" Foreground="#FF2F2F2F" Margin="4,0,4,0" />
                 </Border>
 
                 <Label Content="Пароль:"   Style="{StaticResource LabelMini}" Margin="55,10,0,0" Width="554"/>
