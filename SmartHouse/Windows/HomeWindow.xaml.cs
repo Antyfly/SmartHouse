@@ -57,8 +57,8 @@ namespace SmartHouse
         
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-        //    DarkWindow dark = new DarkWindow();
-        //    dark.Show();
+            //DarkWindow dark = new DarkWindow();
+            //dark.Show();
             string name = "Добавление";
             NavigationContextMenu add = new NavigationContextMenu(name,_userDefinition);
             add.ShowDialog();

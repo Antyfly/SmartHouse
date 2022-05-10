@@ -39,11 +39,11 @@ namespace SmartHouse
             }
             else if (nameCM == "Сценарии")
             {
-                FrameContextMenu.Content = new Scenari();
+                FrameContextMenu.Content = new Scenari(IDUsers);
             }
             else if (nameCM == "Добавление")
             {
-                FrameContextMenu.Content = new Add();
+                FrameContextMenu.Content = new Add(IDUsers);
             }
         }
         

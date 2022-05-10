@@ -5,106 +5,242 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartHouse"
         mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen" Style="{StaticResource Window}" FontSize="20">
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource Window}"
+        FontSize="20">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition  Height="40"/>
-            <RowDefinition  Height="*"/>
+            <RowDefinition  Height="40" />
+            <RowDefinition  Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel x:Name="UpBar" Orientation="Horizontal" Background="#FFCAB5FE" Grid.Row="0" VerticalAlignment="Top" x:FieldModifier="public" >
-            <ComboBox x:Name="CBHouse" Grid.Row="1"  Background="Black" BorderBrush="Black"  SelectionChanged = "CBHouse_SelectionChanged" Grid.Column="0" Width="228"/>
+        <StackPanel x:Name="UpBar"
+                    Orientation="Horizontal"
+                    Background="#FFCAB5FE"
+                    Grid.Row="0"
+                    VerticalAlignment="Top"
+                    x:FieldModifier="public">
+            <ComboBox x:Name="CBHouse"
+                      Grid.Row="1"
+                      Background="Black"
+                      BorderBrush="Black"
+                      SelectionChanged="CBHouse_SelectionChanged"
+                      Grid.Column="0"
+                      Width="228" />
         </StackPanel>
 
-        <StackPanel Grid.Row="0" VerticalAlignment="Center">
-            <Button x:Name="Lk" Content="Личный кабинет" Height="40" Panel.ZIndex="1" FontSize="35" VerticalContentAlignment="Center" HorizontalAlignment="Right" Margin="0,0,100,0" Style="{StaticResource ButtonStateMenu}" Click="Lk_Click">
+        <StackPanel Grid.Row="0"
+                    VerticalAlignment="Center">
+            <Button x:Name="Lk"
+                    Content="Личный кабинет"
+                    Height="40"
+                    Panel.ZIndex="1"
+                    FontSize="35"
+                    VerticalContentAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,100,0"
+                    Style="{StaticResource ButtonStateMenu}"
+                    Click="Lk_Click">
                 <Button.ContextMenu>
-                    <ContextMenu >
-                        <MenuItem Foreground="#FF2F2F2F" Header="Профиль" Click="Profile_click" />
-                        <MenuItem Foreground="#FF2F2F2F" Header="Сценарии" Click="Scenarios_Click" />
-                        <MenuItem Foreground="#FF2F2F2F" Header="Добавить" Click="Add_Click"/>
-                        <MenuItem Foreground="#FF2F2F2F" Header="Выйти" Click="ExitProfile_Click"/>
+                    <ContextMenu>
+                        <MenuItem Foreground="#FF2F2F2F"
+                                  Header="Профиль"
+                                  Click="Profile_click" />
+                        <MenuItem Foreground="#FF2F2F2F"
+                                  Header="Сценарии"
+                                  Click="Scenarios_Click" />
+                        <MenuItem Foreground="#FF2F2F2F"
+                                  Header="Добавить"
+                                  Click="Add_Click" />
+                        <MenuItem Foreground="#FF2F2F2F"
+                                  Header="Выйти"
+                                  Click="ExitProfile_Click" />
                     </ContextMenu>
                 </Button.ContextMenu>
             </Button>
 
-            <Button x:Name="Close" Width="40" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right"  IsCancel="True" Panel.ZIndex="1" Margin="0,-40,0,0"  Style="{StaticResource ButtonStateMenu}" Click="Close_Click">
-                <Image Source="/Image/closes.png"/>
+            <Button x:Name="Close"
+                    Width="40"
+                    Height="40"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    IsCancel="True"
+                    Panel.ZIndex="1"
+                    Margin="0,-40,0,0"
+                    Style="{StaticResource ButtonStateMenu}"
+                    Click="Close_Click">
+                <Image Source="/Image/closes.png" />
             </Button>
         </StackPanel>
 
 
-        <Grid Grid.Row="1" Background="#FFF5F0FF" >
+        <Grid Grid.Row="1"
+              Background="#FFF5F0FF">
             <Grid.RowDefinitions>
-                <RowDefinition  Height="40"/>
-                <RowDefinition  Height="40"/>
-                <RowDefinition  Height="*"/>
+                <RowDefinition  Height="40" />
+                <RowDefinition  Height="40" />
+                <RowDefinition  Height="*" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="131*"/>
-                <ColumnDefinition Width="625*"/>
-                <ColumnDefinition Width="756*"/>
+                <ColumnDefinition Width="131*" />
+                <ColumnDefinition Width="625*" />
+                <ColumnDefinition Width="756*" />
             </Grid.ColumnDefinitions>
 
-            <ComboBox x:Name="CbRoom" Grid.Row="1" Background="Black" BorderBrush="Black"  SelectionChanged = "CbRoom_SelectionChanged" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,5,0,5" Width="228" />
-            <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
-            <ListView x:Name="ListViewer" Grid.Row="2" Background="Transparent"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="10,10,10,10" BorderBrush="{x:Null}" Foreground="Black" Grid.Column="0" MouseDoubleClick="ListViewer_MouseDoubleClick" Grid.ColumnSpan="2" SelectionChanged="ListViewer_SelectionChanged">
+            <ComboBox x:Name="CbRoom"
+                      Grid.Row="1"
+                      SelectionChanged="CbRoom_SelectionChanged"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="2"
+                      HorizontalAlignment="Center"
+                      Margin="0,5,0,5"
+                      Width="228" />
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          CanContentScroll="True"
+                          Grid.Column="0"
+                          Grid.Row="2"
+                          Grid.ColumnSpan="2" />
+            <ListView x:Name="ListViewer"
+                      Grid.Row="2"
+                      Background="Transparent"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      Margin="10,10,10,10"
+                      BorderBrush="{x:Null}"
+                      Foreground="Black"
+                      Grid.Column="0"
+                      MouseDoubleClick="ListViewer_MouseDoubleClick"
+                      Grid.ColumnSpan="2"
+                      SelectionChanged="ListViewer_SelectionChanged">
                 <ListView.ContextMenu>
                     <ContextMenu>
-                        <MenuItem x:Name="Delete" Header="Удалить" Click="Delete_Click"/>
+                        <MenuItem x:Name="Delete"
+                                  Header="Удалить"
+                                  Click="Delete_Click" />
                     </ContextMenu>
                 </ListView.ContextMenu>
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel Margin="10"/>
+                        <WrapPanel Margin="10" />
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Border Margin="10" Width="200" Height="220" BorderBrush="#FF2F2F2F" BorderThickness="1" CornerRadius="10" Padding="5">
+                        <Border Margin="10"
+                                Width="200"
+                                Height="220"
+                                BorderBrush="#FF2F2F2F"
+                                BorderThickness="1"
+                                CornerRadius="10"
+                                Padding="5">
                             <StackPanel>
-                                <Border Width="120" Height="130" CornerRadius="5" Margin="5">
+                                <Border Width="120"
+                                        Height="130"
+                                        CornerRadius="5"
+                                        Margin="5">
                                     <Border.Effect>
-                                        <DropShadowEffect ShadowDepth="1"/>
+                                        <DropShadowEffect ShadowDepth="1" />
                                     </Border.Effect>
-                                    <Image Source="{Binding ImagePath}"/>
+                                    <Image Source="{Binding ImagePath}" />
                                 </Border>
-                                <Label Content="{Binding Title}" HorizontalContentAlignment="Left"/>
-                                <Label Margin="0,-5,0,0" x:Name="Station" Content="{Binding NameRoom}" HorizontalContentAlignment="Left"/>
+                                <Label Content="{Binding Title}"
+                                       HorizontalContentAlignment="Left" />
+                                <Label Margin="0,-5,0,0"
+                                       x:Name="Station"
+                                       Content="{Binding NameRoom}"
+                                       HorizontalContentAlignment="Left" />
                             </StackPanel>
                         </Border>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Label x:Name="TxtInfo" Content="Выберите устройство для просмотра информации" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource  Label}" FontSize="23" Visibility="Hidden"/>
+            <Label x:Name="TxtInfo"
+                   Content="Выберите устройство для просмотра информации"
+                   Grid.Row="2"
+                   Grid.Column="2"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Style="{StaticResource  Label}"
+                   FontSize="23"
+                   Visibility="Hidden" />
 
-            <Grid Grid.Column="2" Grid.Row="2" Visibility="Visible" x:Name="Info">
+            <Grid Grid.Column="2"
+                  Grid.Row="2"
+                  Visibility="Visible"
+                  x:Name="Info">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="11*"/>
-                    <RowDefinition Height="60*"/>
+                    <RowDefinition Height="11*" />
+                    <RowDefinition Height="60*" />
                 </Grid.RowDefinitions>
-                <Border CornerRadius="5" Margin="0,0,10,10" BorderThickness="2" BorderBrush="#FF2F2F2F" Grid.RowSpan="2"/>
+                <Border CornerRadius="5"
+                        Margin="0,0,10,10"
+                        BorderThickness="2"
+                        BorderBrush="#FF2F2F2F"
+                        Grid.RowSpan="2" />
 
-                <TabControl Grid.RowSpan="2" Background="Transparent" x:Name="TabInfo"  Margin="0,0,10,10" BorderBrush="Transparent">
+                <TabControl Grid.RowSpan="2"
+                            Background="Transparent"
+                            x:Name="TabInfo"
+                            Margin="0,0,10,10"
+                            BorderBrush="Transparent">
                     <TabItem Visibility="Hidden">
                         <TabItem.Content>
                             <Grid>
                                 <TextBlock Text="Информация об устройстве"
-                                           FontSize="13" Margin="2,-5,0,0" />
-                                <TextBlock x:Name="NameDevice" FontSize="35" Grid.RowSpan="2" Margin="10,10,0,0"/>
-                                <TextBlock x:Name="ConditionPowerConsumption" FontSize="25" Margin="10,526,0,0"/>
-                                <TextBlock Text="Потребляемая мощность:" FontSize="25" Margin="10,480,0,0"/>
-                                <Button x:Name="PowerOFF" Style="{StaticResource Power}" Height="146" Width="152" Margin="0,172,0,0" Grid.Row="1" VerticalAlignment="Top" Click="PowerOFF_Click">
-                                    <Image Source="/Image/PowerButton.png" Height="64" Width="76" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                           FontSize="13"
+                                           Margin="2,-5,0,0" />
+                                <TextBlock x:Name="NameDevice"
+                                           FontSize="35"
+                                           Grid.RowSpan="2"
+                                           Margin="10,10,0,0" />
+                                <TextBlock x:Name="ConditionPowerConsumption"
+                                           FontSize="25"
+                                           Margin="10,526,0,0" />
+                                <TextBlock Text="Потребляемая мощность:"
+                                           FontSize="25"
+                                           Margin="10,480,0,0" />
+                                <Button x:Name="PowerOFF"
+                                        Style="{StaticResource Power}"
+                                        Height="146"
+                                        Width="152"
+                                        Margin="0,172,0,0"
+                                        Grid.Row="1"
+                                        VerticalAlignment="Top"
+                                        Click="PowerOFF_Click">
+                                    <Image Source="/Image/PowerButton.png"
+                                           Height="64"
+                                           Width="76"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center" />
                                 </Button>
-                                <Button x:Name="PowerON" Style="{StaticResource Power}" Height="146" Width="152" BorderBrush="#FF4BD865" Margin="0,172,0,0" Grid.Row="1" VerticalAlignment="Top" Click="PowerON_Click">
-                                    <Image Source="/Image/ONButton.png" Height="64" Width="76" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <Button x:Name="PowerON"
+                                        Style="{StaticResource Power}"
+                                        Height="146"
+                                        Width="152"
+                                        BorderBrush="#FF4BD865"
+                                        Margin="0,172,0,0"
+                                        Grid.Row="1"
+                                        VerticalAlignment="Top"
+                                        Click="PowerON_Click">
+                                    <Image Source="/Image/ONButton.png"
+                                           Height="64"
+                                           Width="76"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center" />
                                     <Button.Effect>
-                                        <DropShadowEffect ShadowDepth="10" Color="#FF4BD865" Opacity="0.6" BlurRadius="100" RenderingBias="Quality"/>
+                                        <DropShadowEffect ShadowDepth="10"
+                                                          Color="#FF4BD865"
+                                                          Opacity="0.6"
+                                                          BlurRadius="100"
+                                                          RenderingBias="Quality" />
                                     </Button.Effect>
                                 </Button>
-                                <TextBlock x:Name="Condition" FontSize="35" HorizontalAlignment="Center" Margin="0,343,0,132" Grid.Row="1" Foreground="#FFC3CADE"/>
+                                <TextBlock x:Name="Condition"
+                                           FontSize="35"
+                                           HorizontalAlignment="Center"
+                                           Margin="0,343,0,132"
+                                           Grid.Row="1"
+                                           Foreground="#FFC3CADE" />
                             </Grid>
                         </TabItem.Content>
                     </TabItem>

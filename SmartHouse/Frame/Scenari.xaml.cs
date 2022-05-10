@@ -20,7 +20,7 @@ namespace SmartHouse.Frame
     /// </summary>
     public partial class Scenari : Page
     {
-        public Scenari()
+        public Scenari(int IDUsers)
         {
             InitializeComponent();
         }
