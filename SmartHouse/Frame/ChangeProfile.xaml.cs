@@ -25,6 +25,14 @@ namespace SmartHouse.Frame
         public string Surname, NameUser, Patronymic, Email, Phone, Login, KeyWord;
         private int _IdUser;
 
+      
+        public ChangeProfile( int IDUser)
+        {
+            InitializeComponent();
+            _IdUser = IDUser;
+            InfoLK();
+        }
+
         private void ChangeInfoLKButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -45,7 +53,7 @@ namespace SmartHouse.Frame
                            });
                 foreach (UserLogins userLogins1 in userLogins)
                 {
-                     context.Entry(userLogins1).State = System.Data.Entity.EntityState.Modified;
+                    context.Entry(userLogins1).State = System.Data.Entity.EntityState.Modified;
                 }
                 foreach (Users _user in user)
                 {
@@ -69,15 +77,7 @@ namespace SmartHouse.Frame
 
                 MessageBox.Show(ex.Message);
             }
-        }
-
-      
-        public ChangeProfile( int IDUser)
-        {
-            InitializeComponent();
-            _IdUser = IDUser;
-            InfoLK();
-        }
+        } 
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {

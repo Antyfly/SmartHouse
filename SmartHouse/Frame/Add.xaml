@@ -52,7 +52,8 @@
                 <Image Source="/Image/closes.png" />
             </Button>
         </StackPanel>
-
+        <Label Grid.Row="1"
+               x:Name="qwerty" Grid.ColumnSpan="3" />
         <GroupBox Grid.Row="1"
                   Grid.Column="1"
                   Header="Добавить"
@@ -70,13 +71,14 @@
         </GroupBox>
 
         <GroupBox Grid.Row="2"
+                  Grid.Column="1"
                   Header="Устройство"
                   FontSize="15"
                   BorderThickness="0"
                   Height="65"
                   Visibility="Hidden"
                   x:Name="DeviceGroupBox">
-            <ComboBox Height="30">
+            <ComboBox Height="30" x:Name="DeviceComboBox">
                 <ComboBoxItem Content="Лампочка" />
                 <ComboBoxItem Content="Чайник" />
                 <ComboBoxItem Content="Розетка" />
@@ -85,7 +87,7 @@
         </GroupBox>
 
         <GroupBox Grid.Row="2"
-                  Grid.Column="1"
+                  Grid.Column="2"
                   Header="Комнату"
                   FontSize="15"
                   BorderThickness="0"
@@ -97,7 +99,6 @@
         </GroupBox>
 
         <GroupBox Grid.Row="2"
-                  Grid.Column="1"
                   Header="День недели"
                   FontSize="15"
                   BorderThickness="0"
@@ -193,7 +194,7 @@
             </Border>
         </GroupBox>
 
-        <GroupBox Header="Дом"
+        <GroupBox Header="Номер дома"
                   Grid.Row="3"
                   Grid.Column="2"
                   FontSize="15"

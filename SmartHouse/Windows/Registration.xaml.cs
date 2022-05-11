@@ -29,7 +29,7 @@ namespace SmartHouse
         }
 
 
-        private void btnRegistr_Click(object sender, RoutedEventArgs e)
+        private void BtnRegistr_Click(object sender, RoutedEventArgs e)
         {
             string logBD = context.UserLogins.Where(i => i.LoginProvider == Email.Text).Select(j => j.LoginProvider).FirstOrDefault();
 

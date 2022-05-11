@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище SmartHomeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище HomeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="IDAddress" />
@@ -271,7 +271,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище SmartHomeModelContainer">
+        <EntityContainer Name="Хранилище HomeModelContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ApartmentAddress" EntityType="Self.ApartmentAddress" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Device" EntityType="Self.Device" Schema="dbo" store:Type="Tables" />
@@ -346,7 +346,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SmartHomeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="HomeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="IDAddress" />
@@ -631,7 +631,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SMEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="HomeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Address" EntityType="Self.Address" />
           <EntitySet Name="ApartmentAddress" EntityType="Self.ApartmentAddress" />
           <EntitySet Name="Device" EntityType="Self.Device" />
@@ -691,9 +691,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище SmartHomeModelContainer" CdmEntityContainer="SMEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище HomeModelContainer" CdmEntityContainer="HomeEntities">
           <EntitySetMapping Name="Address">
-            <EntityTypeMapping TypeName="SmartHomeModel.Address">
+            <EntityTypeMapping TypeName="HomeModel.Address">
               <MappingFragment StoreEntitySet="Address">
                 <ScalarProperty Name="IDAddress" ColumnName="IDAddress" />
                 <ScalarProperty Name="City" ColumnName="City" />
@@ -703,7 +703,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ApartmentAddress">
-            <EntityTypeMapping TypeName="SmartHomeModel.ApartmentAddress">
+            <EntityTypeMapping TypeName="HomeModel.ApartmentAddress">
               <MappingFragment StoreEntitySet="ApartmentAddress">
                 <ScalarProperty Name="IDApartAddres" ColumnName="IDApartAddres" />
                 <ScalarProperty Name="IDFlat" ColumnName="IDFlat" />
@@ -712,7 +712,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Device">
-            <EntityTypeMapping TypeName="SmartHomeModel.Device">
+            <EntityTypeMapping TypeName="HomeModel.Device">
               <MappingFragment StoreEntitySet="Device">
                 <ScalarProperty Name="IDDevice" ColumnName="IDDevice" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -722,7 +722,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Flat">
-            <EntityTypeMapping TypeName="SmartHomeModel.Flat">
+            <EntityTypeMapping TypeName="HomeModel.Flat">
               <MappingFragment StoreEntitySet="Flat">
                 <ScalarProperty Name="IDFlat" ColumnName="IDFlat" />
                 <ScalarProperty Name="FlatName" ColumnName="FlatName" />
@@ -732,7 +732,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="History">
-            <EntityTypeMapping TypeName="SmartHomeModel.History">
+            <EntityTypeMapping TypeName="HomeModel.History">
               <MappingFragment StoreEntitySet="History">
                 <ScalarProperty Name="IDHistory" ColumnName="IDHistory" />
                 <ScalarProperty Name="IDDevice" ColumnName="IDDevice" />
@@ -743,7 +743,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OurControllers">
-            <EntityTypeMapping TypeName="SmartHomeModel.OurControllers">
+            <EntityTypeMapping TypeName="HomeModel.OurControllers">
               <MappingFragment StoreEntitySet="OurControllers">
                 <ScalarProperty Name="IDOurControllers" ColumnName="IDOurControllers" />
                 <ScalarProperty Name="IDRoom" ColumnName="IDRoom" />
@@ -754,7 +754,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rooms">
-            <EntityTypeMapping TypeName="SmartHomeModel.Rooms">
+            <EntityTypeMapping TypeName="HomeModel.Rooms">
               <MappingFragment StoreEntitySet="Rooms">
                 <ScalarProperty Name="IDRooms" ColumnName="IDRooms" />
                 <ScalarProperty Name="IDFlat" ColumnName="IDFlat" />
@@ -765,7 +765,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Scenarios">
-            <EntityTypeMapping TypeName="SmartHomeModel.Scenarios">
+            <EntityTypeMapping TypeName="HomeModel.Scenarios">
               <MappingFragment StoreEntitySet="Scenarios">
                 <ScalarProperty Name="IDScenarios" ColumnName="IDScenarios" />
                 <ScalarProperty Name="IDDevice" ColumnName="IDDevice" />
@@ -776,7 +776,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="SmartHomeModel.sysdiagrams">
+            <EntityTypeMapping TypeName="HomeModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -787,7 +787,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypeConnection">
-            <EntityTypeMapping TypeName="SmartHomeModel.TypeConnection">
+            <EntityTypeMapping TypeName="HomeModel.TypeConnection">
               <MappingFragment StoreEntitySet="TypeConnection">
                 <ScalarProperty Name="IDTypeConnection" ColumnName="IDTypeConnection" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -796,7 +796,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserLogins">
-            <EntityTypeMapping TypeName="SmartHomeModel.UserLogins">
+            <EntityTypeMapping TypeName="HomeModel.UserLogins">
               <MappingFragment StoreEntitySet="UserLogins">
                 <ScalarProperty Name="IDUserLogins" ColumnName="IDUserLogins" />
                 <ScalarProperty Name="IDUsers" ColumnName="IDUsers" />
@@ -807,7 +807,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="SmartHomeModel.Users">
+            <EntityTypeMapping TypeName="HomeModel.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="IDUsers" ColumnName="IDUsers" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -820,7 +820,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Home">
-            <EntityTypeMapping TypeName="SmartHomeModel.Home">
+            <EntityTypeMapping TypeName="HomeModel.Home">
               <MappingFragment StoreEntitySet="Home">
                 <ScalarProperty Name="FlatName" ColumnName="FlatName" />
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />

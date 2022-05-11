@@ -26,8 +26,7 @@ namespace SmartHouse
     /// </summary>
     public partial class HomeWindow : Window
     {
-        public static Home user { get; set; }
-
+    
         public int _userDefinition;
         public int IdentiDevice;
         public HomeWindow(int ID)

@@ -204,10 +204,10 @@
                          FontSize="30" />
             </Border>
 
-            <Button x:Name="btnRegistr"
+            <Button x:Name="BtnRegistr"
                     Margin="40,15,0,0"
                     Content="Зарегистрироваться"
-                    Click="btnRegistr_Click"
+                    Click="BtnRegistr_Click"
                     Style="{StaticResource Button}"
                     HorizontalAlignment="Left"
                     Width="518"

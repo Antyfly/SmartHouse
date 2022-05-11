@@ -13,10 +13,10 @@ namespace SmartHouse.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SMEntities : DbContext
+    public partial class HomeEntities : DbContext
     {
-        public SMEntities()
-            : base("name=SMEntities")
+        public HomeEntities()
+            : base("name=HomeEntities")
         {
         }
     

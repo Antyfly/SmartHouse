@@ -154,9 +154,6 @@
     <Compile Include="Frame\Add.xaml.cs">
       <DependentUpon>Add.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Frame\Auth.xaml.cs">
-      <DependentUpon>Auth.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Frame\ChangeProfile.xaml.cs">
       <DependentUpon>ChangeProfile.xaml</DependentUpon>
     </Compile>
@@ -181,10 +178,6 @@
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Page Include="Frame\Add.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frame\Auth.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -295,6 +288,9 @@
     <Resource Include="Image\LogoWord.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Image\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Entity\SmartHome.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SmartHome.edmx</DependentUpon>
@@ -305,9 +301,6 @@
       <DependentUpon>SmartHome.edmx</DependentUpon>
       <LastGenOutput>SmartHome.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
