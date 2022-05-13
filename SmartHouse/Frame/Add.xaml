@@ -53,10 +53,11 @@
             </Button>
         </StackPanel>
         <Label Grid.Row="1"
-               x:Name="qwerty" Grid.ColumnSpan="3" />
-        <GroupBox Grid.Row="1"
+               x:Name="qwerty"
+               Grid.ColumnSpan="3" />
+        <GroupBox Header="Добавить"
+                  Grid.Row="1"
                   Grid.Column="1"
-                  Header="Добавить"
                   FontSize="15"
                   BorderThickness="0"
                   Height="65">
@@ -70,15 +71,16 @@
             </ComboBox>
         </GroupBox>
 
-        <GroupBox Grid.Row="2"
+        <GroupBox Header="Устройство"
+                  Grid.Row="2"
                   Grid.Column="1"
-                  Header="Устройство"
                   FontSize="15"
                   BorderThickness="0"
                   Height="65"
                   Visibility="Hidden"
                   x:Name="DeviceGroupBox">
-            <ComboBox Height="30" x:Name="DeviceComboBox">
+            <ComboBox Height="30"
+                      x:Name="DeviceComboBox">
                 <ComboBoxItem Content="Лампочка" />
                 <ComboBoxItem Content="Чайник" />
                 <ComboBoxItem Content="Розетка" />
@@ -86,9 +88,9 @@
             </ComboBox>
         </GroupBox>
 
-        <GroupBox Grid.Row="2"
+        <GroupBox Header="Комнату"
+                  Grid.Row="2"
                   Grid.Column="2"
-                  Header="Комнату"
                   FontSize="15"
                   BorderThickness="0"
                   Height="65"
@@ -98,14 +100,15 @@
                       x:Name="RoomsComboBox" />
         </GroupBox>
 
-        <GroupBox Grid.Row="2"
-                  Header="День недели"
+        <GroupBox Header="День недели"
+                  Grid.Row="2"
                   FontSize="15"
                   BorderThickness="0"
                   Height="65"
                   Visibility="Hidden"
                   x:Name="DayWeekGroupBox">
-            <ComboBox Height="30">
+            <ComboBox Height="30"
+                      x:Name="DayWeekComboBox">
                 <ComboBoxItem Content="Понедельник" />
                 <ComboBoxItem Content="Вторник" />
                 <ComboBoxItem Content="Среда" />
@@ -125,7 +128,8 @@
                   x:Name="TimeGroupBox"
                   Visibility="Hidden">
 
-            <xctk:TimePicker Format="ShortTime"
+            <xctk:TimePicker x:Name="TimeScenarios"
+                             Format="ShortTime"
                              FormatString="hh:mm"
                              ShowDropDownButton="False"
                              Background="Transparent"
@@ -134,7 +138,6 @@
         </GroupBox>
 
         <GroupBox Header="Название дома"
-                  Grid.Column="1"
                   Grid.Row="2"
                   FontSize="15"
                   BorderThickness="0"
@@ -153,8 +156,31 @@
                          VerticalAlignment="Top" />
             </Border>
         </GroupBox>
+
+        <GroupBox Header="Площаль квартиры"
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  FontSize="15"
+                  BorderThickness="0"
+                  Height="65"
+                  x:Name="SizeGroupBox"
+                  Visibility="Hidden">
+            <Border Style="{StaticResource BorderProfile}"
+                    HorizontalAlignment="Left"
+                    Width="200"
+                    Margin="5,0,0,0">
+                <TextBox x:Name="SizeTextBox"
+                         Style="{StaticResource TextBoxMenu}"
+                         Foreground="#FF2F2F2F"
+                         Margin="4,1,4,0"
+                         FontSize="20"
+                         VerticalAlignment="Top" />
+            </Border>
+        </GroupBox>
+
         <GroupBox Header="Город"
-                  Grid.Row="3"
+                  Grid.Row="2"
+                  Grid.Column="2"
                   FontSize="15"
                   BorderThickness="0"
                   Height="65"
@@ -174,7 +200,6 @@
         </GroupBox>
 
         <GroupBox Header="Улица"
-                  Grid.Column="1"
                   Grid.Row="3"
                   FontSize="15"
                   BorderThickness="0"
@@ -196,7 +221,7 @@
 
         <GroupBox Header="Номер дома"
                   Grid.Row="3"
-                  Grid.Column="2"
+                  Grid.Column="1"
                   FontSize="15"
                   BorderThickness="0"
                   Height="65"
@@ -224,9 +249,9 @@
                   Visibility="Hidden">
             <ComboBox  x:Name="HouseComboBox" />
         </GroupBox>
+        
         <GroupBox Header="Название комнаты"
-                  Grid.Row="2"
-                  Grid.Column="1"
+                  Grid.Row="3"
                   FontSize="15"
                   BorderThickness="0"
                   Height="65"
@@ -237,6 +262,48 @@
                     Width="200"
                     Margin="5,0,0,0">
                 <TextBox x:Name="NameRoomsTextBox"
+                         Style="{StaticResource TextBoxMenu}"
+                         Foreground="#FF2F2F2F"
+                         Margin="4,1,4,0"
+                         FontSize="20"
+                         VerticalAlignment="Top" />
+            </Border>
+        </GroupBox>
+
+        <GroupBox Header="Ширина комнаты"
+                  Grid.Row="3"
+                  Grid.Column="1"
+                  FontSize="15"
+                  BorderThickness="0"
+                  Height="65"
+                  x:Name="WidthGroupBox"
+                  Visibility="Hidden">
+            <Border Style="{StaticResource BorderProfile}"
+                    HorizontalAlignment="Left"
+                    Width="200"
+                    Margin="5,0,0,0">
+                <TextBox x:Name="WidthTextBox"
+                         Style="{StaticResource TextBoxMenu}"
+                         Foreground="#FF2F2F2F"
+                         Margin="4,1,4,0"
+                         FontSize="20"
+                         VerticalAlignment="Top" />
+            </Border>
+        </GroupBox>
+
+        <GroupBox Header="Длина комнаты"
+                  Grid.Row="3"
+                  Grid.Column="2"
+                  FontSize="15"
+                  BorderThickness="0"
+                  Height="65"
+                  x:Name="HeightGroupBox"
+                  Visibility="Hidden">
+            <Border Style="{StaticResource BorderProfile}"
+                    HorizontalAlignment="Left"
+                    Width="200"
+                    Margin="5,0,0,0">
+                <TextBox x:Name="HeightTextBox"
                          Style="{StaticResource TextBoxMenu}"
                          Foreground="#FF2F2F2F"
                          Margin="4,1,4,0"

@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище HomeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище SmartHomeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="IDAddress" />
           </Key>
-          <Property Name="IDAddress" Type="int" Nullable="false" />
+          <Property Name="IDAddress" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Street" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NumberHouse" Type="nvarchar" MaxLength="3" Nullable="false" />
@@ -271,7 +271,38 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище HomeModelContainer">
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="Хранилище SmartHomeModelContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ApartmentAddress" EntityType="Self.ApartmentAddress" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Device" EntityType="Self.Device" Schema="dbo" store:Type="Tables" />
@@ -342,16 +373,15 @@
             <End Role="UserLogins" EntitySet="UserLogins" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="HomeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SmartHomeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="IDAddress" />
           </Key>
-          <Property Name="IDAddress" Type="Int32" Nullable="false" />
+          <Property Name="IDAddress" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NumberHouse" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
@@ -365,7 +395,7 @@
           <Property Name="IDFlat" Type="Int32" Nullable="false" />
           <Property Name="IDAddresses" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Address" Relationship="Self.FK_ApartmentAddress_Address" FromRole="ApartmentAddress" ToRole="Address" />
-          <NavigationProperty Name="Flat" Relationship="Self.FK_ApartmentAddress_Flat" FromRole="ApartmentAddress" ToRole="Flat" />
+          <NavigationProperty Name="Flat" Relationship="SmartHomeModel.FK_ApartmentAddress_Flat" FromRole="ApartmentAddress" ToRole="Flat" />
         </EntityType>
         <EntityType Name="Device">
           <Key>
@@ -379,18 +409,6 @@
           <NavigationProperty Name="History" Relationship="Self.FK_History_Device" FromRole="Device" ToRole="History" />
           <NavigationProperty Name="OurControllers" Relationship="Self.FK_OurControllers_Device" FromRole="Device" ToRole="OurControllers" />
           <NavigationProperty Name="Scenarios" Relationship="Self.FK_Scenarios_Device" FromRole="Device" ToRole="Scenarios" />
-        </EntityType>
-        <EntityType Name="Flat">
-          <Key>
-            <PropertyRef Name="IDFlat" />
-          </Key>
-          <Property Name="IDFlat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FlatName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IDUser" Type="Int32" Nullable="false" />
-          <Property Name="Size" Type="Double" Nullable="false" />
-          <NavigationProperty Name="ApartmentAddress" Relationship="Self.FK_ApartmentAddress_Flat" FromRole="Flat" ToRole="ApartmentAddress" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Flat_Users" FromRole="Flat" ToRole="Users" />
-          <NavigationProperty Name="Rooms" Relationship="Self.FK_Rooms_Flat" FromRole="Flat" ToRole="Rooms" />
         </EntityType>
         <EntityType Name="History">
           <Key>
@@ -424,8 +442,8 @@
           <Property Name="NameRoom" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="WidthRoom" Type="Double" />
           <Property Name="HeightRoom" Type="Double" />
-          <NavigationProperty Name="Flat" Relationship="Self.FK_Rooms_Flat" FromRole="Rooms" ToRole="Flat" />
           <NavigationProperty Name="OurControllers" Relationship="Self.FK_OurControllers_Rooms" FromRole="Rooms" ToRole="OurControllers" />
+          <NavigationProperty Name="Flat" Relationship="SmartHomeModel.FK_Rooms_Flat" FromRole="Rooms" ToRole="Flat" />
         </EntityType>
         <EntityType Name="Scenarios">
           <Key>
@@ -479,8 +497,8 @@
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="phone" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IsDelete" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Flat" Relationship="Self.FK_Flat_Users" FromRole="Users" ToRole="Flat" />
           <NavigationProperty Name="UserLogins" Relationship="Self.FK_UserLogins_Users" FromRole="Users" ToRole="UserLogins" />
+          <NavigationProperty Name="Flat" Relationship="SmartHomeModel.FK_Flat_Users" FromRole="Users" ToRole="Flat" />
         </EntityType>
         <EntityType Name="Home">
           <Key>
@@ -520,18 +538,6 @@
             </Principal>
             <Dependent Role="ApartmentAddress">
               <PropertyRef Name="IDAddresses" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ApartmentAddress_Flat">
-          <End Role="Flat" Type="Self.Flat" Multiplicity="1" />
-          <End Role="ApartmentAddress" Type="Self.ApartmentAddress" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Flat">
-              <PropertyRef Name="IDFlat" />
-            </Principal>
-            <Dependent Role="ApartmentAddress">
-              <PropertyRef Name="IDFlat" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -583,30 +589,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Flat_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Flat" Type="Self.Flat" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="IDUsers" />
-            </Principal>
-            <Dependent Role="Flat">
-              <PropertyRef Name="IDUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Rooms_Flat">
-          <End Role="Flat" Type="Self.Flat" Multiplicity="1" />
-          <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Flat">
-              <PropertyRef Name="IDFlat" />
-            </Principal>
-            <Dependent Role="Rooms">
-              <PropertyRef Name="IDFlat" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OurControllers_Rooms">
           <End Role="Rooms" Type="Self.Rooms" Multiplicity="1" />
           <End Role="OurControllers" Type="Self.OurControllers" Multiplicity="*" />
@@ -631,11 +613,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="HomeEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SmartHome" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Address" EntityType="Self.Address" />
           <EntitySet Name="ApartmentAddress" EntityType="Self.ApartmentAddress" />
           <EntitySet Name="Device" EntityType="Self.Device" />
-          <EntitySet Name="Flat" EntityType="Self.Flat" />
           <EntitySet Name="History" EntityType="Self.History" />
           <EntitySet Name="OurControllers" EntityType="Self.OurControllers" />
           <EntitySet Name="Rooms" EntityType="Self.Rooms" />
@@ -647,10 +628,6 @@
           <EntitySet Name="Home" EntityType="Self.Home" />
           <AssociationSet Name="FK_ApartmentAddress_Address" Association="Self.FK_ApartmentAddress_Address">
             <End Role="Address" EntitySet="Address" />
-            <End Role="ApartmentAddress" EntitySet="ApartmentAddress" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ApartmentAddress_Flat" Association="Self.FK_ApartmentAddress_Flat">
-            <End Role="Flat" EntitySet="Flat" />
             <End Role="ApartmentAddress" EntitySet="ApartmentAddress" />
           </AssociationSet>
           <AssociationSet Name="FK_Device_TypeConnection" Association="Self.FK_Device_TypeConnection">
@@ -669,14 +646,6 @@
             <End Role="Device" EntitySet="Device" />
             <End Role="Scenarios" EntitySet="Scenarios" />
           </AssociationSet>
-          <AssociationSet Name="FK_Flat_Users" Association="Self.FK_Flat_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Flat" EntitySet="Flat" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Rooms_Flat" Association="Self.FK_Rooms_Flat">
-            <End Role="Flat" EntitySet="Flat" />
-            <End Role="Rooms" EntitySet="Rooms" />
-          </AssociationSet>
           <AssociationSet Name="FK_OurControllers_Rooms" Association="Self.FK_OurControllers_Rooms">
             <End Role="Rooms" EntitySet="Rooms" />
             <End Role="OurControllers" EntitySet="OurControllers" />
@@ -685,15 +654,117 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="UserLogins" EntitySet="UserLogins" />
           </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(SmartHomeModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(SmartHomeModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Flat" EntityType="SmartHomeModel.Flat" />
+          <AssociationSet Name="FK_ApartmentAddress_Flat" Association="SmartHomeModel.FK_ApartmentAddress_Flat">
+            <End Role="Flat" EntitySet="Flat" />
+            <End Role="ApartmentAddress" EntitySet="ApartmentAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Flat_Users" Association="SmartHomeModel.FK_Flat_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Flat" EntitySet="Flat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rooms_Flat" Association="SmartHomeModel.FK_Rooms_Flat">
+            <End Role="Flat" EntitySet="Flat" />
+            <End Role="Rooms" EntitySet="Rooms" />
+          </AssociationSet>
         </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Flat">
+          <Key>
+            <PropertyRef Name="IDFlat" />
+          </Key>
+          <Property Name="IDFlat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FlatName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDUser" Type="Int32" Nullable="false" />
+          <Property Name="Size" Type="Double" Nullable="false" />
+          <NavigationProperty Name="ApartmentAddress" Relationship="SmartHomeModel.FK_ApartmentAddress_Flat" FromRole="Flat" ToRole="ApartmentAddress" />
+          <NavigationProperty Name="Users" Relationship="SmartHomeModel.FK_Flat_Users" FromRole="Flat" ToRole="Users" />
+          <NavigationProperty Name="Rooms" Relationship="SmartHomeModel.FK_Rooms_Flat" FromRole="Flat" ToRole="Rooms" />
+        </EntityType>
+        <Association Name="FK_ApartmentAddress_Flat">
+          <End Type="SmartHomeModel.Flat" Role="Flat" Multiplicity="1" />
+          <End Type="SmartHomeModel.ApartmentAddress" Role="ApartmentAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flat">
+              <PropertyRef Name="IDFlat" />
+            </Principal>
+            <Dependent Role="ApartmentAddress">
+              <PropertyRef Name="IDFlat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Flat_Users">
+          <End Type="SmartHomeModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="SmartHomeModel.Flat" Role="Flat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IDUsers" />
+            </Principal>
+            <Dependent Role="Flat">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rooms_Flat">
+          <End Type="SmartHomeModel.Flat" Role="Flat" Multiplicity="1" />
+          <End Type="SmartHomeModel.Rooms" Role="Rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flat">
+              <PropertyRef Name="IDFlat" />
+            </Principal>
+            <Dependent Role="Rooms">
+              <PropertyRef Name="IDFlat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище HomeModelContainer" CdmEntityContainer="HomeEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SmartHomeModelContainer" CdmEntityContainer="SmartHome">
           <EntitySetMapping Name="Address">
-            <EntityTypeMapping TypeName="HomeModel.Address">
+            <EntityTypeMapping TypeName="SmartHomeModel.Address">
               <MappingFragment StoreEntitySet="Address">
                 <ScalarProperty Name="IDAddress" ColumnName="IDAddress" />
                 <ScalarProperty Name="City" ColumnName="City" />
@@ -703,7 +774,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ApartmentAddress">
-            <EntityTypeMapping TypeName="HomeModel.ApartmentAddress">
+            <EntityTypeMapping TypeName="SmartHomeModel.ApartmentAddress">
               <MappingFragment StoreEntitySet="ApartmentAddress">
                 <ScalarProperty Name="IDApartAddres" ColumnName="IDApartAddres" />
                 <ScalarProperty Name="IDFlat" ColumnName="IDFlat" />
@@ -712,7 +783,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Device">
-            <EntityTypeMapping TypeName="HomeModel.Device">
+            <EntityTypeMapping TypeName="SmartHomeModel.Device">
               <MappingFragment StoreEntitySet="Device">
                 <ScalarProperty Name="IDDevice" ColumnName="IDDevice" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -721,18 +792,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Flat">
-            <EntityTypeMapping TypeName="HomeModel.Flat">
-              <MappingFragment StoreEntitySet="Flat">
-                <ScalarProperty Name="IDFlat" ColumnName="IDFlat" />
-                <ScalarProperty Name="FlatName" ColumnName="FlatName" />
-                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
-                <ScalarProperty Name="Size" ColumnName="Size" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="History">
-            <EntityTypeMapping TypeName="HomeModel.History">
+            <EntityTypeMapping TypeName="SmartHomeModel.History">
               <MappingFragment StoreEntitySet="History">
                 <ScalarProperty Name="IDHistory" ColumnName="IDHistory" />
                 <ScalarProperty Name="IDDevice" ColumnName="IDDevice" />
@@ -743,7 +804,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OurControllers">
-            <EntityTypeMapping TypeName="HomeModel.OurControllers">
+            <EntityTypeMapping TypeName="SmartHomeModel.OurControllers">
               <MappingFragment StoreEntitySet="OurControllers">
                 <ScalarProperty Name="IDOurControllers" ColumnName="IDOurControllers" />
                 <ScalarProperty Name="IDRoom" ColumnName="IDRoom" />
@@ -754,7 +815,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rooms">
-            <EntityTypeMapping TypeName="HomeModel.Rooms">
+            <EntityTypeMapping TypeName="SmartHomeModel.Rooms">
               <MappingFragment StoreEntitySet="Rooms">
                 <ScalarProperty Name="IDRooms" ColumnName="IDRooms" />
                 <ScalarProperty Name="IDFlat" ColumnName="IDFlat" />
@@ -765,7 +826,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Scenarios">
-            <EntityTypeMapping TypeName="HomeModel.Scenarios">
+            <EntityTypeMapping TypeName="SmartHomeModel.Scenarios">
               <MappingFragment StoreEntitySet="Scenarios">
                 <ScalarProperty Name="IDScenarios" ColumnName="IDScenarios" />
                 <ScalarProperty Name="IDDevice" ColumnName="IDDevice" />
@@ -776,7 +837,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="HomeModel.sysdiagrams">
+            <EntityTypeMapping TypeName="SmartHomeModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -787,7 +848,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypeConnection">
-            <EntityTypeMapping TypeName="HomeModel.TypeConnection">
+            <EntityTypeMapping TypeName="SmartHomeModel.TypeConnection">
               <MappingFragment StoreEntitySet="TypeConnection">
                 <ScalarProperty Name="IDTypeConnection" ColumnName="IDTypeConnection" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -796,7 +857,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserLogins">
-            <EntityTypeMapping TypeName="HomeModel.UserLogins">
+            <EntityTypeMapping TypeName="SmartHomeModel.UserLogins">
               <MappingFragment StoreEntitySet="UserLogins">
                 <ScalarProperty Name="IDUserLogins" ColumnName="IDUserLogins" />
                 <ScalarProperty Name="IDUsers" ColumnName="IDUsers" />
@@ -807,7 +868,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="HomeModel.Users">
+            <EntityTypeMapping TypeName="SmartHomeModel.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="IDUsers" ColumnName="IDUsers" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -820,7 +881,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Home">
-            <EntityTypeMapping TypeName="HomeModel.Home">
+            <EntityTypeMapping TypeName="SmartHomeModel.Home">
               <MappingFragment StoreEntitySet="Home">
                 <ScalarProperty Name="FlatName" ColumnName="FlatName" />
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
@@ -835,6 +896,40 @@
                 <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
                 <ScalarProperty Name="IDOurControllers" ColumnName="IDOurControllers" />
                 <ScalarProperty Name="PowerConsumption" ColumnName="PowerConsumption" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище SmartHomeModel.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище SmartHomeModel.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище SmartHomeModel.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище SmartHomeModel.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartHomeModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище SmartHomeModel.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartHomeModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище SmartHomeModel.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище SmartHomeModel.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Flat">
+            <EntityTypeMapping TypeName="SmartHomeModel.Flat">
+              <MappingFragment StoreEntitySet="Flat">
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="FlatName" ColumnName="FlatName" />
+                <ScalarProperty Name="IDFlat" ColumnName="IDFlat" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

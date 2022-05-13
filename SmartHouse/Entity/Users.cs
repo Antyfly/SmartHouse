@@ -17,8 +17,8 @@ namespace SmartHouse.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {
-            this.Flat = new HashSet<Flat>();
             this.UserLogins = new HashSet<UserLogins>();
+            this.Flat = new HashSet<Flat>();
         }
     
         public int IDUsers { get; set; }
@@ -30,8 +30,8 @@ namespace SmartHouse.Entity
         public int IsDelete { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Flat> Flat { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserLogins> UserLogins { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Flat> Flat { get; set; }
     }
 }

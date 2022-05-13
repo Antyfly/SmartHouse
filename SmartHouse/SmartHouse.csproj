@@ -139,6 +139,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SmartHome.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entity\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>SmartHome.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sp_helpdiagrams_Result.cs">
+      <DependentUpon>SmartHome.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\sysdiagrams.cs">
       <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>

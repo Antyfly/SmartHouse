@@ -4,30 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ccd9cac056394c19b82b474e6521c514" Name="Diagram1">
-        <EntityTypeShape EntityType="HomeModel.Address" Width="1.5" PointX="3.75" PointY="21.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HomeModel.ApartmentAddress" Width="1.5" PointX="6" PointY="14.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HomeModel.Device" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HomeModel.Flat" Width="1.5" PointX="3.75" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HomeModel.History" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HomeModel.OurControllers" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HomeModel.Rooms" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HomeModel.Scenarios" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HomeModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HomeModel.TypeConnection" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="HomeModel.UserLogins" Width="1.5" PointX="3.75" PointY="18.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HomeModel.Users" Width="1.5" PointX="1.5" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="HomeModel.Home" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
-        <AssociationConnector Association="HomeModel.FK_ApartmentAddress_Address" ManuallyRouted="false" />
-        <AssociationConnector Association="HomeModel.FK_ApartmentAddress_Flat" ManuallyRouted="false" />
-        <AssociationConnector Association="HomeModel.FK_Device_TypeConnection" ManuallyRouted="false" />
-        <AssociationConnector Association="HomeModel.FK_History_Device" ManuallyRouted="false" />
-        <AssociationConnector Association="HomeModel.FK_OurControllers_Device" ManuallyRouted="false" />
-        <AssociationConnector Association="HomeModel.FK_Scenarios_Device" ManuallyRouted="false" />
-        <AssociationConnector Association="HomeModel.FK_Flat_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="HomeModel.FK_Rooms_Flat" ManuallyRouted="false" />
-        <AssociationConnector Association="HomeModel.FK_OurControllers_Rooms" ManuallyRouted="false" />
-        <AssociationConnector Association="HomeModel.FK_UserLogins_Users" ManuallyRouted="false" />
+      <Diagram DiagramId="7fa241fab45447279b5dcf06558be62a" Name="Diagram1">
+        <EntityTypeShape EntityType="SmartHomeModel.Address" Width="1.5" PointX="3.75" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartHomeModel.ApartmentAddress" Width="1.5" PointX="6" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartHomeModel.Device" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartHomeModel.History" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartHomeModel.OurControllers" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartHomeModel.Rooms" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartHomeModel.Scenarios" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartHomeModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartHomeModel.TypeConnection" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartHomeModel.UserLogins" Width="1.5" PointX="3.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartHomeModel.Users" Width="1.5" PointX="1.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartHomeModel.Home" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <AssociationConnector Association="SmartHomeModel.FK_ApartmentAddress_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartHomeModel.FK_Device_TypeConnection" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartHomeModel.FK_History_Device" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartHomeModel.FK_OurControllers_Device" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartHomeModel.FK_Scenarios_Device" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartHomeModel.FK_OurControllers_Rooms" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartHomeModel.FK_UserLogins_Users" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SmartHomeModel.Flat" Width="1.5" PointX="3.75" PointY="14.25" />
+        <AssociationConnector Association="SmartHomeModel.FK_ApartmentAddress_Flat" />
+        <AssociationConnector Association="SmartHomeModel.FK_Flat_Users" />
+        <AssociationConnector Association="SmartHomeModel.FK_Rooms_Flat" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

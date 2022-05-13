@@ -10,7 +10,7 @@ namespace SmartHouse.Entity
 {
     public class AppData
     {
-        public static HomeEntities context = new HomeEntities();
+        public static SmartHome context = new SmartHome();
 
         public static void SaveChange()
         {

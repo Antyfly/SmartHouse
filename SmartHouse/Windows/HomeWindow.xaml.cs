@@ -26,11 +26,11 @@ namespace SmartHouse
     /// </summary>
     public partial class HomeWindow : Window
     {
-    
+
         public int _userDefinition;
         public int IdentiDevice;
         public HomeWindow(int ID)
-        { 
+        {
             InitializeComponent();
             DataContext = this;
             _userDefinition = ID;
@@ -39,7 +39,7 @@ namespace SmartHouse
             Combo();
             List();
         }
-        
+
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -53,13 +53,13 @@ namespace SmartHouse
             (sender as Button).ContextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
             (sender as Button).ContextMenu.IsOpen = true;
         }
-        
+
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             //DarkWindow dark = new DarkWindow();
             //dark.Show();
             string name = "Добавление";
-            NavigationContextMenu add = new NavigationContextMenu(name,_userDefinition);
+            NavigationContextMenu add = new NavigationContextMenu(name, _userDefinition);
             add.ShowDialog();
             add.Topmost = false;
             add.WindowState = WindowState.Normal;
@@ -86,7 +86,7 @@ namespace SmartHouse
             prof.ShowDialog();
             prof.WindowState = WindowState.Normal;
             prof.Topmost = true;
-            prof.Focus();         
+            prof.Focus();
         }
         private void ExitProfile_Click(object sender, RoutedEventArgs e)
         {
@@ -106,7 +106,7 @@ namespace SmartHouse
             CbRoom.ItemsSource = datasourse;
             CbRoom.SelectedIndex = 0;
             //вывод в выпадающий список квартиры
-            var sourse = context.Home.Where(i => i.IDUser == _userDefinition).Select(x => x.FlatName).Distinct().ToList();
+            var sourse = context.Flat.Where(i => i.IDUser == _userDefinition).Select(x => x.FlatName).Distinct().ToList();
             CBHouse.ItemsSource = sourse;
             CBHouse.SelectedIndex = 0;
         }
@@ -144,7 +144,7 @@ namespace SmartHouse
             {
                 Information(InfoDevice);
                 IdentiDevice = InfoDevice.IDOurControllers;
-                
+
             }
         }
 
@@ -179,14 +179,14 @@ namespace SmartHouse
             {
                 var selection = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == name && i.NameRoom == CbRoom.SelectedItem.ToString()).ToList();
                 ListViewer.ItemsSource = selection;
-               
+
             }
             else
             {
                 var selectionproba = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == name).ToList();
                 ListViewer.ItemsSource = selectionproba;
             }
-            
+
         }
         #endregion
         // НЕ ТРОГАТЬ!!! ОСОБЕННО КОСТЫЛИ
@@ -251,7 +251,7 @@ namespace SmartHouse
             try
             {
                 context.SaveChanges();
-                
+
             }
             catch (Exception ex)
             {
@@ -290,7 +290,7 @@ namespace SmartHouse
 
             if (MessageBox.Show("Вы точно уверены?", "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
             {
-                if(ListViewer.SelectedItem is Home InfoDevice)
+                if (ListViewer.SelectedItem is Home InfoDevice)
                 {
                     context.OurControllers.Remove(context.OurControllers.Where(i => i.IDOurControllers == InfoDevice.IDOurControllers).FirstOrDefault());
                     context.SaveChanges();

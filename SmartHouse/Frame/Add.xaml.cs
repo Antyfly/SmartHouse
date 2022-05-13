@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,7 +54,7 @@ namespace SmartHouse.Frame
             var datasourse = context.Home.Where(i => i.IDUser == _userDefinition).Select(x => x.NameRoom).Distinct().ToList();
             RoomsComboBox.ItemsSource = datasourse;
 
-            var sourse = context.Home.Where(i => i.IDUser == _userDefinition).Select(x => x.FlatName).Distinct().ToList();
+            var sourse = context.Flat.Where(i => i.IDUser == _userDefinition).Select(x => x.FlatName).Distinct().ToList();
             HouseComboBox.ItemsSource = sourse;
 
             if (AddComboBox.SelectedIndex == 0)
@@ -94,6 +95,7 @@ namespace SmartHouse.Frame
                 StreetGroupBox.Visibility = Visibility.Visible;
                 NumberHouseGroupBox.Visibility = Visibility.Visible;
                 SaveButton.Visibility = Visibility.Visible;
+                SizeGroupBox.Visibility = Visibility.Visible;
 
                 DeviceGroupBox.Visibility = Visibility.Hidden;
                 TimeGroupBox.Visibility = Visibility.Hidden;
@@ -107,6 +109,8 @@ namespace SmartHouse.Frame
                 SaveButton.Visibility = Visibility.Visible;
                 NameRoomsGroupBox.Visibility = Visibility.Visible;
                 HouseGroupBox.Visibility = Visibility.Visible;
+                WidthGroupBox.Visibility = Visibility.Visible;
+                HeightGroupBox.Visibility = Visibility.Visible;
 
                 DeviceGroupBox.Visibility = Visibility.Hidden;
                 TimeGroupBox.Visibility = Visibility.Hidden;
@@ -124,9 +128,6 @@ namespace SmartHouse.Frame
         {
             if (AddComboBox.SelectedIndex == 0)
             {
-                //int proba = context.Rooms.Where(d => d.NameRoom == RoomsComboBox.Text).Select(d => d.IDRooms).FirstOrDefault();
-                //qwerty.Content = RoomsComboBox.Text;
-
                 IEnumerable<int> flat =
                     from Flat in context.Flat
                     where Flat.FlatName == HouseComboBox.Text
@@ -146,26 +147,85 @@ namespace SmartHouse.Frame
                     });
 
                     context.SaveChanges();
-                    MessageBox.Show("Данные изменены", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Данные сохранены", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-                catch (DbEntityValidationException ex)
+                catch (Exception ex)
                 {
-                    foreach (var eve in ex.EntityValidationErrors)
-                    {
-                        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
-                        foreach (var ve in eve.ValidationErrors)
-                        {
-                            Console.WriteLine("- Property: \"{0}\", Value: \"{1}\", Error: \"{2}\"",
-                                ve.PropertyName,
-                                eve.Entry.CurrentValues.GetValue<object>(ve.PropertyName),
-                                ve.ErrorMessage);
-                        }
-                    }
-                    throw;
+                    MessageBox.Show(ex.Message);
                 }
             }
-           
+            else if (AddComboBox.SelectedIndex == 1)
+            {
+                try
+                {
+                    context.Scenarios.Add(new Scenarios
+                    {
+                        IDDevice = context.Device.Where(d => d.Title == DeviceComboBox.Text).Select(d => d.IDDevice).FirstOrDefault(),
+                        Time = TimeSpan.Parse(TimeScenarios.Text),
+                        Action = true,
+                        DayWeek = DayWeekComboBox.SelectedIndex,
+                    });
+                    context.SaveChanges();
+                    MessageBox.Show("Данные сохранены", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else if (AddComboBox.SelectedIndex == 2)
+            {
+                try
+                {
+
+                    context.Flat.Add(new Flat
+                    {
+                        FlatName = NameHouseTextBox.Text,
+                        IDUser = _userDefinition,
+                        Size = float.Parse(SizeTextBox.Text),
+                    });
+
+                    context.Address.Add(new Address
+                    {
+                        City = CityTextBox.Text,
+                        Street = StreetTextBox.Text,
+                        NumberHouse = NumberHouseTextBox.Text,
+                    });
+                    context.SaveChanges();
+                    MessageBox.Show("Данные сохранены", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else if (AddComboBox.SelectedIndex == 3)
+            {
+                try
+                {
+                    IEnumerable<int> flat =
+                    from Flat in context.Flat
+                    where Flat.FlatName == HouseComboBox.Text
+                    select Flat.IDFlat;
+                    int idFlat = flat.FirstOrDefault();
+
+                    context.Rooms.Add(new Rooms
+                    {
+                        IDFlat = context.Flat.Where(f => f.IDFlat == idFlat).Select(d => d.IDFlat).FirstOrDefault(),
+                        NameRoom = NameRoomsTextBox.Text,
+                        HeightRoom = float.Parse(HeightTextBox.Text),
+                        WidthRoom = float.Parse(WidthTextBox.Text),
+                    });
+                    context.SaveChanges();
+                    MessageBox.Show("Данные сохранены", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }
