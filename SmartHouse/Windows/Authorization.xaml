@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartHouse"
         mc:Ignorable="d"
-        Title="Authorization" WindowStartupLocation="CenterScreen" Style="{ StaticResource Window}"  >
+        Title="Authorization"
+        WindowStartupLocation="CenterScreen"
+        Style="{ StaticResource Window}">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush>
@@ -29,11 +31,11 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Grid.Column="0"
-                        Margin="50,-150,0,0"
+                        Margin="10,-130,0,0"
                         Grid.ColumnSpan="3">
                 <Image x:Name="logo"
                        Source="/Image/logo.png"
-                       Width="591" />
+                       Width="350" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical"
@@ -53,26 +55,26 @@
             </StackPanel>
             <StackPanel Orientation="Vertical"
                         Grid.Column="3"
-                        Margin="130,50,0,0"
+                        Margin="50,50,0,0"
                         Grid.ColumnSpan="3">
                 <Label Content="Авторизация"
-                       FontSize="80"
+                       FontSize="45"
                        Style="{StaticResource Label}"
-                       HorizontalContentAlignment="Center"
-                       Margin="-20,0,0,0" />
+                       HorizontalContentAlignment="Right" />
 
                 <Label Content="Логин:"
                        Style="{StaticResource LabelMini}"
-                       Margin="55,10,0,0"
-                       Width="554" />
+                       Margin="-85,15,0,5"
+                       Height="40"
+                       Width="200" />
 
                 <Border BorderBrush="#FF2F2F2F"
-                        BorderThickness="6"
+                        BorderThickness="4"
                         CornerRadius="15"
-                        Height="81"
-                        Width="505"
+                        Height="51"
+                        Width="300"
                         Background="#00B875DA"
-                        Margin="0,15,0,0">
+                        Margin="0,5,0,0">
                     <TextBox x:Name="Login"
                              Text="nataliya.maksimushkina@yandex.ru"
                              Style="{StaticResource TextBoxMenu}"
@@ -82,45 +84,47 @@
 
                 <Label Content="Пароль:"
                        Style="{StaticResource LabelMini}"
-                       Margin="55,10,0,0"
-                       Width="554" />
+                       Margin="-85,5,0,5"
+                       Width="200"
+                       Height="45" />
 
                 <Border BorderBrush="#FF2F2F2F"
-                        BorderThickness="6"
+                        BorderThickness="4"
                         CornerRadius="15"
-                        Height="81"
-                        Width="505"
-                        Margin="0,15,0,0">
+                        Height="51"
+                        Width="300"
+                        Margin="0,5,0,0">
                     <PasswordBox x:Name="Password"
                                  Password="03465ec6f"
                                  Style="{StaticResource PassBoxMenu}"
                                  Foreground="#FF2F2F2F"
                                  Margin="4,0,4,0" />
                 </Border>
-                <Label  FontSize="30"
-                        Style="{StaticResource Label}"
-                        Margin="0,15,0,0"
-                        MouseLeftButtonUp="Label_MouseLeftButtonUp">
-                    <TextBlock TextDecorations="Underline">Забыл пароль</TextBlock>
-                </Label>
+
 
                 <Button x:Name="Entry"
-                        Margin="0,15,0,0"
+                        Margin="0,20,0,0"
                         Content="Войти"
                         Click="Entry_Click"
                         Style="{StaticResource Button}" />
 
-                <Label Content="Нет Аккаунта?"
-                       FontSize="30"
-                       Style="{StaticResource LabelAcc}"
-                       Width="261"
-                       HorizontalAlignment="Left"
-                       Margin="45,30,0,0" />
-
-                <Label  FontSize="30"
+                <Label  FontSize="18"
                         Style="{StaticResource Label}"
-                        Width="340"
-                        Margin="200,-44,0,0"
+                        Margin="0,5,0,0"
+                        MouseLeftButtonUp="Label_MouseLeftButtonUp">
+                    <TextBlock TextDecorations="Underline">Забыл пароль</TextBlock>
+                </Label>
+                <Label Content="Нет Аккаунта?"
+                       FontSize="18"
+                       Style="{StaticResource LabelAcc}"
+                       Width="130"
+                       HorizontalAlignment="Left"
+                       Margin="20,10,0,0" />
+
+                <Label  FontSize="18"
+                        Style="{StaticResource Label}"
+                        Width="180"
+                        Margin="120,-30,0,0"
                         MouseLeftButtonUp="Reg_MouseLeftButtonUp">
                     <TextBlock TextDecorations="Underline">Зарегистрироваться</TextBlock>
                 </Label>

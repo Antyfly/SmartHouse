@@ -28,6 +28,7 @@
         <AssociationConnector Association="SmartHomeModel.FK_ApartmentAddress_Flat" />
         <AssociationConnector Association="SmartHomeModel.FK_Flat_Users" />
         <AssociationConnector Association="SmartHomeModel.FK_Rooms_Flat" />
+        <EntityTypeShape EntityType="SmartHomeModel.HomeDop" Width="1.5" PointX="8.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

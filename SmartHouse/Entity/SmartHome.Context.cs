@@ -40,6 +40,7 @@ namespace SmartHouse.Entity
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Home> Home { get; set; }
         public virtual DbSet<Flat> Flat { get; set; }
+        public virtual DbSet<HomeDop> HomeDop { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

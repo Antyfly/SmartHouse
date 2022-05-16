@@ -25,6 +25,7 @@ namespace SmartHouse.Frame
     public partial class Add : Page
     {
         public int _userDefinition;
+        public int idFlat;
         public Add( int IDUsers)
         {
             _userDefinition = IDUsers;
@@ -51,9 +52,6 @@ namespace SmartHouse.Frame
 
         private void AddComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var datasourse = context.Home.Where(i => i.IDUser == _userDefinition).Select(x => x.NameRoom).Distinct().ToList();
-            RoomsComboBox.ItemsSource = datasourse;
-
             var sourse = context.Flat.Where(i => i.IDUser == _userDefinition).Select(x => x.FlatName).Distinct().ToList();
             HouseComboBox.ItemsSource = sourse;
 
@@ -71,7 +69,10 @@ namespace SmartHouse.Frame
                 StreetGroupBox.Visibility = Visibility.Hidden;
                 NumberHouseGroupBox.Visibility = Visibility.Hidden;
                 DayWeekGroupBox.Visibility = Visibility.Hidden;
-                NameRoomsGroupBox.Visibility = Visibility.Hidden;
+                NameRoomsGroupBox.Visibility = Visibility.Hidden; 
+                WidthGroupBox.Visibility = Visibility.Hidden;
+                SizeGroupBox.Visibility = Visibility.Hidden;
+                HeightGroupBox.Visibility = Visibility.Hidden;
             }
             else if (AddComboBox.SelectedIndex == 1)
             {
@@ -87,6 +88,9 @@ namespace SmartHouse.Frame
                 NumberHouseGroupBox.Visibility = Visibility.Hidden;
                 NameRoomsGroupBox.Visibility = Visibility.Hidden;
                 HouseGroupBox.Visibility = Visibility.Hidden;
+                WidthGroupBox.Visibility = Visibility.Hidden;
+                HeightGroupBox.Visibility = Visibility.Hidden;
+                SizeGroupBox.Visibility = Visibility.Hidden;
             }
             else if (AddComboBox.SelectedIndex == 2)
             {
@@ -103,6 +107,8 @@ namespace SmartHouse.Frame
                 DayWeekGroupBox.Visibility = Visibility.Hidden;
                 NameRoomsGroupBox.Visibility = Visibility.Hidden;
                 HouseGroupBox.Visibility = Visibility.Hidden;
+                WidthGroupBox.Visibility = Visibility.Hidden;
+                HeightGroupBox.Visibility = Visibility.Hidden;
             }
             else if(AddComboBox.SelectedIndex == 3)
             {
@@ -120,6 +126,7 @@ namespace SmartHouse.Frame
                 StreetGroupBox.Visibility = Visibility.Hidden;
                 NumberHouseGroupBox.Visibility = Visibility.Hidden;
                 DayWeekGroupBox.Visibility = Visibility.Hidden;
+                SizeGroupBox.Visibility = Visibility.Hidden;
             }
         }
 
@@ -226,6 +233,18 @@ namespace SmartHouse.Frame
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void HouseComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            IEnumerable<int> flat =
+                    from Flat in context.Flat
+                    where Flat.FlatName == HouseComboBox.SelectedItem.ToString()
+                    select Flat.IDFlat;
+            idFlat = flat.First();
+
+            var datasourse = context.HomeDop.Where(i => i.IDUsers == _userDefinition && i.IDFlat == idFlat).Select(x => x.NameRoom).Distinct().ToList();
+            RoomsComboBox.ItemsSource = datasourse;
         }
     }
 }

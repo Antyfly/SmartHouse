@@ -151,6 +151,20 @@
           <Property Name="IDOurControllers" Type="int" Nullable="false" />
           <Property Name="PowerConsumption" Type="int" Nullable="false" />
         </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "SmartHome.dbo.HomeDop" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="HomeDop">
+          <Key>
+            <PropertyRef Name="IDUsers" />
+            <PropertyRef Name="FlatName" />
+            <PropertyRef Name="IDFlat" />
+          </Key>
+          <Property Name="IDUsers" Type="int" Nullable="false" />
+          <Property Name="IDRooms" Type="int" />
+          <Property Name="NameRoom" Type="nvarchar" MaxLength="25" />
+          <Property Name="FlatName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDFlat" Type="int" Nullable="false" />
+        </EntityType>
         <Association Name="FK_ApartmentAddress_Address">
           <End Role="Address" Type="Self.Address" Multiplicity="1" />
           <End Role="ApartmentAddress" Type="Self.ApartmentAddress" Multiplicity="*" />
@@ -331,6 +345,15 @@
     [Home].[IDOurControllers] AS [IDOurControllers], 
     [Home].[PowerConsumption] AS [PowerConsumption]
     FROM [dbo].[Home] AS [Home]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="HomeDop" EntityType="Self.HomeDop" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [HomeDop].[IDUsers] AS [IDUsers], 
+    [HomeDop].[IDRooms] AS [IDRooms], 
+    [HomeDop].[NameRoom] AS [NameRoom], 
+    [HomeDop].[FlatName] AS [FlatName], 
+    [HomeDop].[IDFlat] AS [IDFlat]
+    FROM [dbo].[HomeDop] AS [HomeDop]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_ApartmentAddress_Address" Association="Self.FK_ApartmentAddress_Address">
             <End Role="Address" EntitySet="Address" />
@@ -697,6 +720,7 @@
             <End Role="Flat" EntitySet="Flat" />
             <End Role="Rooms" EntitySet="Rooms" />
           </AssociationSet>
+          <EntitySet Name="HomeDop" EntityType="SmartHomeModel.HomeDop" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -757,6 +781,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="HomeDop">
+          <Key>
+            <PropertyRef Name="IDUsers" />
+            <PropertyRef Name="FlatName" />
+            <PropertyRef Name="IDFlat" />
+          </Key>
+          <Property Name="IDUsers" Type="Int32" Nullable="false" />
+          <Property Name="IDRooms" Type="Int32" />
+          <Property Name="NameRoom" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="FlatName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDFlat" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -930,6 +966,17 @@
                 <ScalarProperty Name="IDUser" ColumnName="IDUser" />
                 <ScalarProperty Name="FlatName" ColumnName="FlatName" />
                 <ScalarProperty Name="IDFlat" ColumnName="IDFlat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomeDop">
+            <EntityTypeMapping TypeName="SmartHomeModel.HomeDop">
+              <MappingFragment StoreEntitySet="HomeDop">
+                <ScalarProperty Name="IDFlat" ColumnName="IDFlat" />
+                <ScalarProperty Name="FlatName" ColumnName="FlatName" />
+                <ScalarProperty Name="NameRoom" ColumnName="NameRoom" />
+                <ScalarProperty Name="IDRooms" ColumnName="IDRooms" />
+                <ScalarProperty Name="IDUsers" ColumnName="IDUsers" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

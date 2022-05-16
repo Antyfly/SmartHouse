@@ -153,7 +153,7 @@
                          Foreground="#FF2F2F2F"
                          Margin="4,1,4,0"
                          FontSize="20"
-                         VerticalAlignment="Top" />
+                         VerticalAlignment="Top"  />
             </Border>
         </GroupBox>
 
@@ -247,7 +247,7 @@
                   Height="65"
                   x:Name="HouseGroupBox"
                   Visibility="Hidden">
-            <ComboBox  x:Name="HouseComboBox" />
+            <ComboBox  x:Name="HouseComboBox" SelectionChanged="HouseComboBox_SelectionChanged" />
         </GroupBox>
         
         <GroupBox Header="Название комнаты"

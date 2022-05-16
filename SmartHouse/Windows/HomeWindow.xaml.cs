@@ -29,6 +29,7 @@ namespace SmartHouse
 
         public int _userDefinition;
         public int IdentiDevice;
+        public int idFlat;
         public HomeWindow(int ID)
         {
             InitializeComponent();
@@ -36,7 +37,8 @@ namespace SmartHouse
             _userDefinition = ID;
             TxtInfo.Visibility = Visibility.Visible;
             Info.Visibility = Visibility.Hidden;
-            Combo();
+            ComboFlat();
+            ComboRoom();
             List();
         }
 
@@ -56,8 +58,8 @@ namespace SmartHouse
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            //DarkWindow dark = new DarkWindow();
-            //dark.Show();
+            DarkWindow dark = new DarkWindow();
+            dark.Show();
             string name = "Добавление";
             NavigationContextMenu add = new NavigationContextMenu(name, _userDefinition);
             add.ShowDialog();
@@ -79,8 +81,8 @@ namespace SmartHouse
         }
         private void Scenarios_Click(object sender, RoutedEventArgs e)
         {
-            DarkWindow dark = new DarkWindow();
-            dark.Show();
+            //DarkWindow dark = new DarkWindow();
+            //dark.Show();
             string name = "Сценарии";
             NavigationContextMenu prof = new NavigationContextMenu(name, _userDefinition);
             prof.ShowDialog();
@@ -98,23 +100,41 @@ namespace SmartHouse
         #endregion
         // НЕ ТРОГАТЬ!!! ОСОБЕННО КОСТЫЛИ
         #region выведение и клик Listview
-        public void Combo()
+        public void ComboFlat()
         {
-            //вывод в выпадающий список комнаты
-            var datasourse = context.Home.Where(i => i.IDUser == _userDefinition).Select(x => x.NameRoom).Distinct().ToList();
+            var datasourse = context.HomeDop.Where(i => i.IDUsers == _userDefinition && i.FlatName==CBHouse.Text).Select(x => x.NameRoom).Distinct().ToList();
             datasourse.Insert(0, "Все устройства");
             CbRoom.ItemsSource = datasourse;
             CbRoom.SelectedIndex = 0;
+
             //вывод в выпадающий список квартиры
             var sourse = context.Flat.Where(i => i.IDUser == _userDefinition).Select(x => x.FlatName).Distinct().ToList();
             CBHouse.ItemsSource = sourse;
             CBHouse.SelectedIndex = 0;
+
+
+        }
+
+
+        public void ComboRoom()
+        {
+            IEnumerable<int> flat =
+                    from Flat in context.Flat
+                    where Flat.FlatName == CBHouse.SelectedItem.ToString()
+                    select Flat.IDFlat;
+            idFlat = flat.First();
+
+                //вывод в выпадающий список комнаты
+                var datasourse = context.HomeDop.Where(i => i.IDUsers == _userDefinition && i.IDFlat == idFlat).Select(x => x.NameRoom).Distinct().ToList();
+                datasourse.Insert(0, "Все устройства");
+                CbRoom.ItemsSource = datasourse;
+                CbRoom.SelectedIndex = 0;  
         }
         private void ListViewer_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string nameDevice = CbRoom.Text;
 
-            var proba = CBHouse.Text;
+            var textHouse = CBHouse.Text;
             if (CbRoom.SelectedIndex != 0)
             {
                 var selection = context.Home.Where(i => i.IDUser == _userDefinition && i.NameRoom == nameDevice && i.FlatName == CBHouse.SelectedItem.ToString()).ToList();
@@ -123,7 +143,7 @@ namespace SmartHouse
             }
             else
             {
-                var selectionproba = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == proba).ToList();
+                var selectionproba = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == textHouse).ToList();
                 ListViewer.ItemsSource = selectionproba;
             }
         }
@@ -156,7 +176,7 @@ namespace SmartHouse
             var selectedcomboItem = sender as ComboBox;
             string nameDevice = selectedcomboItem.SelectedItem as string;
 
-            var proba = CBHouse.Text;
+            var textHouse = CBHouse.Text;
             if (CbRoom.SelectedIndex != 0)
             {
                 var selection = context.Home.Where(i => i.IDUser == _userDefinition && i.NameRoom == nameDevice && i.FlatName == CBHouse.SelectedItem.ToString()).ToList();
@@ -165,7 +185,7 @@ namespace SmartHouse
             }
             else
             {
-                var selectionproba = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == proba).ToList();
+                var selectionproba = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == textHouse).ToList();
                 ListViewer.ItemsSource = selectionproba;
             }
 
@@ -179,12 +199,13 @@ namespace SmartHouse
             {
                 var selection = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == name && i.NameRoom == CbRoom.SelectedItem.ToString()).ToList();
                 ListViewer.ItemsSource = selection;
-
+                ComboRoom();
             }
             else
             {
                 var selectionproba = context.Home.Where(i => i.IDUser == _userDefinition && i.FlatName == name).ToList();
                 ListViewer.ItemsSource = selectionproba;
+                ComboRoom();
             }
 
         }

@@ -30,7 +30,7 @@
             <Setter Property="FontFamily"
                     Value="Franklin Gothic Demi" />
             <Setter Property="FontSize"
-                    Value="60" />
+                    Value="20" />
             <Setter Property="VerticalAlignment"
                     Value="Center" />
             <Setter Property="SelectionBrush"
@@ -48,7 +48,7 @@
             <Setter Property="FontFamily"
                     Value="Franklin Gothic Demi" />
             <Setter Property="FontSize"
-                    Value="60" />
+                    Value="20" />
             <Setter Property="VerticalAlignment"
                     Value="Center" />
             <Setter Property="SelectionBrush"
@@ -88,7 +88,7 @@
             <Setter Property="FontWeight"
                     Value="Bold" />
             <Setter Property="FontSize"
-                    Value="45" />
+                    Value="30" />
         </Style>
 
         <Style TargetType="Label"
@@ -116,7 +116,7 @@
             <Setter Property="VerticalAlignment"
                     Value="Center" />
             <Setter Property="FontSize"
-                    Value="60" />
+                    Value="35" />
             <Setter Property="Foreground"
                     Value="#FF2F2F2F" />
             <Setter Property="FontWeight"
@@ -124,9 +124,9 @@
             <Setter Property="Background"
                     Value="#FFF5F0FF" />
             <Setter Property="Width"
-                    Value="505" />
+                    Value="300" />
             <Setter Property="Height"
-                    Value="81" />
+                    Value="51" />
             <Style.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius"
@@ -150,15 +150,15 @@
             <Setter Property="VerticalAlignment"
                     Value="Center" />
             <Setter Property="FontSize"
-                    Value="60" />
+                    Value="40" />
             <Setter Property="FontWeight"
                     Value="Bold" />
             <Setter Property="Background"
                     Value="#FFF5F0FF" />
             <Setter Property="Width"
-                    Value="146" />
+                    Value="100" />
             <Setter Property="Height"
-                    Value="152" />
+                    Value="100" />
             <Style.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius"
@@ -176,45 +176,26 @@
             <Setter Property="SnapsToDevicePixels"
                     Value="True" />
             <Setter Property="Width"
-                    Value="275" />
+                    Value="200" />
+            <Setter Property="Opacity"
+                    Value="1" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ContextMenu}">
                         <Border Background="#B2CAB5FE"
                                 CornerRadius="7, 7, 8, 8"
                                 BorderBrush="#E5CAB5FE"
-                                BorderThickness="2">
+                                BorderThickness="2"
+                                Opacity="1">
                             <StackPanel ClipToBounds="True"
                                         Orientation="Vertical"
-                                        IsItemsHost="True"
-                                        Margin="5,4,5,4" />
+                                        IsItemsHost="True" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
 
-        <Style TargetType="TabItem"
-               x:Key="Item">
-            <Setter Property="BorderBrush"
-                    Value="{x:Null}" />
-            <Setter Property="BorderThickness"
-                    Value="0" />
-            <Setter Property="HorizontalAlignment"
-                    Value="Center" />
-            <Setter Property="FontFamily"
-                    Value="Franklin Gothic Demi" />
-            <Setter Property="VerticalAlignment"
-                    Value="Center" />
-            <Setter Property="FontSize"
-                    Value="60" />
-            <Setter Property="Foreground"
-                    Value="#FF2F2F2F" />
-            <Setter Property="FontWeight"
-                    Value="Bold" />
-            <Setter Property="Background"
-                    Value="{x:Null}" />
-        </Style>
 
         <!-- ComboBox-->
 
@@ -526,9 +507,9 @@
             <Setter Property="Background"
                     Value="#FFF5F0FF" />
             <Setter Property="Height"
-                    Value="750" />
+                    Value="500" />
             <Setter Property="Width"
-                    Value="1412" />
+                    Value="770" />
             <Setter Property="WindowStyle"
                     Value="None" />
             <Setter Property="ResizeMode"
@@ -542,13 +523,13 @@
             <Setter Property="BorderBrush"
                     Value="#FF2F2F2F" />
             <Setter Property="BorderThickness"
-                    Value="6" />
+                    Value="4" />
             <Setter Property="CornerRadius"
                     Value="15" />
             <Setter Property="Height"
-                    Value="45" />
+                    Value="40" />
             <Setter Property="Width"
-                    Value="250" />
+                    Value="180" />
         </Style>
 
         <Style x:Key="BorderProfile"

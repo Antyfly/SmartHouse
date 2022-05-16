@@ -34,7 +34,7 @@ namespace SmartHouse
         private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Recovery recovery = new Recovery();
-            Application.Current.MainWindow.Close();
+            this.Close();
             recovery.ShowDialog();
         }
 
@@ -55,8 +55,9 @@ namespace SmartHouse
                         {
                             int ID = datasourse.IDUsers;
                             HomeWindow home = new HomeWindow(ID);
-                            home.ShowDialog();
                             this.Close();
+                            home.ShowDialog();
+                            
                         }
                         else
                         {
@@ -83,7 +84,7 @@ namespace SmartHouse
         private void Reg_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Registration reg = new Registration();
-            Application.Current.MainWindow.Close();
+            this.Close();
             reg.ShowDialog();
         }
 
