@@ -105,11 +105,22 @@
                     Style="{StaticResource Button}"
                     Height="50"
                     Width="250"
-                    HorizontalAlignment="Center"
+                    HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
-                    Margin="0,0,0,50"
+                    Margin="50,0,0,50"
                     Content="Редактировать"
                     FontSize="25" Click="ChangeInfoLKButton_Click"/>
+
+            <Button x:Name="DeleteProfile"
+                    Style="{StaticResource Button}"
+                    Height="50"
+                    Width="250"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Margin="0,0,50,50"
+                    Content="Удалить"
+                    FontSize="25"
+                    Click="DeleteProfile_Click" />
         </Grid>
     </Grid>
 </Page>

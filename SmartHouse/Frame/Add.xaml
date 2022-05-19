@@ -65,7 +65,6 @@
                       x:Name="AddComboBox"
                       SelectionChanged="AddComboBox_SelectionChanged">
                 <ComboBoxItem Content="Устройство" />
-                <ComboBoxItem Content="Cценарий" />
                 <ComboBoxItem Content="Дом" />
                 <ComboBoxItem Content="Комнату" />
             </ComboBox>
@@ -73,7 +72,7 @@
 
         <GroupBox Header="Устройство"
                   Grid.Row="2"
-                  Grid.Column="1"
+                  Grid.Column="2"
                   FontSize="15"
                   BorderThickness="0"
                   Height="65"
@@ -90,7 +89,7 @@
 
         <GroupBox Header="Комнату"
                   Grid.Row="2"
-                  Grid.Column="2"
+                  Grid.Column="1"
                   FontSize="15"
                   BorderThickness="0"
                   Height="65"
@@ -98,43 +97,6 @@
                   x:Name="RoomsGroupBox">
             <ComboBox Height="30"
                       x:Name="RoomsComboBox" />
-        </GroupBox>
-
-        <GroupBox Header="День недели"
-                  Grid.Row="2"
-                  FontSize="15"
-                  BorderThickness="0"
-                  Height="65"
-                  Visibility="Hidden"
-                  x:Name="DayWeekGroupBox">
-            <ComboBox Height="30"
-                      x:Name="DayWeekComboBox">
-                <ComboBoxItem Content="Понедельник" />
-                <ComboBoxItem Content="Вторник" />
-                <ComboBoxItem Content="Среда" />
-                <ComboBoxItem Content="Четверг" />
-                <ComboBoxItem Content="Пятница" />
-                <ComboBoxItem Content="Суббота" />
-                <ComboBoxItem Content="Воскресенье" />
-            </ComboBox>
-        </GroupBox>
-
-        <GroupBox Header="Время"
-                  Grid.Row="2"
-                  Grid.Column="2"
-                  FontSize="15"
-                  BorderThickness="0"
-                  Height="65"
-                  x:Name="TimeGroupBox"
-                  Visibility="Hidden">
-
-            <xctk:TimePicker x:Name="TimeScenarios"
-                             Format="ShortTime"
-                             FormatString="hh:mm"
-                             ShowDropDownButton="False"
-                             Background="Transparent"
-                             Height="30"
-                             Value="00:00" />
         </GroupBox>
 
         <GroupBox Header="Название дома"

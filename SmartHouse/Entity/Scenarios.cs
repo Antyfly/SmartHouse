@@ -15,11 +15,11 @@ namespace SmartHouse.Entity
     public partial class Scenarios
     {
         public int IDScenarios { get; set; }
-        public int IDDevice { get; set; }
+        public int IDOurControllers { get; set; }
         public System.TimeSpan Time { get; set; }
         public bool Action { get; set; }
         public int DayWeek { get; set; }
     
-        public virtual Device Device { get; set; }
+        public virtual OurControllers OurControllers { get; set; }
     }
 }

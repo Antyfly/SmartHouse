@@ -25,7 +25,7 @@ namespace SmartHouse.Frame
     public partial class Add : Page
     {
         public int _userDefinition;
-        public int idFlat;
+        public int idFlat, IdRoom;
         public Add( int IDUsers)
         {
             _userDefinition = IDUsers;
@@ -55,6 +55,7 @@ namespace SmartHouse.Frame
             var sourse = context.Flat.Where(i => i.IDUser == _userDefinition).Select(x => x.FlatName).Distinct().ToList();
             HouseComboBox.ItemsSource = sourse;
 
+            
             if (AddComboBox.SelectedIndex == 0)
             {
                 DeviceGroupBox.Visibility = Visibility.Visible;
@@ -62,37 +63,18 @@ namespace SmartHouse.Frame
                 SaveButton.Visibility = Visibility.Visible;
                 HouseGroupBox.Visibility = Visibility.Visible;
 
-
-                TimeGroupBox.Visibility = Visibility.Hidden;
+                
                 NameHouseGroupBox.Visibility = Visibility.Hidden;
                 CityGroupBox.Visibility = Visibility.Hidden;
                 StreetGroupBox.Visibility = Visibility.Hidden;
                 NumberHouseGroupBox.Visibility = Visibility.Hidden;
-                DayWeekGroupBox.Visibility = Visibility.Hidden;
                 NameRoomsGroupBox.Visibility = Visibility.Hidden; 
                 WidthGroupBox.Visibility = Visibility.Hidden;
                 SizeGroupBox.Visibility = Visibility.Hidden;
                 HeightGroupBox.Visibility = Visibility.Hidden;
             }
+            
             else if (AddComboBox.SelectedIndex == 1)
-            {
-                DeviceGroupBox.Visibility = Visibility.Visible;
-                TimeGroupBox.Visibility = Visibility.Visible;
-                DayWeekGroupBox.Visibility = Visibility.Visible;
-                SaveButton.Visibility = Visibility.Visible;
-
-                RoomsGroupBox.Visibility = Visibility.Hidden;
-                NameHouseGroupBox.Visibility =  Visibility.Hidden;
-                CityGroupBox.Visibility = Visibility.Hidden;
-                StreetGroupBox.Visibility = Visibility.Hidden;
-                NumberHouseGroupBox.Visibility = Visibility.Hidden;
-                NameRoomsGroupBox.Visibility = Visibility.Hidden;
-                HouseGroupBox.Visibility = Visibility.Hidden;
-                WidthGroupBox.Visibility = Visibility.Hidden;
-                HeightGroupBox.Visibility = Visibility.Hidden;
-                SizeGroupBox.Visibility = Visibility.Hidden;
-            }
-            else if (AddComboBox.SelectedIndex == 2)
             {
                 NameHouseGroupBox.Visibility = Visibility.Visible;
                 CityGroupBox.Visibility = Visibility.Visible;
@@ -102,15 +84,14 @@ namespace SmartHouse.Frame
                 SizeGroupBox.Visibility = Visibility.Visible;
 
                 DeviceGroupBox.Visibility = Visibility.Hidden;
-                TimeGroupBox.Visibility = Visibility.Hidden;
                 RoomsGroupBox.Visibility = Visibility.Hidden;
-                DayWeekGroupBox.Visibility = Visibility.Hidden;
                 NameRoomsGroupBox.Visibility = Visibility.Hidden;
                 HouseGroupBox.Visibility = Visibility.Hidden;
                 WidthGroupBox.Visibility = Visibility.Hidden;
                 HeightGroupBox.Visibility = Visibility.Hidden;
+                
             }
-            else if(AddComboBox.SelectedIndex == 3)
+            else if(AddComboBox.SelectedIndex == 2)
             {
                 SaveButton.Visibility = Visibility.Visible;
                 NameRoomsGroupBox.Visibility = Visibility.Visible;
@@ -119,14 +100,13 @@ namespace SmartHouse.Frame
                 HeightGroupBox.Visibility = Visibility.Visible;
 
                 DeviceGroupBox.Visibility = Visibility.Hidden;
-                TimeGroupBox.Visibility = Visibility.Hidden;
                 RoomsGroupBox.Visibility = Visibility.Hidden;
                 NameHouseGroupBox.Visibility = Visibility.Hidden;
                 CityGroupBox.Visibility = Visibility.Hidden;
                 StreetGroupBox.Visibility = Visibility.Hidden;
                 NumberHouseGroupBox.Visibility = Visibility.Hidden;
-                DayWeekGroupBox.Visibility = Visibility.Hidden;
                 SizeGroupBox.Visibility = Visibility.Hidden;
+                
             }
         }
 
@@ -165,25 +145,6 @@ namespace SmartHouse.Frame
             {
                 try
                 {
-                    context.Scenarios.Add(new Scenarios
-                    {
-                        IDDevice = context.Device.Where(d => d.Title == DeviceComboBox.Text).Select(d => d.IDDevice).FirstOrDefault(),
-                        Time = TimeSpan.Parse(TimeScenarios.Text),
-                        Action = true,
-                        DayWeek = DayWeekComboBox.SelectedIndex,
-                    });
-                    context.SaveChanges();
-                    MessageBox.Show("Данные сохранены", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-            else if (AddComboBox.SelectedIndex == 2)
-            {
-                try
-                {
 
                     context.Flat.Add(new Flat
                     {
@@ -207,7 +168,7 @@ namespace SmartHouse.Frame
                     MessageBox.Show(ex.Message);
                 }
             }
-            else if (AddComboBox.SelectedIndex == 3)
+            else if (AddComboBox.SelectedIndex == 2)
             {
                 try
                 {
@@ -245,6 +206,9 @@ namespace SmartHouse.Frame
 
             var datasourse = context.HomeDop.Where(i => i.IDUsers == _userDefinition && i.IDFlat == idFlat).Select(x => x.NameRoom).Distinct().ToList();
             RoomsComboBox.ItemsSource = datasourse;
+
         }
+
+        
     }
 }

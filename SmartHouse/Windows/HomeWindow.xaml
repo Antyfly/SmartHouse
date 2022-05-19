@@ -55,9 +55,6 @@
                                   Header="Профиль"
                                   Click="Profile_click" />
                         <MenuItem Foreground="#FF2F2F2F"
-                                  Header="Сценарии"
-                                  Click="Scenarios_Click" />
-                        <MenuItem Foreground="#FF2F2F2F"
                                   Header="Добавить"
                                   Click="Add_Click" />
                         <MenuItem Foreground="#FF2F2F2F"

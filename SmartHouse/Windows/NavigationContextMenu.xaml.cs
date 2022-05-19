@@ -37,10 +37,6 @@ namespace SmartHouse
             {
                 FrameContextMenu.Content = new Profile(IDUsers);
             }
-            else if (nameCM == "Сценарии")
-            {
-                FrameContextMenu.Content = new Scenari(IDUsers);
-            }
             else if (nameCM == "Добавление")
             {
                 FrameContextMenu.Content = new Add(IDUsers);

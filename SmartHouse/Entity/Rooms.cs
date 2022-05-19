@@ -26,8 +26,8 @@ namespace SmartHouse.Entity
         public Nullable<double> WidthRoom { get; set; }
         public Nullable<double> HeightRoom { get; set; }
     
+        public virtual Flat Flat { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OurControllers> OurControllers { get; set; }
-        public virtual Flat Flat { get; set; }
     }
 }

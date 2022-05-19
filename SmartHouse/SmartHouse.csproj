@@ -127,9 +127,6 @@
     <Compile Include="Entity\Rooms.cs">
       <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\Scenarios.cs">
-      <DependentUpon>SmartHome.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entity\SmartHome.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -144,12 +141,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SmartHome.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>SmartHome.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\sp_helpdiagrams_Result.cs">
-      <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\sysdiagrams.cs">
       <DependentUpon>SmartHome.tt</DependentUpon>
@@ -171,9 +162,6 @@
     </Compile>
     <Compile Include="Frame\Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Frame\Scenari.xaml.cs">
-      <DependentUpon>Scenari.xaml</DependentUpon>
     </Compile>
     <Compile Include="Help\Validation.cs" />
     <Compile Include="Windows\DarkWindow.xaml.cs">
@@ -198,10 +186,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frame\Profile.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Frame\Scenari.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

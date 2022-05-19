@@ -39,7 +39,6 @@ namespace SmartHouse
             Info.Visibility = Visibility.Hidden;
             ComboFlat();
             ComboRoom();
-            List();
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
@@ -79,17 +78,6 @@ namespace SmartHouse
             prof.Topmost = true;
             prof.Focus();
         }
-        private void Scenarios_Click(object sender, RoutedEventArgs e)
-        {
-            //DarkWindow dark = new DarkWindow();
-            //dark.Show();
-            string name = "Сценарии";
-            NavigationContextMenu prof = new NavigationContextMenu(name, _userDefinition);
-            prof.ShowDialog();
-            prof.WindowState = WindowState.Normal;
-            prof.Topmost = true;
-            prof.Focus();
-        }
         private void ExitProfile_Click(object sender, RoutedEventArgs e)
         {
             Authorization auth = new Authorization();
@@ -102,19 +90,25 @@ namespace SmartHouse
         #region выведение и клик Listview
         public void ComboFlat()
         {
-            var datasourse = context.HomeDop.Where(i => i.IDUsers == _userDefinition && i.FlatName==CBHouse.Text).Select(x => x.NameRoom).Distinct().ToList();
+            var datasourse = context.HomeDop.Where(i => i.IDUsers == _userDefinition && i.FlatName == CBHouse.Text).Select(x => x.NameRoom).Distinct().ToList();
             datasourse.Insert(0, "Все устройства");
             CbRoom.ItemsSource = datasourse;
             CbRoom.SelectedIndex = 0;
 
+
             //вывод в выпадающий список квартиры
             var sourse = context.Flat.Where(i => i.IDUser == _userDefinition).Select(x => x.FlatName).Distinct().ToList();
-            CBHouse.ItemsSource = sourse;
-            CBHouse.SelectedIndex = 0;
-
-
+            if (sourse.Count == 0)
+            {
+                sourse.Insert(0, "Нет квартир");
+                CBHouse.SelectedIndex = 0;
+            }
+            else
+            {
+                CBHouse.ItemsSource = sourse;
+                CBHouse.SelectedIndex = 0;
+            }
         }
-
 
         public void ComboRoom()
         {
@@ -124,11 +118,11 @@ namespace SmartHouse
                     select Flat.IDFlat;
             idFlat = flat.First();
 
-                //вывод в выпадающий список комнаты
-                var datasourse = context.HomeDop.Where(i => i.IDUsers == _userDefinition && i.IDFlat == idFlat).Select(x => x.NameRoom).Distinct().ToList();
-                datasourse.Insert(0, "Все устройства");
-                CbRoom.ItemsSource = datasourse;
-                CbRoom.SelectedIndex = 0;  
+            //вывод в выпадающий список комнаты
+            var datasourse = context.HomeDop.Where(i => i.IDUsers == _userDefinition && i.IDFlat == idFlat).Select(x => x.NameRoom).Distinct().ToList();
+            datasourse.Insert(0, "Все устройства");
+            CbRoom.ItemsSource = datasourse;
+            CbRoom.SelectedIndex = 0;
         }
         private void ListViewer_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -156,6 +150,12 @@ namespace SmartHouse
             {
                 ListViewer.ItemsSource = CountFlat;
             }
+            else if (CountFlat.Count == 0)
+            {
+                var Flat = context.Home.Where(i => i.IDUser == _userDefinition).ToList();
+                ListViewer.ItemsSource = Flat;
+            }
+            
         }
 
         private void ListViewer_MouseDoubleClick(object sender, MouseButtonEventArgs e)

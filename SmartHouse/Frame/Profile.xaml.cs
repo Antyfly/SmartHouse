@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHouse.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,44 @@ namespace SmartHouse.Frame
     public partial class Profile : Page
     {
         public string Surname, NameUser, Patronymic, Email, Phone, Login, KeyWord;
+
+        private void DeleteProfile_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                context.Users.Add(new Users
+                {
+                    IsDelete = 1,
+                });
+
+                context.SaveChanges();
+                if (MessageBox.Show("Пользователь удален!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
+                {
+                    Application.Current.MainWindow.Close();
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        if (window.GetType() == typeof(DarkWindow))
+                        {
+                            (window as DarkWindow).Close();
+                        }
+                    }
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        if (window.GetType() == typeof(HomeWindow))
+                        {
+                            (window as HomeWindow).Close();
+                        }
+                    }
+                    Authorization auth = new Authorization();
+                    auth.ShowDialog();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         private void ChangeInfoLKButton_Click(object sender, RoutedEventArgs e)
         {
