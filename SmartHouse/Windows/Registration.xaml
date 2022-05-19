@@ -20,9 +20,9 @@
                     <TranslateTransform />
                 </TransformGroup>
             </LinearGradientBrush.RelativeTransform>
-            <GradientStop Color="#FFCAB5FE"
+            <GradientStop Color="#756153"
                           Offset="0.30" />
-            <GradientStop Color="#FFF5F0FF"
+            <GradientStop Color="#e1d1c2"
                           Offset="0.30" />
         </LinearGradientBrush>
     </Window.Background>
@@ -91,14 +91,14 @@
             <Label Content="Имя"
                    Style="{StaticResource LabelMini}"
                    HorizontalAlignment="Left"
-                   Margin="50,-10,0,0"
+                   Margin="60,-10,0,0"
                    FontSize="18" />
             <Label Content="Отчество"
                    Style="{StaticResource LabelMini}"
                    Margin="250,-31,0,0"
                    FontSize="18" />
             <Border Style="{StaticResource BorderReg}"
-                    Margin="40,-5,0,0"
+                    Margin="45,-5,0,0"
                     HorizontalAlignment="Left">
                 <TextBox x:Name="Name"
                          Style="{StaticResource TextBoxMenu}"
@@ -109,7 +109,7 @@
             </Border>
 
             <Border Style="{StaticResource BorderReg}"
-                    Margin="215,-40,0,0">
+                    Margin="200,-40,0,0">
                 <TextBox x:Name="Patronymic"
                          Style="{StaticResource TextBoxMenu}"
                          Foreground="#FF2F2F2F"
@@ -122,8 +122,8 @@
                    Margin="50,-5,0,2"
                    FontSize="18" />
             <Border  Style="{StaticResource BorderReg}"
-                     Width="380"
-                     Margin="40,-5,0,0"
+                     Width="368"
+                     Margin="45,-5,0,0"
                      HorizontalAlignment="Left">
                 <TextBox x:Name="Surname"
                          Style="{StaticResource TextBoxMenu}"
@@ -137,8 +137,8 @@
                    Margin="50,-5,0,0"
                    FontSize="18" />
             <Border  Style="{StaticResource BorderReg}"
-                     Width="380"
-                     Margin="40,-5,0,0"
+                     Width="368"
+                     Margin="45,-5,0,0"
                      HorizontalAlignment="Left">
                 <TextBox x:Name="Email"
                          Style="{StaticResource TextBoxMenu}"
@@ -152,8 +152,8 @@
                    Margin="50,-5,0,0"
                    FontSize="18" />
             <Border  Style="{StaticResource BorderReg}"
-                     Width="380"
-                     Margin="40,-5,0,0"
+                     Width="368"
+                     Margin="45,-5,0,0"
                      HorizontalAlignment="Left">
                 <xctk:MaskedTextBox  x:Name="phone"
                                      FontSize="25"
@@ -172,8 +172,8 @@
                    Margin="50,-5,0,0"
                    FontSize="18" />
             <Border  Style="{StaticResource BorderReg}"
-                     Width="380"
-                     Margin="40,-5,0,0"
+                     Width="368"
+                     Margin="45,-5,0,0"
                      HorizontalAlignment="Left">
                 <PasswordBox x:Name="PassText"
                              Style="{StaticResource PassBoxMenu}"
@@ -194,8 +194,8 @@
                    Margin="50,-5,0,0"
                    FontSize="18" />
             <Border  Style="{StaticResource BorderReg}"
-                     Width="380"
-                     Margin="40,-5,0,0"
+                     Width="368"
+                     Margin="45,-5,0,0"
                      HorizontalAlignment="Left">
                 <TextBox x:Name="Codeword"
                          Style="{StaticResource TextBoxMenu}"
@@ -205,12 +205,12 @@
             </Border>
 
             <Button x:Name="BtnRegistr"
-                    Margin="40,10,0,0"
+                    Margin="45,10,0,0"
                     Content="Зарегистрироваться"
                     Click="BtnRegistr_Click"
                     Style="{StaticResource Button}"
                     HorizontalAlignment="Left"
-                    Width="380"
+                    Width="368"
                     Background="Transparent"
                     FontSize="25"
                     Height="45"

@@ -11,9 +11,9 @@
     <Grid>
         <Grid.Background>
             <LinearGradientBrush>
-                <GradientStop Color="#FFCAB5FE"
+                <GradientStop Color="#756153"
                               Offset="0.5" />
-                <GradientStop Color="#FFF5F0FF"
+                <GradientStop Color="#e1d1c2"
                               Offset="0.5" />
             </LinearGradientBrush>
         </Grid.Background>
@@ -76,7 +76,6 @@
                         Background="#00B875DA"
                         Margin="0,5,0,0">
                     <TextBox x:Name="Login"
-                             Text="nataliya.maksimushkina@yandex.ru"
                              Style="{StaticResource TextBoxMenu}"
                              Foreground="#FF2F2F2F"
                              Margin="4,0,4,0" />
@@ -95,12 +94,10 @@
                         Width="300"
                         Margin="0,5,0,0">
                     <PasswordBox x:Name="Password"
-                                 Password="03465ec6f"
                                  Style="{StaticResource PassBoxMenu}"
                                  Foreground="#FF2F2F2F"
                                  Margin="4,0,4,0" />
                 </Border>
-
 
                 <Button x:Name="Entry"
                         Margin="0,20,0,0"

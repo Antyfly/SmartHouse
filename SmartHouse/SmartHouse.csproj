@@ -263,9 +263,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\Kettle.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Image\closes.png" />
   </ItemGroup>
   <ItemGroup>
@@ -276,10 +273,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\ONButton.png" />
-    <Resource Include="Image\PowerButton.png" />
     <Resource Include="Image\lamp.png" />
     <Resource Include="Image\Socket.png" />
-    <Resource Include="Image\usSpeaker.png" />
     <Resource Include="Image\LogoReg.png" />
     <Resource Include="Image\LogoWord.png" />
   </ItemGroup>
@@ -297,6 +292,9 @@
       <DependentUpon>SmartHome.edmx</DependentUpon>
       <LastGenOutput>SmartHome.cs</LastGenOutput>
     </Content>
+    <Resource Include="Image\usSpeaker.png" />
+    <Resource Include="Image\Kettle.png" />
+    <Resource Include="Image\PowerButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

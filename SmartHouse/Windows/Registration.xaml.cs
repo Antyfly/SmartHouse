@@ -92,6 +92,6 @@ namespace SmartHouse
             auth.ShowDialog();
         }
 
-        
+       
     }
 }

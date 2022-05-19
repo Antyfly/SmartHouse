@@ -90,17 +90,18 @@ namespace SmartHouse
         #region выведение и клик Listview
         public void ComboFlat()
         {
-            var datasourse = context.HomeDop.Where(i => i.IDUsers == _userDefinition && i.FlatName == CBHouse.Text).Select(x => x.NameRoom).Distinct().ToList();
+            var datasourse = context.HomeDop.Where(i => i.IDUsers == _userDefinition).Select(x => x.NameRoom).Distinct().ToList();
             datasourse.Insert(0, "Все устройства");
             CbRoom.ItemsSource = datasourse;
             CbRoom.SelectedIndex = 0;
 
 
             //вывод в выпадающий список квартиры
-            var sourse = context.Flat.Where(i => i.IDUser == _userDefinition).Select(x => x.FlatName).Distinct().ToList();
+            var sourse = context.Flat.Where(i => i.IDUser == _userDefinition).Select(x => x.FlatName).ToList();
             if (sourse.Count == 0)
             {
                 sourse.Insert(0, "Нет квартир");
+                CBHouse.ItemsSource = sourse;
                 CBHouse.SelectedIndex = 0;
             }
             else
@@ -112,17 +113,21 @@ namespace SmartHouse
 
         public void ComboRoom()
         {
-            IEnumerable<int> flat =
+            if (CBHouse.SelectedItem.ToString() != "Нет квартир")
+            {
+                IEnumerable<int> flat =
                     from Flat in context.Flat
                     where Flat.FlatName == CBHouse.SelectedItem.ToString()
                     select Flat.IDFlat;
-            idFlat = flat.First();
+                idFlat = flat.First();
 
-            //вывод в выпадающий список комнаты
-            var datasourse = context.HomeDop.Where(i => i.IDUsers == _userDefinition && i.IDFlat == idFlat).Select(x => x.NameRoom).Distinct().ToList();
-            datasourse.Insert(0, "Все устройства");
-            CbRoom.ItemsSource = datasourse;
-            CbRoom.SelectedIndex = 0;
+                //вывод в выпадающий список комнаты
+                var datasourse = context.HomeDop.Where(i => i.IDUsers == _userDefinition && i.IDFlat == idFlat).Select(x => x.NameRoom).Distinct().ToList();
+                datasourse.Insert(0, "Все устройства");
+                CbRoom.ItemsSource = datasourse;
+                CbRoom.SelectedIndex = 0;
+            }
+            
         }
         private void ListViewer_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -152,8 +157,8 @@ namespace SmartHouse
             }
             else if (CountFlat.Count == 0)
             {
-                var Flat = context.Home.Where(i => i.IDUser == _userDefinition).ToList();
-                ListViewer.ItemsSource = Flat;
+                //var Flat = context.Home.Where(i => i.IDUser == _userDefinition).ToList();
+                //ListViewer.ItemsSource = Flat;
             }
             
         }

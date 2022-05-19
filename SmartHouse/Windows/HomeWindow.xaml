@@ -9,23 +9,22 @@
         FontSize="20"
         Icon="/Image/Icon.png"
         FontFamily="Franklin Gothic Demi"
-        Background="#FFF5F0FF"
+        Background="{StaticResource MainСolor}"
         Height="500"
         Width="770"
         WindowStyle="None"
         ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition  Height="40" />
-            <RowDefinition  Height="*" />
+            <RowDefinition  Height="35" />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <StackPanel x:Name="UpBar"
                     Orientation="Horizontal"
-                    Background="#FFCAB5FE"
-                    Grid.Row="0"
-                    VerticalAlignment="Top"
-                    x:FieldModifier="public">
+                    Background="{StaticResource AdditionalСolor}"
+                    VerticalAlignment="Center"
+                    Height="35">
             <ComboBox x:Name="CBHouse"
                       Grid.Row="1"
                       Background="Black"
@@ -33,11 +32,12 @@
                       SelectionChanged="CBHouse_SelectionChanged"
                       Grid.Column="0"
                       FontSize="18"
-                      Width="228" Height="25"/>
+                      Width="228"
+                      Height="25" />
         </StackPanel>
 
-        <StackPanel Grid.Row="0"
-                    VerticalAlignment="Center">
+        <StackPanel VerticalAlignment="Center"
+                    Height="40">
             <Button x:Name="Lk"
                     Width="200"
                     Content="Личный кабинет"
@@ -73,14 +73,15 @@
                     Panel.ZIndex="1"
                     Margin="0,-40,0,0"
                     Style="{StaticResource ButtonStateMenu}"
-                    Click="Close_Click">
+                    Click="Close_Click"
+                  >
                 <Image Source="/Image/closes.png" />
             </Button>
         </StackPanel>
 
 
         <Grid Grid.Row="1"
-              Background="#FFF5F0FF">
+              Background="{StaticResource MainСolor}">
             <Grid.RowDefinitions>
                 <RowDefinition  Height="20" />
                 <RowDefinition  Height="40" />
@@ -136,12 +137,20 @@
                                 BorderBrush="#FF2F2F2F"
                                 BorderThickness="1"
                                 CornerRadius="10"
-                                Padding="5">
-                            <StackPanel>
+                                Padding="5"
+                                Background="{StaticResource ColorForList}">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="10"
+                                                  Direction="330"
+                                                  Color="Black"
+                                                  Opacity="0.4"
+                                                  BlurRadius="10"
+                                                  RenderingBias="Quality" />
+                            </Border.Effect>
+                            <StackPanel Background="{StaticResource ColorForList}">
                                 <Border Width="80"
                                         Height="90"
-                                        CornerRadius="5"
-                                        Margin="5">
+                                        CornerRadius="5">
                                     <Border.Effect>
                                         <DropShadowEffect ShadowDepth="1" />
                                     </Border.Effect>
@@ -159,13 +168,14 @@
                 </ListView.ItemTemplate>
             </ListView>
             <TextBlock x:Name="TxtInfo"
-                   Text="Выберите устройство для просмотра информации"
-                   Grid.Column="1"
-                   Grid.Row="2"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   FontSize="18"
-                   Visibility="Hidden" TextWrapping="Wrap" />
+                       Text="Выберите устройство для просмотра информации"
+                       Grid.Column="1"
+                       Grid.Row="2"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="18"
+                       Visibility="Hidden"
+                       TextWrapping="Wrap" />
 
             <Grid Grid.Column="2"
                   Grid.Row="2"
@@ -203,7 +213,7 @@
                                            FontSize="20"
                                            Margin="10,270,0,0" />
                                 <Button x:Name="PowerOFF"
-                                        Style="{StaticResource Power}"
+                                        Style="{StaticResource PowerOFF}"
                                         Height="100"
                                         Width="100"
                                         Margin="0,100,0,0"
@@ -243,7 +253,7 @@
                                            HorizontalAlignment="Center"
                                            Margin="0,220,0,132"
                                            Grid.Row="1"
-                                           Foreground="#FFC3CADE" />
+                                           Foreground="#756153" />
                             </Grid>
                         </TabItem.Content>
                     </TabItem>

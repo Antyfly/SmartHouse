@@ -26,17 +26,28 @@ namespace SmartHouse.Frame
 
         private void DeleteProfile_Click(object sender, RoutedEventArgs e)
         {
+            IEnumerable<Users> Users = context.Users.Where(x => x.IDUsers == _user).AsEnumerable().
+                           Select(x =>
+                           {
+                               x.IsDelete = 1;
+                               return x;
+                           });
+            foreach (Users user in Users)
+            {
+                context.Entry(user).State = System.Data.Entity.EntityState.Modified;
+            }
             try
             {
-                context.Users.Add(new Users
-                {
-                    IsDelete = 1,
-                });
-
                 context.SaveChanges();
                 if (MessageBox.Show("Пользователь удален!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
                 {
-                    Application.Current.MainWindow.Close();
+                    foreach (Window window in Application.Current.Windows)
+                    {
+                        if (window.GetType() == typeof(NavigationContextMenu))
+                        {
+                            (window as NavigationContextMenu).Close();
+                        }
+                    }
                     foreach (Window window in Application.Current.Windows)
                     {
                         if (window.GetType() == typeof(DarkWindow))
@@ -44,15 +55,15 @@ namespace SmartHouse.Frame
                             (window as DarkWindow).Close();
                         }
                     }
+                    Authorization auth = new Authorization();
+                    auth.ShowDialog();
                     foreach (Window window in Application.Current.Windows)
                     {
                         if (window.GetType() == typeof(HomeWindow))
                         {
-                            (window as HomeWindow).Close();
+                            (window as HomeWindow).Hide();
                         }
                     }
-                    Authorization auth = new Authorization();
-                    auth.ShowDialog();
                 }
                 
             }
@@ -85,7 +96,7 @@ namespace SmartHouse.Frame
         public void InfoLK()
         {
             Download();
-            LBFio.Content = Surname + " " + NameUser + " " + Patronymic;
+            LBFio.Text = Surname + " " + NameUser + " " + Patronymic;
             LBEmail.Content = Email;
             LBPhone.Content = Phone;
             LBLogin.Content = Login;
