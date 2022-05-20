@@ -48,7 +48,7 @@
                       Grid.Column="1"
                       Grid.Row="1"
                       Grid.RowSpan="4"
-                      Background="Transparent" FontSize="14">
+                      Background="Transparent" FontSize="12">
                 <ListView.ContextMenu>
                     <ContextMenu>
                         <MenuItem x:Name="Recovery"

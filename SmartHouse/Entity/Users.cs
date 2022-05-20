@@ -28,12 +28,10 @@ namespace SmartHouse.Entity
         public string Email { get; set; }
         public string phone { get; set; }
         public int IsDelete { get; set; }
-        public int IDRole { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Flat> Flat { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserLogins> UserLogins { get; set; }
-        public virtual Role Role { get; set; }
     }
 }

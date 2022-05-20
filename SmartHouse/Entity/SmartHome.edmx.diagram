@@ -28,8 +28,8 @@
         <AssociationConnector Association="SmartHomeModel.FK_OurControllers_Rooms" ManuallyRouted="false" />
         <AssociationConnector Association="SmartHomeModel.FK_UserLogins_Users" ManuallyRouted="false" />
         <EntityTypeShape EntityType="SmartHomeModel.Role" Width="1.5" PointX="0.75" PointY="1.625" />
-        <AssociationConnector Association="SmartHomeModel.FK_Users_Role" />
         <EntityTypeShape EntityType="SmartHomeModel.userView" Width="1.5" PointX="12.375" PointY="0.75" />
+        <AssociationConnector Association="SmartHomeModel.FK_UserLogins_Role" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

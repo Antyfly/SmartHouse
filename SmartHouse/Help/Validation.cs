@@ -8,18 +8,37 @@ using System.Text.RegularExpressions;
 
 namespace SmartHouse.Help
 {
-     class Validation
+    class Validation
     {
+        
         public static bool ValidatePassw(string passw)
         {
+            int t = 0;
             int s = 7;
-            while (s < passw.Length)
+            if (passw.Length >= t)
             {
-                if (passw[s] >= 'А' && passw[s] <= 'Я' || passw[s] >= 'а' && passw[s] <= 'я' || ((passw[s] == '-' || passw[s] == ' ') && (passw[s] >= 'А' && passw[s] <= 'Я' || passw[s] >= 'а' && passw[s] <= 'я')))
-                    s++;
-                else return false;
+                for (int i = 0; i < passw.Length; i++)
+                    if ((passw[i] >= '0') && (passw[i] <= '9'))
+                    {
+                        for (int d = 0; d < passw.Length; d++)
+                            for (int j = 0; j < passw.Length; j++)
+                                if ((passw[j] >= 'a') && (passw[j] <= 'z'))
+                                {
+                                    for (int k = 0; k < passw.Length; k++)
+                                    {
+                                        if ((passw[k] >= 'A') && (passw[k] <= 'Z'))
+                                            return true;
+                                    }
+                                    return false;
+                                }
+                        return false;
+                    }
+                return true;
             }
-            return true;
+            else
+            {
+                return false;
+            }
         }
 
         public static bool ValidateEmail(string email)

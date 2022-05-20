@@ -54,7 +54,7 @@ namespace SmartHouse
                         var deleted = context.Users.ToList().Where(i => i.IsDelete == 0 && (i.IDUsers == datasourse.IDUsers)).Count();
                         if (deleted != 0)
                         {
-                            var role = context.Users.Where(u => u.IDRole == 1 && (u.IDUsers == datasourse.IDUsers)).Count();
+                            var role = context.UserLogins.Where(u => u.IDRole == 1 && (u.IDUsers == datasourse.IDUsers)).Count();
                             if (role != 0)
                             {
                                 int ID = datasourse.IDUsers;

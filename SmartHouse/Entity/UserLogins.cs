@@ -19,7 +19,9 @@ namespace SmartHouse.Entity
         public string LoginProvider { get; set; }
         public string ProviderKey { get; set; }
         public string KeyWord { get; set; }
+        public int IDRole { get; set; }
     
         public virtual Users Users { get; set; }
+        public virtual Role Role { get; set; }
     }
 }
