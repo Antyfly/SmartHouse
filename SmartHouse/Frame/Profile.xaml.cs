@@ -56,7 +56,7 @@ namespace SmartHouse.Frame
                         }
                     }
                     Authorization auth = new Authorization();
-                    auth.ShowDialog();
+                    auth.Show();
                     foreach (Window window in Application.Current.Windows)
                     {
                         if (window.GetType() == typeof(HomeWindow))

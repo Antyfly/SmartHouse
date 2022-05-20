@@ -66,7 +66,8 @@ namespace SmartHouse
                         Patronymic = Patronymic.Text.ToString(),
                         Email = Email.Text.ToString(),
                         phone = phone.Text.ToString(),
-                        IsDelete = 0
+                        IsDelete = 0,
+                        IDRole = 1
                     });
                     context.SaveChanges();
                     if (System.Windows.MessageBox.Show("Успешно", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)

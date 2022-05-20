@@ -60,11 +60,18 @@
           <Property Name="Condition" Type="bit" Nullable="false" />
           <Property Name="PowerConsumption" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="IDRole" />
+          </Key>
+          <Property Name="IDRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
         <EntityType Name="Rooms">
           <Key>
             <PropertyRef Name="IDRooms" />
           </Key>
-          <Property Name="IDRooms" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDRooms" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="IDFlat" Type="int" Nullable="false" />
           <Property Name="NameRoom" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="WidthRoom" Type="float" />
@@ -109,6 +116,7 @@
           <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="phone" Type="nvarchar" MaxLength="16" Nullable="false" />
           <Property Name="IsDelete" Type="int" Nullable="false" />
+          <Property Name="IDRole" Type="int" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "SmartHome.dbo.Home" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -154,6 +162,27 @@
           <Property Name="NameRoom" Type="nvarchar" MaxLength="25" />
           <Property Name="FlatName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IDFlat" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "SmartHome.dbo.userView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="userView">
+          <Key>
+            <PropertyRef Name="Surname" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="phone" />
+            <PropertyRef Name="IsDelete" />
+            <PropertyRef Name="IDUserLogins" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="KeyWord" />
+          </Key>
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="IsDelete" Type="int" Nullable="false" />
+          <Property Name="IDUserLogins" Type="int" Nullable="false" />
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="KeyWord" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <Association Name="FK_ApartmentAddress_Address">
           <End Role="Address" Type="Self.Address" Multiplicity="1" />
@@ -263,6 +292,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Users_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IDRole" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IDRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище SmartHomeModelContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ApartmentAddress" EntityType="Self.ApartmentAddress" Schema="dbo" store:Type="Tables" />
@@ -270,6 +311,7 @@
           <EntitySet Name="Flat" EntityType="Self.Flat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OurControllers" EntityType="Self.OurControllers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeConnection" EntityType="Self.TypeConnection" Schema="dbo" store:Type="Tables" />
@@ -300,6 +342,18 @@
     [HomeDop].[FlatName] AS [FlatName], 
     [HomeDop].[IDFlat] AS [IDFlat]
     FROM [dbo].[HomeDop] AS [HomeDop]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="userView" EntityType="Self.userView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [userView].[Surname] AS [Surname], 
+    [userView].[Name] AS [Name], 
+    [userView].[Patronymic] AS [Patronymic], 
+    [userView].[phone] AS [phone], 
+    [userView].[IsDelete] AS [IsDelete], 
+    [userView].[IDUserLogins] AS [IDUserLogins], 
+    [userView].[LoginProvider] AS [LoginProvider], 
+    [userView].[KeyWord] AS [KeyWord]
+    FROM [dbo].[userView] AS [userView]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_ApartmentAddress_Address" Association="Self.FK_ApartmentAddress_Address">
             <End Role="Address" EntitySet="Address" />
@@ -336,6 +390,10 @@
           <AssociationSet Name="FK_UserLogins_Users" Association="Self.FK_UserLogins_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="UserLogins" EntitySet="UserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -464,6 +522,8 @@
           <Property Name="IsDelete" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Flat" Relationship="Self.FK_Flat_Users" FromRole="Users" ToRole="Flat" />
           <NavigationProperty Name="UserLogins" Relationship="Self.FK_UserLogins_Users" FromRole="Users" ToRole="UserLogins" />
+          <Property Name="IDRole" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="SmartHomeModel.FK_Users_Role" FromRole="Users" ToRole="Role" />
         </EntityType>
         <EntityType Name="Home">
           <Key>
@@ -664,7 +724,52 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="UserLogins" EntitySet="UserLogins" />
           </AssociationSet>
+          <EntitySet Name="Role" EntityType="SmartHomeModel.Role" />
+          <AssociationSet Name="FK_Users_Role" Association="SmartHomeModel.FK_Users_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="userView" EntityType="SmartHomeModel.userView" />
         </EntityContainer>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="IDRole" />
+          </Key>
+          <Property Name="IDRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="SmartHomeModel.FK_Users_Role" FromRole="Role" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_Users_Role">
+          <End Type="SmartHomeModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="SmartHomeModel.Users" Role="Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IDRole" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IDRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="userView">
+          <Key>
+            <PropertyRef Name="Surname" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="phone" />
+            <PropertyRef Name="IsDelete" />
+            <PropertyRef Name="IDUserLogins" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="KeyWord" />
+          </Key>
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Int32" Nullable="false" />
+          <Property Name="IDUserLogins" Type="Int32" Nullable="false" />
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="KeyWord" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -777,6 +882,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="SmartHomeModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="IDRole" ColumnName="IDRole" />
                 <ScalarProperty Name="IDUsers" ColumnName="IDUsers" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -814,6 +920,28 @@
                 <ScalarProperty Name="NameRoom" ColumnName="NameRoom" />
                 <ScalarProperty Name="FlatName" ColumnName="FlatName" />
                 <ScalarProperty Name="IDFlat" ColumnName="IDFlat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="SmartHomeModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="IDRole" ColumnName="IDRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userView">
+            <EntityTypeMapping TypeName="SmartHomeModel.userView">
+              <MappingFragment StoreEntitySet="userView">
+                <ScalarProperty Name="KeyWord" ColumnName="KeyWord" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="IDUserLogins" ColumnName="IDUserLogins" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

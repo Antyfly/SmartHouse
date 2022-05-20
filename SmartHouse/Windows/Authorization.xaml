@@ -60,7 +60,8 @@
                 <Label Content="Авторизация"
                        FontSize="45"
                        Style="{StaticResource Label}"
-                       HorizontalContentAlignment="Right" />
+                       HorizontalContentAlignment="Right" 
+                       Width="280" Margin="47,0,0,0" />
 
                 <Label Content="Логин:"
                        Style="{StaticResource LabelMini}"

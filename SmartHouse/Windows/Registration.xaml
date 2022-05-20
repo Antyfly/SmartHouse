@@ -180,14 +180,20 @@
                              Foreground="#FF2F2F2F"
                              Margin="4,0,4,0"
                              FontSize="25">
-                    <PasswordBox.ToolTip>
-                        <ToolTip Width="350"
-                                 Height="50">
-                            <Label Content="от 8 символов, минимум одна: заглавная, строчная буквы, спец.символ" />
-                        </ToolTip>
-                    </PasswordBox.ToolTip>
+                    
                 </PasswordBox>
             </Border>
+            <Image Source="/Image/Question.png"
+                   Width="30"
+                   Height="30"
+                   Margin="415,-40,0,0">
+                <Image.ToolTip>
+                    <ToolTip Width="350"
+                             Height="50">
+                        <Label Content="от 8 символов, минимум одна: заглавная, строчная буквы, спец.символ" />
+                    </ToolTip>
+                </Image.ToolTip>
+            </Image>
 
             <Label Content="Кодовое слово"
                    Style="{StaticResource LabelMini}"

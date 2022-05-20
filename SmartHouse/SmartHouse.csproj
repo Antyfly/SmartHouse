@@ -124,6 +124,9 @@
     <Compile Include="Entity\OurControllers.cs">
       <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Role.cs">
+      <DependentUpon>SmartHome.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Rooms.cs">
       <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
@@ -142,6 +145,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SmartHome.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entity\SmartHomeExtention.cs" />
     <Compile Include="Entity\sysdiagrams.cs">
       <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
@@ -154,6 +158,9 @@
     <Compile Include="Entity\Users.cs">
       <DependentUpon>SmartHome.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\userView.cs">
+      <DependentUpon>SmartHome.tt</DependentUpon>
+    </Compile>
     <Compile Include="Frame\Add.xaml.cs">
       <DependentUpon>Add.xaml</DependentUpon>
     </Compile>
@@ -164,6 +171,9 @@
       <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Help\Validation.cs" />
+    <Compile Include="Windows\AdminHome.xaml.cs">
+      <DependentUpon>AdminHome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\DarkWindow.xaml.cs">
       <DependentUpon>DarkWindow.xaml</DependentUpon>
     </Compile>
@@ -186,6 +196,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Frame\Profile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AdminHome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -292,6 +306,7 @@
       <DependentUpon>SmartHome.edmx</DependentUpon>
       <LastGenOutput>SmartHome.cs</LastGenOutput>
     </Content>
+    <Resource Include="Image\Question.png" />
     <Resource Include="Image\usSpeaker.png" />
     <Resource Include="Image\Kettle.png" />
     <Resource Include="Image\PowerButton.png" />

@@ -12,28 +12,18 @@ namespace SmartHouse.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Users
+    public partial class Role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Users()
+        public Role()
         {
-            this.Flat = new HashSet<Flat>();
-            this.UserLogins = new HashSet<UserLogins>();
+            this.Users = new HashSet<Users>();
         }
     
-        public int IDUsers { get; set; }
-        public string Surname { get; set; }
-        public string Name { get; set; }
-        public string Patronymic { get; set; }
-        public string Email { get; set; }
-        public string phone { get; set; }
-        public int IsDelete { get; set; }
         public int IDRole { get; set; }
+        public string RoleName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Flat> Flat { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserLogins> UserLogins { get; set; }
-        public virtual Role Role { get; set; }
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

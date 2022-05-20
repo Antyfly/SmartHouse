@@ -1,0 +1,133 @@
+﻿<Window x:Class="SmartHouse.Windows.AdminHome"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmartHouse.Windows"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        FontSize="20"
+        Icon="/Image/Icon.png"
+        FontFamily="Franklin Gothic Demi"
+        Background="{StaticResource MainСolor}"
+        Height="500"
+        Width="770"
+        WindowStyle="None"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="35" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Background="{StaticResource AdditionalСolor}"
+              VerticalAlignment="Center"
+              Height="35">
+            <TextBlock Text="Умный дом"
+                       VerticalAlignment="Center"
+                       Margin="5,0,0,0" />
+            <Button x:Name="Close"
+                    Width="30"
+                    Height="30"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    IsCancel="True"
+                    Panel.ZIndex="1"
+                    Margin="0,0,0,0"
+                    Style="{StaticResource ButtonStateMenu}"
+                    Click="Close_Click">
+                <Image Source="/Image/closes.png" />
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="60" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <ListView x:Name="ListViews"
+                      Grid.Column="1"
+                      Grid.Row="1"
+                      Grid.RowSpan="4"
+                      Background="Transparent" FontSize="14">
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="Recovery"
+                                  Header="Восстановить"
+                                  Click="Recovery_Click" />
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="Фамилия"
+                                            DisplayMemberBinding="{Binding Surname}"
+                                            Width="auto" />
+                            <GridViewColumn Header="Имя"
+                                            DisplayMemberBinding="{Binding Name}"
+                                            Width="auto" />
+                            <GridViewColumn Header="Отчество"
+                                            DisplayMemberBinding="{Binding Patronymic}"
+                                            Width="auto" />
+                            <GridViewColumn Header="Телефон"
+                                            DisplayMemberBinding="{Binding phone}"
+                                            Width="auto" />
+                            <GridViewColumn Header="Логин"
+                                            DisplayMemberBinding="{Binding LoginProvider}"
+                                            Width="auto" />
+                            <GridViewColumn Header="Слово для восстановления"
+                                            DisplayMemberBinding="{Binding KeyWord}"
+                                            Width="auto" />
+                            <GridViewColumn Header="Удаление"
+                                            DisplayMemberBinding="{Binding IsDelete}"
+                                            Width="auto" />
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <GroupBox Header="Поиск по фамилии"
+                          Grid.Row="1"
+                          FontSize="15"
+                          BorderThickness="0"
+                          Height="65">
+                    <TextBox Height="30"
+                             x:Name="PoiskFamily"
+                             Background="Transparent"
+                             TextChanged="PoiskFamily_TextChanged">
+                    </TextBox>
+                </GroupBox>
+
+                <GroupBox Header="Поиск по имени"
+                          Grid.Row="1"
+                          Grid.Column="1"
+                          FontSize="15"
+                          BorderThickness="0"
+                          Height="65">
+                    <TextBox Height="30"
+                             x:Name="PoiskName"
+                             Background="Transparent"
+                             TextChanged="PoiskName_TextChanged">
+                    </TextBox>
+                </GroupBox>
+
+                <GroupBox Header="Поиск по логину"
+                          Grid.Row="1"
+                          Grid.Column="2"
+                          FontSize="15"
+                          BorderThickness="0"
+                          Height="65">
+                    <TextBox Height="30"
+                             x:Name="PoiskEmail"
+                             Background="Transparent"
+                             TextChanged="PoiskEmail_TextChanged">
+                    </TextBox>
+                </GroupBox>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
