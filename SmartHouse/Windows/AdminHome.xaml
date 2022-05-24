@@ -102,22 +102,9 @@
                     </TextBox>
                 </GroupBox>
 
-                <GroupBox Header="Поиск по имени"
-                          Grid.Row="1"
-                          Grid.Column="1"
-                          FontSize="15"
-                          BorderThickness="0"
-                          Height="65">
-                    <TextBox Height="30"
-                             x:Name="PoiskName"
-                             Background="Transparent"
-                             TextChanged="PoiskName_TextChanged">
-                    </TextBox>
-                </GroupBox>
-
                 <GroupBox Header="Поиск по логину"
                           Grid.Row="1"
-                          Grid.Column="2"
+                          Grid.Column="1"
                           FontSize="15"
                           BorderThickness="0"
                           Height="65">
@@ -126,6 +113,19 @@
                              Background="Transparent"
                              TextChanged="PoiskEmail_TextChanged">
                     </TextBox>
+                </GroupBox>
+                <GroupBox Grid.Column="2"
+                          Header="Фильтрация"
+                          FontSize="15"
+                          BorderThickness="0"
+                          Height="65">
+                    <ComboBox  x:Name="FilterComboBox"
+                               SelectedIndex="0"
+                               SelectionChanged="FilterComboBox_SelectionChanged">
+                        <ComboBoxItem  Content="Все клиенты"/>
+                        <ComboBoxItem Content="Удалённые"/>
+                        <ComboBoxItem Content="Действующие"/>
+                    </ComboBox>
                 </GroupBox>
             </Grid>
         </Grid>

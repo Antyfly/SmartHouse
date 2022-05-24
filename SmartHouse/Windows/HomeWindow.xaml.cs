@@ -157,8 +157,8 @@ namespace SmartHouse
             }
             else if (CountFlat.Count == 0)
             {
-                //var Flat = context.Home.Where(i => i.IDUser == _userDefinition).ToList();
-                //ListViewer.ItemsSource = Flat;
+                var Flat = context.Home.Where(i => i.IDUser == _userDefinition).ToList();
+                ListViewer.ItemsSource = Flat;
             }
             
         }

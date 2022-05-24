@@ -29,9 +29,26 @@ namespace SmartHouse.Windows
 
         public void Update()
         {
+            if (PoiskFamily is null || PoiskEmail is null)
+                return;
 
-            var datasourse = context.userView.ToList();
-            ListViews.ItemsSource = datasourse;
+            if (PoiskFamily.Text.Length != 0)
+            {
+                var datasourse = context.userView.Where(a => a.Surname.ToLower().Contains(PoiskFamily.Text)).ToList();
+                ListViews.ItemsSource = datasourse;
+            }
+            else if (PoiskEmail.Text.Length != 0)
+            {
+                var datasourse = context.userView.Where(a => a.LoginProvider.ToLower().Contains(PoiskEmail.Text)).ToList();
+                ListViews.ItemsSource = datasourse;
+            }
+            else
+            {
+                var datasourse = context.userView.ToList();
+                ListViews.ItemsSource = datasourse;
+            }
+           
+
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
@@ -41,60 +58,73 @@ namespace SmartHouse.Windows
 
         private void Recovery_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Вы точно уверены?", "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
-            {
-                if (ListViews.SelectedItem is userView recover)
-                {
-                    var datasourse = context.UserLogins.ToList();
-                    IEnumerable<int> IDUser =
-                   from UserLogins in context.UserLogins
-                   where UserLogins.IDUserLogins == recover.IDUserLogins
-                   select UserLogins.IDUsers;
-                    int ID = IDUser.First();
-
-                    IEnumerable<Users> user = context.Users.Where(x => x.IDUsers == ID).AsEnumerable().
-                            Select(x =>
-                            {
-                                x.Surname = recover.Surname;
-                                x.Name = recover.Name;
-                                x.Patronymic = recover.Patronymic;
-                                x.phone = recover.phone;
-                                x.IsDelete = 0;
-                                return x;
-                            });
-
-                    foreach (Users user1 in user)
+             if (MessageBox.Show("Вы точно уверены?", "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+             {
+                    if (ListViews.SelectedItem is userView recover )
                     {
-                        context.Entry(user1).State = System.Data.Entity.EntityState.Modified;
-                    }
-                    try
-                    {
-                        context.SaveChanges();
-                        MessageBox.Show("Успешно восстановлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                        
-                    }
-                    catch (Exception ex)
-                    {
+                        var datasourse = context.UserLogins.ToList();
+                        IEnumerable<int> IDUser =
+                       from UserLogins in context.UserLogins
+                       where UserLogins.IDUserLogins == recover.IDUserLogins
+                       select UserLogins.IDUsers;
+                        int ID = IDUser.First();
 
-                        MessageBox.Show(ex.Message);
+                        IEnumerable<Users> user = context.Users.Where(x => x.IDUsers == ID).AsEnumerable().
+                                Select(x =>
+                                {
+                                    x.Surname = recover.Surname;
+                                    x.Name = recover.Name;
+                                    x.Patronymic = recover.Patronymic;
+                                    x.phone = recover.phone;
+                                    x.IsDelete = 0;
+                                    return x;
+                                });
+
+                        foreach (Users user1 in user)
+                        {
+                            context.Entry(user1).State = System.Data.Entity.EntityState.Modified;
+                        }
+                        try
+                        {
+                            context.SaveChanges();
+                            MessageBox.Show("Успешно восстановлено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show(ex.Message);
+                        }
                     }
                 }
-            }
         }
 
         private void PoiskFamily_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            Update();
         }
-
-        private void PoiskName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void PoiskEmail_TextChanged(object sender, TextChangedEventArgs e)
         {
+            Update();
+        }
 
+        private void FilterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (FilterComboBox.SelectedIndex == 1)
+            {
+                var datasourse = context.userView.Where(a => a.IsDelete == 1).ToList();
+                ListViews.ItemsSource = datasourse;
+            }
+            else if (FilterComboBox.SelectedIndex == 2)
+            {
+                var datasourse = context.userView.Where(a => a.IsDelete == 0).ToList();
+                ListViews.ItemsSource = datasourse;
+            }
+            else if (FilterComboBox.SelectedIndex == 0)
+            {
+                var datasourse = context.userView.ToList();
+                ListViews.ItemsSource = datasourse;
+            }
         }
     }
 }
