@@ -43,7 +43,8 @@ namespace SmartHouse
             }
             else if (ValidatePassw(PassText.Password.ToString()) == false)
             {
-                System.Windows.MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная, спец.символ)", "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                System.Windows.MessageBox.Show("Недопустимый пароль, необходимо ввести (от 8 символов, минимум одна: заглавная, строчная, спец.символ)",
+                    "Регистрация пользователя", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else if (ValidateEmail(Email.Text) == false)
             {

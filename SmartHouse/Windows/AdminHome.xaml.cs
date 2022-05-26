@@ -96,7 +96,7 @@ namespace SmartHouse.Windows
                             MessageBox.Show(ex.Message);
                         }
                     }
-                }
+             }
         }
 
         private void PoiskFamily_TextChanged(object sender, TextChangedEventArgs e)

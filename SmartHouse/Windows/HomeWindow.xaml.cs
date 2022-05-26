@@ -45,7 +45,7 @@ namespace SmartHouse
         {
             this.Close();
         }
-        // НЕ ТРОГАТЬ!!! ОСОБЕННО КОСТЫЛИ
+   
         #region выпадающий список личного кабинета 
         private void Lk_Click(object sender, RoutedEventArgs e)
         {
@@ -86,7 +86,7 @@ namespace SmartHouse
         }
 
         #endregion
-        // НЕ ТРОГАТЬ!!! ОСОБЕННО КОСТЫЛИ
+
         #region выведение и клик Listview
         public void ComboFlat()
         {
@@ -174,7 +174,7 @@ namespace SmartHouse
         }
 
         #endregion
-        // НЕ ТРОГАТЬ!!! ОСОБЕННО КОСТЫЛИ
+     
         #region выпадающий список девайсов и домов
         private void CbRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -215,7 +215,7 @@ namespace SmartHouse
 
         }
         #endregion
-        // НЕ ТРОГАТЬ!!! ОСОБЕННО КОСТЫЛИ
+
         #region информация девайсов 
         public void Information(Home InfoDevice)
         {

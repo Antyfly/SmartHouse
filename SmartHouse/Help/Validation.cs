@@ -40,7 +40,6 @@ namespace SmartHouse.Help
                 return false;
             }
         }
-
         public static bool ValidateEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email)) return false;
