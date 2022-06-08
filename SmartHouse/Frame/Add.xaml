@@ -52,9 +52,6 @@
                 <Image Source="/Image/closes.png" />
             </Button>
         </StackPanel>
-        <Label Grid.Row="1"
-               x:Name="qwerty"
-               Grid.ColumnSpan="3" />
         <GroupBox Header="Добавить"
                   Grid.Row="1"
                   Grid.Column="1"
@@ -80,10 +77,6 @@
                   x:Name="DeviceGroupBox">
             <ComboBox Height="30"
                       x:Name="DeviceComboBox">
-                <ComboBoxItem Content="Лампочка" />
-                <ComboBoxItem Content="Чайник" />
-                <ComboBoxItem Content="Розетка" />
-                <ComboBoxItem Content="Колонка" />
             </ComboBox>
         </GroupBox>
 

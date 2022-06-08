@@ -62,8 +62,9 @@ namespace SmartHouse.Frame
                 RoomsGroupBox.Visibility = Visibility.Visible;
                 SaveButton.Visibility = Visibility.Visible;
                 HouseGroupBox.Visibility = Visibility.Visible;
+                var datasourse = context.Device.Select(d=> d.Title).Distinct().ToList();
+                DeviceComboBox.ItemsSource = datasourse;
 
-                
                 NameHouseGroupBox.Visibility = Visibility.Hidden;
                 CityGroupBox.Visibility = Visibility.Hidden;
                 StreetGroupBox.Visibility = Visibility.Hidden;

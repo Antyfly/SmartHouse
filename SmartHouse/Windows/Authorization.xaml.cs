@@ -71,7 +71,7 @@ namespace SmartHouse
                         }
                         else
                         {
-                            MessageBox.Show("Пользователь удален! Обратитесь к компании.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("Пользователь удален! Обратитесь к компании.\nНомер для связи: +7(977)499-32-42", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
 
                     }

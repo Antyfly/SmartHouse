@@ -41,6 +41,10 @@ namespace SmartHouse
             {
                 FrameContextMenu.Content = new Add(IDUsers);
             }
+            else if (nameCM == "Добавление устройства")
+            {
+                FrameContextMenu.Content = new AddDevice();
+            }
         }
         
     }

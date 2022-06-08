@@ -7,19 +7,14 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         FontSize="20"
-        Icon="/Image/Icon.png"
-        FontFamily="Franklin Gothic Demi"
-        Background="{StaticResource MainСolor}"
+        Style="{StaticResource Window}"
         Height="500"
-        Width="770"
-        WindowStyle="None"
-        ResizeMode="NoResize">
+        Width="770">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition  Height="35" />
             <RowDefinition />
         </Grid.RowDefinitions>
-
         <Grid Background="{StaticResource AdditionalСolor}"
               VerticalAlignment="Center"
               Height="35">
@@ -48,7 +43,8 @@
                       Grid.Column="1"
                       Grid.Row="1"
                       Grid.RowSpan="4"
-                      Background="Transparent" FontSize="12">
+                      Background="Transparent"
+                      FontSize="12">
                 <ListView.ContextMenu>
                     <ContextMenu>
                         <MenuItem x:Name="Recovery"
@@ -89,6 +85,7 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                     <ColumnDefinition />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <GroupBox Header="Поиск по фамилии"
                           Grid.Row="1"
@@ -98,6 +95,7 @@
                     <TextBox Height="30"
                              x:Name="PoiskFamily"
                              Background="Transparent"
+                             VerticalContentAlignment="Center"
                              TextChanged="PoiskFamily_TextChanged">
                     </TextBox>
                 </GroupBox>
@@ -111,6 +109,7 @@
                     <TextBox Height="30"
                              x:Name="PoiskEmail"
                              Background="Transparent"
+                             VerticalContentAlignment="Center"
                              TextChanged="PoiskEmail_TextChanged">
                     </TextBox>
                 </GroupBox>
@@ -122,11 +121,21 @@
                     <ComboBox  x:Name="FilterComboBox"
                                SelectedIndex="0"
                                SelectionChanged="FilterComboBox_SelectionChanged">
-                        <ComboBoxItem  Content="Все клиенты"/>
-                        <ComboBoxItem Content="Удалённые"/>
-                        <ComboBoxItem Content="Действующие"/>
+                        <ComboBoxItem  Content="Все клиенты" />
+                        <ComboBoxItem Content="Удалённые" />
+                        <ComboBoxItem Content="Действующие" />
                     </ComboBox>
                 </GroupBox>
+                <Button x:Name="AddDeviceButton"
+                        Content="Добавить устройство"
+                        Grid.Column="3"
+                        Height="32"
+                        Margin="0,16,0,0"
+                        Width="185"
+                        FontSize="16"
+                        BorderThickness="1"
+                        Click="AddDeviceButton_Click"
+                        Style="{StaticResource Button}" />
             </Grid>
         </Grid>
     </Grid>

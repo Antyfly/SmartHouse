@@ -532,7 +532,7 @@
             <Setter Property="FontFamily"
                     Value="Franklin Gothic Demi" />
             <Setter Property="Background"
-                    Value="#FFF5F0FF" />
+                    Value="{StaticResource MainСolor}" />
             <Setter Property="Height"
                     Value="500" />
             <Setter Property="Width"

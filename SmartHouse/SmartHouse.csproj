@@ -164,6 +164,9 @@
     <Compile Include="Frame\Add.xaml.cs">
       <DependentUpon>Add.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frame\AddDevice.xaml.cs">
+      <DependentUpon>AddDevice.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frame\ChangeProfile.xaml.cs">
       <DependentUpon>ChangeProfile.xaml</DependentUpon>
     </Compile>
@@ -188,6 +191,10 @@
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Page Include="Frame\Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frame\AddDevice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -287,8 +294,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\ONButton.png" />
-    <Resource Include="Image\lamp.png" />
-    <Resource Include="Image\Socket.png" />
     <Resource Include="Image\LogoReg.png" />
     <Resource Include="Image\LogoWord.png" />
   </ItemGroup>
@@ -306,9 +311,8 @@
       <DependentUpon>SmartHome.edmx</DependentUpon>
       <LastGenOutput>SmartHome.cs</LastGenOutput>
     </Content>
+    <Resource Include="Image\Null_image.png" />
     <Resource Include="Image\Question.png" />
-    <Resource Include="Image\usSpeaker.png" />
-    <Resource Include="Image\Kettle.png" />
     <Resource Include="Image\PowerButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

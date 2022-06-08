@@ -8,7 +8,6 @@
         Title="Recovery"
         WindowStartupLocation="CenterScreen"
         Style="{ StaticResource Window}">
-    <!--мб фрэйм сделать???-->
     <Window.Background>
         <LinearGradientBrush>
             <GradientStop Color="#756153"

@@ -7,13 +7,9 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         FontSize="20"
-        Icon="/Image/Icon.png"
-        FontFamily="Franklin Gothic Demi"
-        Background="{StaticResource MainСolor}"
+        Style="{StaticResource Window}"
         Height="500"
-        Width="770"
-        WindowStyle="None"
-        ResizeMode="NoResize">
+        Width="770">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition  Height="35" />
@@ -154,7 +150,7 @@
                                     <Border.Effect>
                                         <DropShadowEffect ShadowDepth="1" />
                                     </Border.Effect>
-                                    <Image Source="{Binding ImagePath}" />
+                                    <Image Source="{Binding Image}" />
                                 </Border>
                                 <Label Content="{Binding Title}"
                                        HorizontalContentAlignment="Left" />

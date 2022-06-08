@@ -7,10 +7,14 @@
         mc:Ignorable="d"
         Title="NavigationContextMenu"
         Height="400"
-        Width="700" Style="{StaticResource Window}" WindowStartupLocation="CenterScreen">
+        Width="700"
+        Style="{StaticResource Window}"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        
-        <Frame x:Name="FrameContextMenu" NavigationUIVisibility="Hidden" Grid.Row="1"/>
+
+        <Frame x:Name="FrameContextMenu"
+               NavigationUIVisibility="Hidden"
+               Grid.Row="1" />
 
     </Grid>
 </Window>

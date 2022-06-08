@@ -26,7 +26,7 @@
           <Key>
             <PropertyRef Name="IDDevice" />
           </Key>
-          <Property Name="IDDevice" Type="int" Nullable="false" />
+          <Property Name="IDDevice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IDTypeConnection" Type="int" Nullable="false" />
           <Property Name="ImagePath" Type="nvarchar" MaxLength="1000" />
@@ -122,13 +122,13 @@
 предупреждение 6002: В таблице или представлении "SmartHome.dbo.Home" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="Home">
           <Key>
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="IDTypeConnection" />
             <PropertyRef Name="FlatName" />
             <PropertyRef Name="IDUser" />
             <PropertyRef Name="Size" />
             <PropertyRef Name="IDFlat" />
             <PropertyRef Name="NameRoom" />
-            <PropertyRef Name="Title" />
-            <PropertyRef Name="IDTypeConnection" />
             <PropertyRef Name="IDDevice" />
             <PropertyRef Name="IDRoom" />
             <PropertyRef Name="Condition" />

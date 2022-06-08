@@ -31,24 +31,33 @@ namespace SmartHouse.Windows
         {
             if (PoiskFamily is null || PoiskEmail is null)
                 return;
+            var datasourse = context.userView.ToList();
 
             if (PoiskFamily.Text.Length != 0)
             {
-                var datasourse = context.userView.Where(a => a.Surname.ToLower().Contains(PoiskFamily.Text)).ToList();
-                ListViews.ItemsSource = datasourse;
+                datasourse = datasourse.Where(a => a.Surname.ToLower().Contains(PoiskFamily.Text)).ToList();
             }
             else if (PoiskEmail.Text.Length != 0)
             {
-                var datasourse = context.userView.Where(a => a.LoginProvider.ToLower().Contains(PoiskEmail.Text)).ToList();
-                ListViews.ItemsSource = datasourse;
+                datasourse = datasourse.Where(a => a.LoginProvider.ToLower().Contains(PoiskEmail.Text)).ToList();
             }
             else
             {
-                var datasourse = context.userView.ToList();
-                ListViews.ItemsSource = datasourse;
+                datasourse = datasourse.ToList();
             }
-           
-
+            if (FilterComboBox.SelectedIndex == 1)
+            {
+                datasourse = datasourse.Where(a => a.IsDelete == 1).ToList();
+            }
+            else if (FilterComboBox.SelectedIndex == 2)
+            {
+                datasourse = datasourse.Where(a => a.IsDelete == 0).ToList();
+            }
+            else if (FilterComboBox.SelectedIndex == 0)
+            {
+                datasourse = datasourse.ToList();
+            }
+            ListViews.ItemsSource = datasourse;
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
@@ -110,21 +119,20 @@ namespace SmartHouse.Windows
 
         private void FilterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (FilterComboBox.SelectedIndex == 1)
-            {
-                var datasourse = context.userView.Where(a => a.IsDelete == 1).ToList();
-                ListViews.ItemsSource = datasourse;
-            }
-            else if (FilterComboBox.SelectedIndex == 2)
-            {
-                var datasourse = context.userView.Where(a => a.IsDelete == 0).ToList();
-                ListViews.ItemsSource = datasourse;
-            }
-            else if (FilterComboBox.SelectedIndex == 0)
-            {
-                var datasourse = context.userView.ToList();
-                ListViews.ItemsSource = datasourse;
-            }
+            Update();
+        }
+
+        private void AddDeviceButton_Click(object sender, RoutedEventArgs e)
+        {
+            string name = "Добавление устройства";
+            int _userDefinition =  0;
+            DarkWindow dark = new DarkWindow();
+            dark.Show();
+            NavigationContextMenu add = new NavigationContextMenu(name, _userDefinition);
+            add.ShowDialog();
+            add.Topmost = false;
+            add.WindowState = WindowState.Normal;
+            add.Focus();
         }
     }
 }
