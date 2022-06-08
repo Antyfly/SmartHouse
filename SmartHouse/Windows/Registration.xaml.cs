@@ -33,7 +33,7 @@ namespace SmartHouse
         {
             string logBD = context.UserLogins.Where(i => i.LoginProvider == Email.Text).Select(j => j.LoginProvider).FirstOrDefault();
 
-            if (Name.Text == "" || Patronymic.Text == "" || Surname.Text == "" || Email.Text == "" || phone.Text == "" || PassText.Password == "" || Codeword.Text == "")
+            if (Name.Text == "" || Surname.Text == "" || Email.Text == "" || phone.Text == "" || PassText.Password == "" || Codeword.Text == "")
             {
                 System.Windows.MessageBox.Show("Не все поля заполнены!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
