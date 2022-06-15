@@ -188,8 +188,8 @@
                    Height="30"
                    Margin="415,-40,0,0">
                 <Image.ToolTip>
-                    <ToolTip Width="350"
-                             Height="50">
+                    <ToolTip Width="420"
+                             Height="50" HorizontalContentAlignment="Left">
                         <Label Content="от 8 символов, минимум одна: заглавная, строчная буквы, спец.символ" />
                     </ToolTip>
                 </Image.ToolTip>
